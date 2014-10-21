@@ -9,17 +9,26 @@
 			include 'header.php';
 			include 'includes.php';
 
-			// Define the query
-			$query = 'SELECT * FROM products';
+			$is_search = 0;
 
-			//  Perform the query and store the results into an array
-			$result = $connection->query($query);
-			while($results = $result->fetch_array()) {
-			    $result_array[] = $results;
+			global $connection;
+
+			if(isset($_GET['product'])){
+				$product_id = $_GET['product'];
+				$result_array = ssc_query($product_id, 'ID');
+				pre_print_r($query);
+				$is_search = 1;
+				
+			} elseif(isset($_GET['category'])){ 
+				$current_cat = $_GET['category'];
+				$result_array = ssc_query($current_cat, 'category');
+				$is_search = 1;
+			} else {
+				// Define the query
+				$result_array = ssc_query('', 'catalog');
 			}
 
-			// Print the results of the query in a formatted view
-			//pre_print_r($result_array);
+			
 		?>
 
 		<div class='container categories'>
@@ -27,7 +36,12 @@
 				<li><a href="home.php">Home</a></li>
 				<li class="active">Concrete</li>
 			</ol>
-			<h1 class="marB-20">Concrete Mix</h1>
+			
+			<?php if($is_search) { ?>
+				<h1 class="marB-20"><?php echo $current_cat; ?></h1>
+			<?php } else { ?>
+				<h1 class="marB-20">Catalog</h1>
+			<?php } ?>
 				<div class="row">
 					<?php $i = 0; ?>
 					<?php foreach($result_array as $row){ ?>
@@ -50,7 +64,7 @@
 									</div>
 								</div>
 								<div>
-									<a href="cart.php"  class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a>
+									<a href="cart.php?add_product=<?php echo $row['productID']; ?>"  class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a>
 								</div>
 							</div>
 						</div>

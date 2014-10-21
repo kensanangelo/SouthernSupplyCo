@@ -50,12 +50,12 @@ $user_access="1"; ?>
 					</form>
 				</div>       
 				<ul class="nav navbar-nav">
-					<li class="menuitem"><a href="catalog.php">Hardwoods</a></li>
-					<li class="menuitem"><a href="catalog.php">Softwoods</a></li>
-					<li class="menuitem"><a href="catalog.php">Plywood</a></li>
-					<li class="menuitem"><a href="catalog.php">Concrete</a></li>
-					<li class="menuitem"><a href="catalog.php">Drywall</a></li>
-					<li class="menuitem"><a href="catalog.php">Roofing</a></li>
+					<li class="menuitem"><a href="catalog.php?category=Hardwoods">Hardwoods</a></li>
+					<li class="menuitem"><a href="catalog.php?category=Softwood">Softwoods</a></li>
+					<li class="menuitem"><a href="catalog.php?category=Plywood">Plywood</a></li>
+					<li class="menuitem"><a href="catalog.php?category=Concrete">Concrete</a></li>
+					<li class="menuitem"><a href="catalog.php?category=Drywall">Drywall</a></li>
+					<li class="menuitem"><a href="catalog.php?category=Roofing">Roofing</a></li>
 				</ul>
 			</div><!--/.navbar-collapse -->
 		</div>

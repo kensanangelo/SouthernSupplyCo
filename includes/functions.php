@@ -20,6 +20,10 @@ function ssc_query($search_term, $mode = 'search'){
 
 	include 'connectdb.php';
 
+	// Get Search
+	$search_term = preg_replace("/[^A-Za-z0-9]/", " ", $search_term);
+	$search_term = $connection->real_escape_string($search_term);
+
 	// Build Query
 	$all_query = 'SELECT * FROM products';
 
@@ -29,12 +33,24 @@ function ssc_query($search_term, $mode = 'search'){
 	OR description LIKE "%'.$search_term.'%"
 	OR category LIKE "%'.$search_term.'%"';
 
+	$id_query = 'SELECT * FROM products 
+	WHERE productID = '.$search_term;
+
+	$cat_query = 'SELECT * FROM products 
+	WHERE category LIKE "%'.$search_term.'%"';
+
 	switch($mode){
 		case 'search':
 			$the_query = $search_query;
 			break;
 		case 'catalog':
 			$the_query = $all_query;
+			break;
+		case 'ID':
+			$the_query = $id_query;
+			break;
+		case 'category':
+			$the_query = $cat_query;
 			break;
 	}
 

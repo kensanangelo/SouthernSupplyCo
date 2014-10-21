@@ -16,17 +16,25 @@ jQuery(document).ready(function(){
 	            success: function(result){
 	            	//console.log(result);
 	               	data = JSON.parse(result);
-	               	var html = '<ul>';
-	               	$.each(data, function(i, product){
-	               		html += '<li>ID: '+product.productID+' - '+product.productName+'</li>';
-	               		html += '<li>Description: '+product.description+'</li>';
-	               		html += '<li>Category: '+product.category+'</li>';	               		
+	               	console.log(data);
 
-	               	});
-					
-					html += '</ul>';
+	               	if(!data){
+	               		$('#ajax-search-results').html('');
 
-	               	$('#ajax-search-results').html(html);
+	               	}else {
+
+	               		var html = '<ul class="list-group">';
+
+               			$.each(data, function(i, product){
+		               		html += '<li class="list-group-item"><a href="catalog.php?product='+product.productID+'">Name: '+product.productName+' | '+product.category+'</a></li>';
+
+		               	});
+						
+						html += '</ul>';
+
+		               	$('#ajax-search-results').html(html);
+	               	}
+	               
 	            }
 	        });
 	    }return false;
