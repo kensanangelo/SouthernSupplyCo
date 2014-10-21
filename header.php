@@ -4,6 +4,7 @@ $user_access="1"; ?>
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="icon" href="img/favicon.png">
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesnt work if you view the page via file:// -->
@@ -15,7 +16,7 @@ $user_access="1"; ?>
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-2 brand"><a href="home.php"><img class="logo" src="img/logo.svg" alt="Southern Supply Co. Logo"></a>
+			<div class="col-md-2 brand"><a href="home.php"><img class="logo" src="img/logo.png" alt="Southern Supply Co. Logo"></a>
 			</div>
 			<div class=" login col-md-2 col-md-offset-8">
 				<?php
@@ -50,12 +51,12 @@ $user_access="1"; ?>
 					</form>
 				</div>       
 				<ul class="nav navbar-nav">
-					<li class="menuitem"><a href="catalog.php?category=Hardwoods">Hardwoods</a></li>
-					<li class="menuitem"><a href="catalog.php?category=Softwood">Softwoods</a></li>
-					<li class="menuitem"><a href="catalog.php?category=Plywood">Plywood</a></li>
-					<li class="menuitem"><a href="catalog.php?category=Concrete">Concrete</a></li>
-					<li class="menuitem"><a href="catalog.php?category=Drywall">Drywall</a></li>
-					<li class="menuitem"><a href="catalog.php?category=Roofing">Roofing</a></li>
+					<li class="menuitem"><a href="catalog.php">Hardwoods</a></li>
+					<li class="menuitem"><a href="catalog.php">Softwoods</a></li>
+					<li class="menuitem"><a href="catalog.php">Plywood</a></li>
+					<li class="menuitem"><a href="catalog.php">Concrete</a></li>
+					<li class="menuitem"><a href="catalog.php">Drywall</a></li>
+					<li class="menuitem"><a href="catalog.php">Roofing</a></li>
 				</ul>
 			</div><!--/.navbar-collapse -->
 		</div>
