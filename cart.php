@@ -8,6 +8,47 @@
 		<?php 
 			include 'header.php';
 			include 'includes.php';
+
+			//echo 'Get: <br />';
+			//pre_print_r($_GET);
+
+			if(isset($_GET['mode'])){
+				$mode = $_GET['mode'];
+				$product_id = $_GET['product_id'];
+
+				if($mode == 'add'){
+					if($product_id){
+
+						$cart = process_cart('add', $product_id);
+
+					} else {
+
+						echo 'Whoops! No Product Specified';
+
+					}
+
+				} else if($mode == 'remove'){
+
+					if($product_id){
+						process_cart('remove', $product_id);
+					} else {
+						echo 'Whoops! No Product Specified';
+					}
+
+				} else if($mode == 'empty_cart'){
+
+					unset($_SESSION['cart']);
+					unset($cart);
+					echo 'Your Cart has been emptied<br />';
+
+				} else {
+					echo 'Invalid Cart Mode. Please refresh the page.';
+				}
+			} else {
+				echo '<p>No Mode selected</p>	';
+			}
+
+
 		?>
 		<div class="container">
 			<div class="row marT-20 marB-20">
