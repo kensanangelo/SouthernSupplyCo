@@ -2,7 +2,7 @@
 
 	//Function that adds a line to the database
 	//You have to pass values in as an array. Make sure it has the right amount of values and the right datatypes
-	public function addToDB($table, $values)
+	function addToDB($table, $values)
 	{
 		include 'connectdb.php';
 
@@ -24,7 +24,7 @@
 	}
 
 	//Function that reads from database
-	public function readFromDB($table, $value, $where)
+	function readFromDB($table, $value, $where)
 	{
 
 		include 'connectdb.php';
@@ -40,7 +40,7 @@
 	}
 
 	//Function to update values in the database
-	public function changeInDB($table, $value, $where)
+	function changeInDB($table, $value, $where)
 	{
 		include 'connectdb.php';
 
@@ -58,7 +58,7 @@
 	}
 
 	//Removes values from the database
-	public function removeFromDB($table, $value, $where)
+	function removeFromDB($table, $value, $where)
 	{
 		include 'connectdb.php';
 
