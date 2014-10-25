@@ -25,8 +25,9 @@
     					<legend>Sign Up</legend>
     					<ul>
 							<li><label class="labelFix" for="line1">Username:</label><input type="text" id="line1" placeholder="Username"/></li>
-							<li><label class="labelFix" for="line2">Password:</label><input type="text" id="line2" placeholder="Password"/></li>
-							<li><label class="labelFix" for="line2">Confirm Password:</label><input type="text" id="line2" placeholder="Password"/></li>
+							<li><label class="labelFix" for="line2">Email:</label><input type="text" id="line2" placeholder="Email"/></li>
+							<li><label class="labelFix" for="line3">Password:</label><input type="text" id="line3" placeholder="Password"/></li>
+							<li><label class="labelFix" for="line4">Confirm Password:</label><input type="text" id="line4" placeholder="Password"/></li>
 						</ul>
 						<input type="submit" value="Sign Up" class="btn btn-default complete"/>
 					</fieldset>
