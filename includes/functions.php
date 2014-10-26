@@ -1,21 +1,25 @@
 <?php
-
-function print_stars($rating){
+//Passes in entire results array from query
+function print_stars($rating, $numOfVotes){
 	
+	$average =($rating/$numOfVotes);
+
 	$html = '';
 	for($i = 0; $i < 5; $i++){
-		$i < $rating ? $html .= '<span class="glyphicon glyphicon-star"></span>' : $html .= '<span class="glyphicon glyphicon-star-empty"></span>';
+		$i < $average ? $html .= '<span class="glyphicon glyphicon-star"></span>' : $html .= '<span class="glyphicon glyphicon-star-empty"></span>';
 	}
 	echo $html;
 	
 }
 
+//Adds pre tags around an array
 function pre_print_r($array){
 	echo '<pre>';
 	print_r($array);
 	echo '</pre>';
 }
 
+//Performs search query
 function ssc_query($search_term, $mode = 'search'){
 
 	include 'connectdb.php';
@@ -65,7 +69,7 @@ function ssc_query($search_term, $mode = 'search'){
 }
 
 
-
+//Processes the cart
 function process_cart($mode, $id){
 
 	// convert the integer passed into this function as $id to a string

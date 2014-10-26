@@ -16,11 +16,14 @@
 
 		$results=mysqli_query($connection, $query);
 
+		mysqli_close($connection);
+
 		if($results){
 		    return "Success"; 
 		}else{
 			return "Failure";	 
 		}
+
 	}
 
 	//Function that reads from database
@@ -31,6 +34,8 @@
 
 		$query="SELECT $value FROM $table WHERE $where";
 		$results=mysqli_fetch_assoc(mysqli_query($connection, $query));
+
+		mysqli_close($connection);
 
 		if($results){
 		    return $results; 
@@ -46,9 +51,9 @@
 
 		$query="UPDATE $table SET $value WHERE $where";
 
-//$results = $mysqli->query("DELETE FROM products WHERE ID=24");
-
 		$results=mysqli_query($connection, $query);
+
+		mysqli_close($connection);
 
 		if($results){
 		    return "Success"; 
@@ -65,6 +70,8 @@
 		$query="DELETE $value FROM $table WHERE $where";
 
 		$results=mysqli_query($connection, $query);
+
+		mysqli_close($connection);
 
 		if($results){
 		    return "Success"; 

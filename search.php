@@ -49,12 +49,7 @@
 					<div class="col-md-6 col-md-offset-1">
 						<a class="productLink" href="product.php"><h3><?php echo $result['productName']; ?></h3></a>
 						<div class="catStars">
-
-							<span class="glyphicon glyphicon-star"></span>
-							<span class="glyphicon glyphicon-star"></span>
-							<span class="glyphicon glyphicon-star"></span>
-							<span class="glyphicon glyphicon-star"></span>
-							<span class="glyphicon glyphicon-star"></span>
+							<?php print_stars($result['rating'], $result['numOfVotes']); ?>
 						</div>
 						<p><?php echo $result['description']; ?></p>
 					</div>

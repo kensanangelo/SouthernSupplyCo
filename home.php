@@ -17,19 +17,13 @@
 					<h2>Daily Deal</h2>
 					<?php
 						//Gets info for featured product
-						$result=mysqli_fetch_assoc(mysqli_query($connection,"SELECT productName FROM products WHERE productID=1"));
+						$result=readFromDB("products", "*", "productID=1");
 						$name=$result['productName'];
 
-						$result=mysqli_fetch_assoc(mysqli_query($connection,"SELECT productImage FROM products WHERE productID=1"));
 						$url=$result['productImage'];
 
-						$result=mysqli_fetch_assoc(mysqli_query($connection,"SELECT rating FROM products WHERE productID=1"));
-						$stars=$result['rating'];
-
-						$result=mysqli_fetch_assoc(mysqli_query($connection,"SELECT price FROM products WHERE productID=1"));
 						$old=$result['price'];
 
-						$result=mysqli_fetch_assoc(mysqli_query($connection,"SELECT salePrice FROM products WHERE productID=1"));
 						$new=$result['salePrice'];
 
 						//Prints featured product page
@@ -39,15 +33,7 @@
 										<a class="productLink" href="product.php"><h4>'.$name.'</h4></a>
 										<div class="catStars">';
 
-						//Determines how many stars the product has
-						// for($i=0;$i<5;$i++){
-						// 	if($i<$stars){
-						// 		echo'<span class="glyphicon glyphicon-star"></span>';
-						// 	}else{
-						// 		echo'<span class="glyphicon glyphicon-star-empty"></span>';
-						// 	}
-						// }
-						print_stars($stars);
+						print_stars($result['rating'], $result['numOfVotes']);
 							
 
 						echo'</div>
@@ -57,8 +43,6 @@
 										<p class="new">$'.$new.'</p>
 									</div>
 								</div>';
-
-						mysqli_close($connection);
 					?>
 				</div>
 			</div>

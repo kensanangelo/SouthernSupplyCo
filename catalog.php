@@ -53,7 +53,7 @@
 							<div>
 								<a class="productLink  " href="product.php"><h3 class="productSpacer"><?php echo $row['productName']; ?></h3></a>
 								<div class="catStars">
-									<?php print_stars($row['rating']); ?>
+									<?php print_stars($row['rating'], $row['numOfVotes']); ?>
 								</div>
 								<div class="row">
 									<div class="col-md-4">
