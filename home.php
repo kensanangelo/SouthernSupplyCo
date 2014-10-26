@@ -17,7 +17,8 @@
 					<h2>Daily Deal</h2>
 					<?php
 						//Gets info for featured product
-						$result=readFromDB("products", "*", "productID=1");
+						$result=mysqli_fetch_assoc(readFromDB("products", "*", "productID=1"));
+
 						$name=$result['productName'];
 
 						$url=$result['productImage'];

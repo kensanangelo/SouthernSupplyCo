@@ -27,13 +27,18 @@
 	}
 
 	//Function that reads from database
+	//If you don't want where, pass it as FALSE
 	function readFromDB($table, $value, $where)
 	{
 
 		include 'connectdb.php';
 
-		$query="SELECT $value FROM $table WHERE $where";
-		$results=mysqli_fetch_assoc(mysqli_query($connection, $query));
+		if($where==false)
+			$query='SELECT '.$value.' FROM '.$table;
+		else
+			$query='SELECT '.$value.' FROM '.$table.' WHERE '.$where;
+	
+		$results=mysqli_query($connection, $query);
 
 		mysqli_close($connection);
 

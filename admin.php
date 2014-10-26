@@ -8,6 +8,8 @@
 		<?php 
 			include 'header.php';
 			include 'includes.php';
+
+			$result=readFromDB("products", "*", false);
 		?>
 		<div class="container">
 			<div class="marT-20 marB-20">
@@ -34,148 +36,27 @@
 							<th>Sale Price</th>
 							<th>Product Image URL</th>
 							<th>Rating</th>
+							<th>Number of Votes</th>
 						</tr>
 					</thead>
-					<tr>
-						<td><input type="radio" name="sel" id="sel1"/></td>
-						<td>1</td>
-						<td>2x4x8 Whitewood Stud</td>
-						<td>A standard pine 2"x4"x8' board used in construction.</td>
-						<td>softwood</td>
-						<td>157</td>
-						<td>453</td>
-						<td>2.00</td>
-						<td>3.15</td>
-						<td>3.00</td>
-						<td>img/products/1.jpg</td>
-						<td>5</td>
-					</tr>
-					<tr>
-						<td><input type="radio" name="sel" id="sel2"/></td>
-						<td>2</td>
-						<td>50lb Concrete</td>
-						<td>A 50lb bag of ready-to-mix concrete.</td>
-						<td>concrete</td>
-						<td>5763</td>
-						<td>275</td>
-						<td>2.00</td>
-						<td>2.48</td>
-						<td>NULL</td>
-						<td>img/products/2.jpg</td>
-						<td>5</td>
-					</tr>
-					<tr>
-						<td><input type="radio" name="sel" id="sel3"/></td>
-						<td>3</td>
-						<td>80lb Concrete</td>
-						<td>An 80lb bag or ready-to-mix concrete.</td>
-						<td>concrete</td>
-						<td>5543</td>
-						<td>123</td>
-						<td>3.00</td>
-						<td>3.95</td>
-						<td>NULL</td>
-						<td>img/products/3.jpg</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td><input type="radio" name="sel" id="sel4"/></td>
-						<td>4</td>
-						<td>50lb Fast-Setting Concrete</td>
-						<td>A 50lb bag of Fast-Setting Concrete</td>
-						<td>concrete</td>
-						<td>2646</td>
-						<td>120</td>
-						<td>4.00</td>
-						<td>4.98</td>
-						<td>NULL</td>
-						<td>img/products/4.jpg</td>
-						<td>3</td>
-					</tr>
-					<tr>
-						<td><input type="radio" name="sel" id="sel5"/></td>
-						<td>5</td>
-						<td>80lb ProFinish Concrete</td>
-						<td>An 80lb bag of ProFinish Concrete</td>
-						<td>concrete</td>
-						<td>24564</td>
-						<td>80</td>
-						<td>5.00</td>
-						<td>5.18</td>
-						<td>NULL</td>
-						<td>img/products/5.jpg</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td><input type="radio" name="sel" id="sel6"/></td>
-						<td>6</td>
-						<td>50lb All-Purpose Sand</td>
-						<td>A 50lb bag of All-Purpose Sand</td>
-						<td>concrete</td>
-						<td>5464</td>
-						<td>58</td>
-						<td>3.00</td>
-						<td>3.98</td>
-						<td>NULL</td>
-						<td>img/products/6.jpg</td>
-						<td>5</td>
-					</tr>
-					<tr>
-						<td><input type="radio" name="sel" id="sel7"/></td>
-						<td>7</td>
-						<td>60lb Gray Mortar Repair Mix</td>
-						<td>A 60lb bag of Gray Mortar Repair Mix</td>
-						<td>concrete</td>
-						<td>45646</td>
-						<td>57</td>
-						<td>4.50</td>
-						<td>5.15</td>
-						<td>NULL</td>
-						<td>img/products/7.jpg</td>
-						<td>3</td>
-					</tr>
-					<tr>
-						<td><input type="radio" name="sel" id="sel8"/></td>
-						<td>8</td>
-						<td>47lb Portland Cement</td>
-						<td>A 47lb bag of Portland Cement.</td>
-						<td>concrete</td>
-						<td>1561</td>
-						<td>79</td>
-						<td>5.00</td>
-						<td>5.47</td>
-						<td>NULL</td>
-						<td>img/products/8.jpg</td>
-						<td>3</td>
-					</tr>
-					<tr>
-						<td><input type="radio" name="sel" id="sel9"/></td>
-						<td>9</td>
-						<td>10lb Concrete Mix</td>
-						<td>A 10lb bag of Concrete Mix</td>
-						<td>concrete</td>
-						<td>4566</td>
-						<td>98</td>
-						<td>2.00</td>
-						<td>2.26</td>
-						<td>NULL</td>
-						<td>img/products/9.jpg</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td><input type="radio" name="sel" id="sel10"/></td>
-						<td>10</td>
-						<td>10lb Gray Mortar Repair Mix</td>
-						<td>A 10lb bag of Gray Mortar Repair Mix</td>
-						<td>concrete</td>
-						<td>15644</td>
-						<td>78</td>
-						<td>2.00</td>
-						<td>2.17</td>
-						<td>NULL</td>
-						<td>img/products/10.jpg</td>
-						<td>3</td>
-					</tr>
+					<?php foreach($result as $row){ ?> 
+					  		<tr>
+								<td><input type='radio' name='sel' id='sel1'/></td>
+								<td><?php echo $row['productID']; ?></td>
+								<td><?php echo $row['productName']; ?></td>
+								<td><?php echo $row['description']; ?></td>
+								<td><?php echo $row['category']; ?></td>
+								<td><?php echo $row['SKU']; ?></td>
+								<td><?php echo $row['stock']; ?></td>
+								<td><?php echo $row['cost']; ?></td>
+								<td><?php echo $row['price']; ?></td>
+								<td><?php echo $row['salePrice']; ?></td>
+								<td><?php echo $row['productImage']; ?></td>
+								<td><?php echo $row['rating']; ?></td>
+								<td><?php echo $row['numOfVotes']; ?></td>
+							</tr>
+					<?php } ?>
+					
 				</table>
 				<div class="btn-group">
 					<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Add</button>
