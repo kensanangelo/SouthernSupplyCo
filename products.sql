@@ -81,7 +81,13 @@ INSERT INTO `products` (`productID`, `productName`, `description`, `category`, `
 (32, '1 in. x 2 in. x 6 ft. Premium Hardwood Board', '1 in. x 2 in. x 6 ft. Wormy Maple S4S Premium Hardwood Board', 'Hardwoods', 1001180263, 12, '6.69', '6.72', NULL, 'img/products/32.jpg', 50, 15),
 (33, '3/8 in. x 5 in. Hardwood Flooring (19.72 sq. ft. / case)', '3/8 in. x 5 in. Subtle Scraped Ranch House Plantation Hickory Engineered Hardwood Flooring (19.72 sq. ft. / case)', 'Hardwoods', 100118024, 82, '9.69', '9.72', NULL, 'img/products/33.jpg', 50, 15),
 (34, 'Plano Marsh 3/4 in. Hardwood Flooring', 'Plano Marsh 3/4 in. Thick x 3-1/4 in. Wide x Random Length Solid Hardwood Flooring(22 sq. ft. / case)', 'Hardwoods', 100118025, 32, '4.69', '4.72', NULL, 'img/products/34.jpg', 50, 15),
-(35, 'Gunstock Oak 3/4 in. Solid Hardwood Flooring', 'Gunstock Oak 3/4 in. Thick x 2-1/4 in. Wide x Random Length Solid Hardwood Flooring (20 sq. ft./case)', 'Hardwoods', 100118026, 22, '8.69', '8.72', NULL, 'img/products/35.jpg', 50, 15);
+(35, 'Gunstock Oak 3/4 in. Solid Hardwood Flooring', 'Gunstock Oak 3/4 in. Thick x 2-1/4 in. Wide x Random Length Solid Hardwood Flooring (20 sq. ft./case)', 'Hardwoods', 100118026, 22, '8.69', '8.72', NULL, 'img/products/35.jpg', 50, 15),
+(36, '2 in. x 4 in. x 96 in. Premium Kiln Dried Whitewood Stud', '2 in. x 4 in. x 96 in. Premium Kiln Dried Whitewood Stud', 'Softwood', 161640, 121, '3.51', '3.45', NULL, 'img/products/36.jpg', 50, 15),
+(37, '2 in. x 3 in. x 8 ft. Premium Kiln Dried SPF Stud', '2 in. x 3 in. x 8 ft. Premium Kiln Dried SPF Stud', 'Softwood', 161640, 121, '3.12', '3.75', NULL, 'img/products/37.jpg', 50, 15),
+(38, '2 in. x 4 in. x 96 in. Prime Kiln Dried Heat-Treated Untreated SPF Stud', '2 in. x 4 in. x 96 in. Prime Kiln Dried Heat-Treated Untreated SPF Stud', 'Softwood', 161640, 121, '3.41', '3.95', NULL, 'img/products/38.jpg', 50, 15),
+(39, '2 in. x 4 in. x 92-5/8 in. Premium Kiln Dried Whitewood Stud', '2 in. x 4 in. x 92-5/8 in. Premium Kiln Dried Whitewood Stud', 'Softwood', 161640, 121, '3.13', '3.35', NULL, 'img/products/39.jpg', 50, 15),
+(40, '2 in. x 4 in. x 92-5/8 in. Kiln-Dried Whitewood Stud', '2 in. x 4 in. x 92-5/8 in. Kiln-Dried Whitewood Stud', 'Softwood', 161640, 121, '3.31', '3.55', NULL, 'img/products/40.jpg', 50, 15),
+(41, '2 in. x 4 in. x 92-5/8 in. Prime Kiln Dried Heat-Treated SPF Stud', '2 in. x 4 in. x 92-5/8 in. Prime Kiln Dried Heat-Treated SPF Stud', 'Softwood', 161640, 121, '3.15', '3.25', NULL, 'img/products/41.jpg', 50, 15);
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
