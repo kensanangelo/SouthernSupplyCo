@@ -71,11 +71,11 @@ INSERT INTO `products` (`productID`, `productName`, `description`, `category`, `
 (22, '5-Gal. All-Purpose Joint Compound', 'SHEETROCK Brand 5-Gal.', 'Drywall', 380119048, 22, '9.34', '9.66', NULL, 'img/products/22.jpg', 50, 3),
 (23, '5-Gal. Lightweight Joint Compound', 'SHEETROCK Brand Plus 3 4.5-Gal. Lightweight', 'Drywall', 381466, 21, '8.88', '8.54', NULL, 'img/products/23.jpg', 50, 3),
 (24, 'Natural Shadow Charcoal Shingles', 'GAF Lifetime Timberline Natural Shadow Charcoal Shingles', 'Roofing', 0601180, 42, '9.50', '9.55', NULL, 'img/products/24.jpg', 50, 15),
-(25, 'Natural Shadow Weathered Wood SG Shingles', 'GAF Lifetime Timberline Natural Shadow Weathered Wood SG Shingles', 'Roofing', 0601180, 42, '9.50', '9.55', NULL, 'img/products/24.jpg', 50, 15),
-(26, '26 in. x 8 ft. Clear PVC Roof Panel', 'Palruf 26 in. x 8 ft. Clear PVC Roof Panel', 'Roofing', 100423, 12, '9.11', '9.10', NULL, 'img/products/25.jpg', 50, 15),
-(27, '26 in. x 12 ft. Solar Gray Polycarbonate Corrugated Roof Panel', 'Suntuf 26 in. x 12 ft. Solar Gray Polycarbonate Corrugated Roof Panel', 'Roofing', 101931, 28, '7.33', '7.41', NULL, 'img/products/26.jpg', 50, 15),
-(28, 'Pipe Roof Jack with Adjustable Collar 3" to 1"', 'Construction Metals Pipe Roof Jack with Adjustable Collar 3" to 1"', 'Roofing', 202223519, 172, '6.22', '6.25', NULL, 'img/products/27.jpg', 50, 15),
-(29, '6 in. x 75 ft. Flashing Tape', 'Nashua Tape 6 in. x 75 ft. Select Window & Door Flashing Tape', 'Roofing', 1207782, 92, '3.88', '3.92', NULL, 'img/products/28.jpg', 50, 15);
+(25, 'Natural Shadow Weathered Wood SG Shingles', 'GAF Lifetime Timberline Natural Shadow Weathered Wood SG Shingles', 'Roofing', 0601180, 42, '9.50', '9.55', NULL, 'img/products/25.jpg', 50, 15),
+(26, '26 in. x 8 ft. Clear PVC Roof Panel', 'Palruf 26 in. x 8 ft. Clear PVC Roof Panel', 'Roofing', 100423, 12, '9.11', '9.10', NULL, 'img/products/26.jpg', 50, 15),
+(27, '26 in. x 12 ft. Solar Gray Polycarbonate Corrugated Roof Panel', 'Suntuf 26 in. x 12 ft. Solar Gray Polycarbonate Corrugated Roof Panel', 'Roofing', 101931, 28, '7.33', '7.41', NULL, 'img/products/27.jpg', 50, 15),
+(28, 'Pipe Roof Jack with Adjustable Collar 3" to 1"', 'Construction Metals Pipe Roof Jack with Adjustable Collar 3" to 1"', 'Roofing', 202223519, 172, '6.22', '6.25', NULL, 'img/products/28.jpg', 50, 15),
+(29, '6 in. x 75 ft. Flashing Tape', 'Nashua Tape 6 in. x 75 ft. Select Window & Door Flashing Tape', 'Roofing', 1207782, 92, '3.88', '3.92', NULL, 'img/products/29.jpg', 50, 15);
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
