@@ -55,9 +55,21 @@ INSERT INTO `products` (`productID`, `productName`, `description`, `category`, `
 (6, '50lb All-Purpose Sand', 'A 50lb bag of All-Purpose Sand', 'Concrete', 5464, 58, '3.00', '3.98', NULL, 'img/products/6.jpg', 100, 25),
 (7, '60lb Gray Mortar Repair Mix', 'A 60lb bag of Gray Mortar Repair Mix', 'Concrete', 45646, 57, '4.50', '5.15', NULL, 'img/products/7.jpg', 7, 2),
 (8, '47lb Portland Cement', 'A 47lb bag of Portland Cement.', 'Concrete', 1561, 79, '5.00', '5.47', NULL, 'img/products/8.jpg', 35, 9),
-(9, '10lb Concrete Mix', 'A 10lb bag of Concrete Mix', 'Concrete', 4566, 98, '2.00', '2.26', NULL, 'img/products/9.jpg', 4, 1),
-(10, '10lb Gray Mortar Repair Mix', 'A 10lb bag of Gray Mortar Repair Mix', 'Concrete', 15644, 78, '2.00', '2.17', NULL, 'img/products/10.jpg', 10, 5);
-
+(9, '10lb Concrete Mix', 'A 10lb bag of Concrete Mix', 'Concrete', 4566, 98, '2.00', '2.26', NULL, 'img/products/9.jpg', 41, 1),
+(10, 'Oriented Strand Board', '7/16 in. x 4 ft. x 8 ft.; Actual: 0.418 in. x 47.75 in. x 95.75 in.)', 'Plywood', 386081, 368, '7.64', '7.07', NULL, 'img/products/10.jpg', 91, 2),
+(11, 'RTD Sheathing Syp', '23/32 in. x 4 ft. x 8 ft.', 'Plywood', 166103, 180, '9.38', '9.68', NULL, 'img/products/11.jpg', 61, 2),
+(12, '3-Ply RTD Sheathing', '15/32 in. x 4 ft. x 8 ft.', 'Plywood', 166073, 138, '2.55', '2.75', NULL, 'img/products/12.jpg', 71, 4),
+(13, 'Rtd Sheathing Syp', '19/32 in. x 4 ft. x 8 ft.', 'Plywood', 166081, 68, '4.77', '4.97', NULL, 'img/products/13.jpg', 91, 1),
+(14, 'Underlayment', '7/32 in. x 4 ft. x 8 ft.', 'Plywood', 261685, 38, '1.34', '1.47', NULL, 'img/products/14.jpg', 81, 2),
+(15, 'Rtd Southern Yellow Pine Plywood Sheathing', '11/32 in. x 4 ft. x 8 ft.', 'Plywood', 261686, 88, '6.24', '6.37', NULL, 'img/products/15.jpg', 51, 4),
+(16, 'Pressure-Treated Plywood Rated Sheathing', '(Common: 23/32 in. x 4 ft. x 8 ft.; Actual: .703 in. x 48 in. x 96 in.)', 'Plywood', 261687, 18, '6.44', '6.57', NULL, 'img/products/16.jpg', 91, 8),
+(17, 'Whole Piece Birch', 'Domestic Plywood', 'Plywood', 261688, 33, '9.34', '9.47', NULL, 'img/products/17.jpg', 71, 3),
+(18, '1/2 in. x 4 ft. x 8 ft. Gypsum Board', 'SHEETROCK UltraLight 1/2 in. x 4 ft. x 8 ft.', 'Drywall', 14113411708, 21, '8.32', '8.30', NULL, 'img/products/18.jpg', 50, 3),
+(19, '1/2 in. x 4 ft. x 8 ft. Gypsum Board', 'SHEETROCK UltraLight Mold Tough 1/2 in. x 4 ft. x 8 ft. ', 'Drywall', 14302111708, 25, '9.32', '9.22', NULL, 'img/products/19.jpg', 50, 3),
+(20, '5/8 in. x 4 ft. x 8 ft. Gypsum Board', 'SHEETROCK Firecode Core 5/8 in. x 4 ft. x 8 ft. ', 'Drywall', 14211011308, 55, '7.32', '7.55', NULL, 'img/products/20.jpg', 50, 3),
+(21, '3/8 in. x 4 ft. x 8 ft. Gypsum Board', 'SHEETROCK 3/8 in. x 4 ft. x 8 ft.', 'Drywall', 14109012208, 33, '8.11', '8.12', NULL, 'img/products/21.jpg', 50, 3),
+(22, '5-Gal. All-Purpose Joint Compound', 'SHEETROCK Brand 5-Gal.', 'Drywall', 380119048, 22, '9.34', '9.66', NULL, 'img/products/22.jpg', 50, 3),
+(23, '5-Gal. Lightweight Joint Compound', 'SHEETROCK Brand Plus 3 4.5-Gal. Lightweight', 'Drywall', 381466, 21, '8.88', '8.54', NULL, 'img/products/23.jpg', 50, 3);
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
