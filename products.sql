@@ -75,7 +75,13 @@ INSERT INTO `products` (`productID`, `productName`, `description`, `category`, `
 (26, '26 in. x 8 ft. Clear PVC Roof Panel', 'Palruf 26 in. x 8 ft. Clear PVC Roof Panel', 'Roofing', 100423, 12, '9.11', '9.10', NULL, 'img/products/26.jpg', 50, 15),
 (27, '26 in. x 12 ft. Solar Gray Polycarbonate Corrugated Roof Panel', 'Suntuf 26 in. x 12 ft. Solar Gray Polycarbonate Corrugated Roof Panel', 'Roofing', 101931, 28, '7.33', '7.41', NULL, 'img/products/27.jpg', 50, 15),
 (28, 'Pipe Roof Jack with Adjustable Collar 3" to 1"', 'Construction Metals Pipe Roof Jack with Adjustable Collar 3" to 1"', 'Roofing', 202223519, 172, '6.22', '6.25', NULL, 'img/products/28.jpg', 50, 15),
-(29, '6 in. x 75 ft. Flashing Tape', 'Nashua Tape 6 in. x 75 ft. Select Window & Door Flashing Tape', 'Roofing', 1207782, 92, '3.88', '3.92', NULL, 'img/products/29.jpg', 50, 15);
+(29, '6 in. x 75 ft. Flashing Tape', 'Nashua Tape 6 in. x 75 ft. Select Window & Door Flashing Tape', 'Roofing', 1207782, 92, '3.88', '3.92', NULL, 'img/products/29.jpg', 50, 15),
+(30, 'Solid Hardwood Flooring (18.70 sq. ft. / case)', 'Hand Scraped Birch Bronze 3/4 in. Thick x 4-3/4 in. Wide x Random Length Solid Hardwood Flooring (18.70 sq. ft. / case)', 'Hardwoods', 201484941, 31, '5.69', '5.72', NULL, 'img/products/30.jpg', 50, 15),
+(31, 'Length Click Lock Hardwood Flooring (24.94 sq.ft./cs)', 'Hand Scraped Oak Gunstock 3/8 in.Thick x 4-3/4 in.Wide x 47-1/4 in. Length Click Lock Hardwood Flooring (24.94 sq.ft./cs)', 'Hardwoods', 200118026, 28, '9.69', '9.72', NULL, 'img/products/31.jpg', 50, 15),
+(32, '1 in. x 2 in. x 6 ft. Premium Hardwood Board', '1 in. x 2 in. x 6 ft. Wormy Maple S4S Premium Hardwood Board', 'Hardwoods', 1001180263, 12, '6.69', '6.72', NULL, 'img/products/32.jpg', 50, 15),
+(33, '3/8 in. x 5 in. Hardwood Flooring (19.72 sq. ft. / case)', '3/8 in. x 5 in. Subtle Scraped Ranch House Plantation Hickory Engineered Hardwood Flooring (19.72 sq. ft. / case)', 'Hardwoods', 100118024, 82, '9.69', '9.72', NULL, 'img/products/33.jpg', 50, 15),
+(34, 'Plano Marsh 3/4 in. Hardwood Flooring', 'Plano Marsh 3/4 in. Thick x 3-1/4 in. Wide x Random Length Solid Hardwood Flooring(22 sq. ft. / case)', 'Hardwoods', 100118025, 32, '4.69', '4.72', NULL, 'img/products/34.jpg', 50, 15),
+(35, 'Gunstock Oak 3/4 in. Solid Hardwood Flooring', 'Gunstock Oak 3/4 in. Thick x 2-1/4 in. Wide x Random Length Solid Hardwood Flooring (20 sq. ft./case)', 'Hardwoods', 100118026, 22, '8.69', '8.72', NULL, 'img/products/35.jpg', 50, 15);
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
