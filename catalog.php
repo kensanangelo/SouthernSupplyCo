@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 	<html lang="en">
 		<head>
@@ -64,7 +67,7 @@
 									</div>
 								</div>
 								<div>
-									<a href="cart.php?add_product=<?php echo $row['productID']; ?>"  class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a>
+									<a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a>
 								</div>
 							</div>
 						</div>

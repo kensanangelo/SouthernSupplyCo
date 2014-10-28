@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 	<html lang="en">
 		<head>
@@ -71,43 +74,87 @@
 					}
 				}
 
+				//	Populate Cart array
+
+				if(isset($_SESSION['cart'])){
+
+					$cart = explode(', ',$_SESSION['cart']);
+					$cart_length = count($cart) - 1;
+					$total_price = 0;
+
+					for($i = 0;$i < $cart_length; $i++){
+
+						$product_id = (int)$cart[$i];
+						$result_array[$i] = ssc_query($product_id, 'ID');
+						$cart_data[] = $result_array[$i][0];
+
+						$sub_total += $result_array[$i][0]['price'];
+
+					}
+
+					$sales_tax = $sub_total * 0.07;
+					$sales_tax = round($sales_tax, 2);
+
+					$total_price = $sub_total + $sales_tax;
+					$total_price = round($total_price, 2);
+
+				}
+
+				//pre_print_r($cart_data);
+				//die();
+
 
 		?>
 		<div class="container">
 			<div class="row marT-20 marB-20">
 				<div class="col-md-6">
 					<h1><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</h1>
+					<?php if($display_msg){ echo '<h3>'.$display_msg.'</h3>'; } ?>
 				</div>
 				<div class="col-md-2 col-md-offset-4 text-right">
 					<a href="checkout.php" class="btn btn-default"><span class="glyphicon glyphicon-lock"></span> Checkout Now</a>
+					<a href="cart.php?mode=empty_cart" class="btn btn-default"><span class="glyphicon"></span> Empty Cart</a>
 				</div>
 			</div>
-			<div class="row option">
-				<div class="col-md-3">
-					<a href="product.php">
-						<img class='img-responsive' src="img/products/2.jpg" alt="A 50lb bag of concrete">
-					</a>
-				</div>
-				<div class="col-md-6 col-md-offset-1">
-					<a class="productLink" href="product.php"><h3>50lb Concrete</h3></a>
-					<div class="catStars">
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="glyphicon glyphicon-star"></span>
+			<?php foreach($cart_data as $result){ 
+
+				// $result['description'];
+				// $result['rating'];
+				// $result['numOfVotes'];
+				// $result['productImage'];
+
+				?>
+			
+				<div class="row option">
+					<div class="col-md-3">
+						<a href="product.php">
+							<img class='img-responsive' src="<?php echo $result['productImage']; ?>" alt="A 50lb bag of concrete">
+						</a>
 					</div>
-					<p>QUIKRETE® Concrete Mix is the original 4000 psi average compressive strength blend of portland cement, sand, and gravel or stone. Just add water. Use for any general concrete work.</p>
+					<div class="col-md-6 col-md-offset-1">
+						<a class="productLink" href="product.php"><h3><?php echo $result['productName']; ?></h3></a>
+						<div class="catStars">
+							<?php print_stars($result['rating'], $result['numOfVotes']); ?>
+							<!-- <span class="glyphicon glyphicon-star"></span>
+							<span class="glyphicon glyphicon-star"></span>
+							<span class="glyphicon glyphicon-star"></span>
+							<span class="glyphicon glyphicon-star"></span>
+							<span class="glyphicon glyphicon-star"></span> -->
+						</div>
+						<p>QUIKRETE® Concrete Mix is the original 4000 psi average compressive strength blend of portland cement, sand, and gravel or stone. Just add water. Use for any general concrete work.</p>
+					</div>
+					<div class="col-md-2 text-right">
+						<p class="cartPrice marT-20">Item Total: $74.40</p>
+						<p class="">Unit Price: $<?php echo $result['price']; ?> </p>
+						<?php /*<p>Qty: <input type="text" value="30" size="3"/>
+						
+						<button class="button">Update</button></p>*/ ?>
+					</div>
 				</div>
-				<div class="col-md-2 text-right">
-					<p class="cartPrice marT-20">Item Total: $74.40</p>
-					<p class="">Unit Price: $2.48 </p>
-					<p>Qty: <input type="text" value="30" size="3"/>
-					
-					<button class="button">Update</button></p>
-				</div>
-			</div>
-			<div class="row option">
+
+			<?php } ?>
+			
+			<?php /*<div class="row option">
 				<div class="col-md-3">
 					<a href="product.php">
 						<img class='img-responsive' src="img/products/8.jpg" alt="A 47lb bag of portland cement">
@@ -131,16 +178,16 @@
 					
 					<button class="button">Update</button></p>
 				</div>
-			</div>
+			</div>*/ ?>
 		</div>
 
 		<div class="container marT-20">
 			<div class="row">
 				<div class="col-md-3 col-md-offset-9 text-right">
 					<ul>
-						<li>Subtotal: $176.74</li>
-						<li>Sales Tax: $0.00</li>
-						<li class="price marT-20">Total: $176.74</li>
+						<li>Subtotal: $<?php echo $sub_total; ?></li>
+						<li>Sales Tax: $<?php echo $sales_tax; ?></li>
+						<li class="price marT-20">Total: $<?php echo $total_price; ?></li>
 					</ul>
 					<a href="checkout.php" class="btn btn-default"><span class="glyphicon glyphicon-lock"></span> Checkout Now</a>
 				</div>
