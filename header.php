@@ -45,7 +45,7 @@ $user_access="1"; ?>
 						<input type="text" class="form-control" name="search_term" placeholder="Search">
 						<div id="ajax-search-results"></div>
 						<div class="input-group-btn">
-							<a class="btn btn-default" href="search.php"><button type="submit"><span class="glyphicon glyphicon-search"></span></button></a>
+							<a href="search.php"><button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button></a>
 						</div>
 					</form>
 				</div>       
