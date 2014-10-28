@@ -49,12 +49,13 @@
 		}	
 	}
 
+	// changeInDB('products', 'stock=1', "product_id=1")
 	//Function to update values in the database
 	function changeInDB($table, $value, $where)
 	{
 		include 'connectdb.php';
 
-		$query="UPDATE $table SET $value WHERE $where";
+		$query='UPDATE '.$table.' SET '.$value.' WHERE '.$where;
 
 		$results=mysqli_query($connection, $query);
 
@@ -72,7 +73,7 @@
 	{
 		include 'connectdb.php';
 
-		$query="DELETE $value FROM $table WHERE $where";
+		$query='DELETE '.$value.' FROM '.$table.' WHERE '.$where;
 
 		$results=mysqli_query($connection, $query);
 

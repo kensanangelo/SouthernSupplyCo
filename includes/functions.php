@@ -69,16 +69,14 @@ function ssc_query($search_term, $mode = 'search'){
 }
 
 
-//Processes the cart
 function process_cart($mode, $id){
 
-	// convert the integer passed into this function as $id to a string
+	// convert the integer passed into this function as $id to a string for easier management
 	$id_str = (string)$id;
 
 	// if the $_SESSION cart has been established, we need to decide whether the user is trying to add or remove an item
 	if(isset($_SESSION['cart'])){
 
-		//	Temporarily store the session cart into a variable
 		$cart = $_SESSION['cart'];
 
 		if($mode == 'add'){
@@ -86,7 +84,6 @@ function process_cart($mode, $id){
 			// add the item to the end of the cart
 			$cart .= $id_str.', ';
 
-			// place the current cart into the session array
 			$_SESSION['cart'] = $cart;
 
 			return $cart;
@@ -96,23 +93,17 @@ function process_cart($mode, $id){
 
 			// split the session cart into an array, seperated at the commas
 			$cart = explode(', ', $cart);
-
-
-			// loop through cart; 
-			//	array looks like this: 
-			//	$cart['cart_num'] = $product
-			foreach($cart as $cart_num => $product){
+			foreach($cart as $key => $product){
 
 				// if the value of the item in the array is equal to the id passed to this function:
 				if($product == $id){
 
 					// Remove this item from the array
-					unset($cart[$cart_num]);
+					unset($cart[$key]);
 
 				}
 			}
 
-			//	Turn the array back into a string
 			$cart = implode(', ', $cart);
 
 			$_SESSION['cart'] = $cart;

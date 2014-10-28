@@ -12,41 +12,64 @@
 			//echo 'Get: <br />';
 			//pre_print_r($_GET);
 
-			if(isset($_GET['mode'])){
-				$mode = $_GET['mode'];
-				$product_id = $_GET['product_id'];
+			$cart = $_SESSION['cart'];
 
-				if($mode == 'add'){
-					if($product_id){
+				//echo 'Get: <br />';
+				//pre_print_r($_GET);
 
-						$cart = process_cart('add', $product_id);
+				if(isset($_GET['mode'])){
+					$mode = $_GET['mode'];
+					$product_id = $_GET['product_id'];
+
+					if($mode == 'add'){
+						if($product_id){
+
+							$cart = process_cart('add', $product_id);
+
+							$display_msg = 'Item added to Cart';
+
+							$cart_has_products = 1;
+
+
+						} else {
+
+							$display_msg =  'Whoops! No Product Specified';
+
+						}
+
+					} else if($mode == 'remove'){
+
+
+						if($product_id){
+							process_cart('remove', $product_id);
+
+							$display_msg = 'Item removed from Cart';
+							if(!$cart || strlen($_SESSION['cart'] == 0)){
+								$display_msg .= '<div>Your Cart has been emptied</div>';
+							} else {
+								$cart_has_products = 1;
+							}
+						} else {
+							$display_msg =  'Whoops! No Product Specified';
+						}
+
+
+					} else if($mode == 'empty_cart'){
+
+						unset($_SESSION['cart']);
+						unset($cart);
+						$display_msg =  'Your Cart has been emptied<br />';
 
 					} else {
-
-						echo 'Whoops! No Product Specified';
-
+						$display_msg =  'Invalid Cart Mode. Please refresh the page.';
 					}
-
-				} else if($mode == 'remove'){
-
-					if($product_id){
-						process_cart('remove', $product_id);
-					} else {
-						echo 'Whoops! No Product Specified';
-					}
-
-				} else if($mode == 'empty_cart'){
-
-					unset($_SESSION['cart']);
-					unset($cart);
-					echo 'Your Cart has been emptied<br />';
-
 				} else {
-					echo 'Invalid Cart Mode. Please refresh the page.';
+					if(!$cart || strlen($_SESSION['cart'] == 0)){
+						$display_msg = 'Cart Empty';
+					} else {
+						$cart_has_products = 1;
+					}
 				}
-			} else {
-				echo '<p>No Mode selected</p>	';
-			}
 
 
 		?>
