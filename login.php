@@ -12,7 +12,7 @@
 		<div class="container">
 			<div class="option">
 				<h3>Login to Your Account:</h3>
-				<form action="includes/compare.php" method="POST">
+				<form id="login" action="includes/compare.php" method="POST">
 					<fieldset>
     					<legend>Login</legend>
     					<ul>
@@ -36,6 +36,7 @@
 		</div>		
 
 		<?php include 'footer.php'; ?>
+		<script src="js/login.js"></script>
 		
 	</body>
 </html>
