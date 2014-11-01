@@ -20,6 +20,10 @@ h1{
 h2{
 }
 
+/*Error paragraph for login page*/
+#loginError, #signupError{
+	color: red;
+}
 
 /*---Stuff for header and navbar*/
 .logo{
@@ -206,17 +210,21 @@ h2{
 	background-color: #F1F5F8;
 }
 
-form input:not([type=radio]) { 
+#signupForm, #loginForm{
+	margin-top: 25px;
+}
+
+form input { 
 	width: 12em; 
 }
 
 .labelFix{
 	width:10em;
 }
-
+/*
 fieldset{
 	margin-top: 25px;
-}
+}*/
 
 #card{
 	margin-top: 0;
