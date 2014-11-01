@@ -15,30 +15,35 @@ session_start();
 		<div class="container">
 			<div class="option">
 				<h3>Login to Your Account:</h3>
-				<form action="http://sulley.cah.ucf.edu/~ke571033/dig4530c/assignments/ia03/cart.php">
-					<fieldset>
-    					<legend>Login</legend>
-    					<ul>
-							<li><label class="labelFix" for="name">Username:</label><input type="text" id="name" placeholder="Username"/></li>
-							<li><label class="labelFix" for="phone">Password:</label><input size="13" type="text" id="phone" placeholder="Password"/></li>
-						</ul>
-						<input type="submit" value="Login" class="btn btn-default complete"/>
-					</fieldset>
-					<fieldset>
-    					<legend>Sign Up</legend>
-    					<ul>
-							<li><label class="labelFix" for="line1">Username:</label><input type="text" id="line1" placeholder="Username"/></li>
-							<li><label class="labelFix" for="line2">Email:</label><input type="text" id="line2" placeholder="Email"/></li>
-							<li><label class="labelFix" for="line3">Password:</label><input type="text" id="line3" placeholder="Password"/></li>
-							<li><label class="labelFix" for="line4">Confirm Password:</label><input type="text" id="line4" placeholder="Password"/></li>
-						</ul>
-						<input type="submit" value="Sign Up" class="btn btn-default complete"/>
-					</fieldset>
+				<form id="loginForm" action="includes/compare.php" method="POST">
+					<legend>Login</legend>
+					<p id="loginError"></p>
+					<ul>
+						<li><label class="labelFix" for="loginUser">Username:</label><input type="text" name="loginUser" id="loginUser" placeholder="Username" required/></li>
+						<li><label class="labelFix" for="loginPass">Password:</label><input size="13" type="password" name="loginPass" id="loginPass" placeholder="Password" required/></li>
+					</ul>
+					<input type="hidden" name="loghash" id="loghash"/>
+					<input type="submit" name="login" value="Login" class="btn btn-default complete"/>
 				</form>
+				<form id="signupForm" action="includes/compare.php" method="POST">
+					<legend>Sign Up</legend>
+					<p id="signupError"></p>
+					<ul>
+						<li><label class="labelFix" for="createUser">Username:</label><input type="text" id="createUser" name="createUser" placeholder="Username" required/></li>
+						<li><label class="labelFix" for="createEmail">Email:</label><input type="email" id="createEmail" name="createEmail" placeholder="Email" required/></li>
+						<li><label class="labelFix" for="createPass">Password:</label><input type="password" id="createPass" name="createPass" placeholder="Password" required/></li>
+						<li><label class="labelFix" for="createConfirm">Confirm Password:</label><input type="password" id="createConfirm" name="createConfirm" placeholder="Password" required/></li>
+					</ul>
+					<input type="hidden" name="signhash" id="signhash"/>
+					<input type="submit" name="signup" value="Sign Up" class="btn btn-default complete"/>
+				</form>
+			
 			</div>
 		</div>		
 
 		<?php include 'footer.php'; ?>
+		<script src="js/sha256.js"></script>
+		<script src="js/login.js"></script>
 		
 	</body>
 </html>

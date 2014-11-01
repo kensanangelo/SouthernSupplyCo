@@ -68,3 +68,7 @@ jQuery(document).ready(function(){
 
 	
 });
+
+function login(){
+	
+}

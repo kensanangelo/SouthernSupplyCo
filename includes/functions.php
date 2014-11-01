@@ -129,3 +129,7 @@ function process_cart($mode, $id){
 	}
 
 }
+
+function compareInfo($user, $pass){
+	echo "IT WORKED!>!!>!> :)))))";
+}
