@@ -1,6 +1,6 @@
 <?php
 //Hard coded user access level (Temporary)
-$user_access="1"; ?>
+$user_access="3"; ?>
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">

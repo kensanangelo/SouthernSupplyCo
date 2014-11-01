@@ -18,7 +18,10 @@
 							<li><p class="lead">Options</p></li>
 							<li><a href="client.php">Account</a></li>
 							<li><a href="cart.php">Shopping Cart</a></li>
-							<li><a href="admin.php">Admin</a></li>
+							<?php
+								if($user_access==3)
+									echo '<li><a href="admin.php">Admin</a></li>';
+							?>
 						</ul>
 					</div>
 					<div class="col-md-3 col-sm-3  col-xs-6">
