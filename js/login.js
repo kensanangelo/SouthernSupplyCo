@@ -1,9 +1,15 @@
-	$("login").submit(function(e) {
+$('#loginForm').on('submit', function(e) {
 
-	    e.preventDefault();
-	    e.returnValue = false;
-	    
-	    console.log("Test successful");
-	    // do things
-	});
-	
+	console.log("Test successful");
+
+	var user = document.getElementById('loginUser');
+	var pass = document.getElementById('loginPass');
+	if (!user && !pass){
+		e.preventDefault();
+		e.returnValue = false;
+		console.log("Failed Bro");
+	}else
+		console.log("SWEET SUCCESS");
+
+});
+

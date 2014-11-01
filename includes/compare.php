@@ -60,11 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 		$passConfirm = $connection->real_escape_string($passConfirm);
 		$email = $connection->real_escape_string($email);
 		
-		if($user!=NULL 
-			&& $pass!=NULL
-			&& $passConfirm!=NULL
-			&& $email!=NULL
-			){
+		if($user && $pass && $passConfirm && $email){
 
 			if ($pass==$passConfirm) {
 				echo "CREATE ACCOUNT SUCCEDES";

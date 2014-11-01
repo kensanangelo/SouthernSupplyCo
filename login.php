@@ -12,12 +12,12 @@
 		<div class="container">
 			<div class="option">
 				<h3>Login to Your Account:</h3>
-				<form id="login" action="includes/compare.php" method="POST">
+				<form id="loginForm" action="includes/compare.php" method="POST">
 					<fieldset>
     					<legend>Login</legend>
     					<ul>
-							<li><label class="labelFix" for="loginUser">Username:</label><input type="text" name="loginUser" id="name" placeholder="Username"/></li>
-							<li><label class="labelFix" for="loginPass">Password:</label><input size="13" type="text" name="loginPass" id="pass" placeholder="Password"/></li>
+							<li><label class="labelFix" for="loginUser">Username:</label><input type="text" name="loginUser" id="loginUser" placeholder="Username"/></li>
+							<li><label class="labelFix" for="loginPass">Password:</label><input size="13" type="text" name="loginPass" id="loginPass" placeholder="Password"/></li>
 						</ul>
 						<input type="submit" name="login" value="Login" class="btn btn-default complete"/>
 					</fieldset>
