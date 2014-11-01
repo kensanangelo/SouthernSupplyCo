@@ -16,18 +16,18 @@
 					<fieldset>
     					<legend>Login</legend>
     					<ul>
-							<li><label class="labelFix" for="name">Username:</label><input type="text" name="username" id="name" placeholder="Username"/></li>
-							<li><label class="labelFix" for="phone">Password:</label><input size="13" type="text" name="password" id="phone" placeholder="Password"/></li>
+							<li><label class="labelFix" for="loginUser">Username:</label><input type="text" name="loginUser" id="name" placeholder="Username"/></li>
+							<li><label class="labelFix" for="loginPass">Password:</label><input size="13" type="text" name="loginPass" id="pass" placeholder="Password"/></li>
 						</ul>
 						<input type="submit" name="login" value="Login" class="btn btn-default complete"/>
 					</fieldset>
 					<fieldset>
     					<legend>Sign Up</legend>
     					<ul>
-							<li><label class="labelFix" for="line1">Username:</label><input type="text" id="line1" placeholder="Username"/></li>
-							<li><label class="labelFix" for="line2">Email:</label><input type="text" id="line2" placeholder="Email"/></li>
-							<li><label class="labelFix" for="line3">Password:</label><input type="text" id="line3" placeholder="Password"/></li>
-							<li><label class="labelFix" for="line4">Confirm Password:</label><input type="text" id="line4" placeholder="Password"/></li>
+							<li><label class="labelFix" for="createUser">Username:</label><input type="text" name="createUser" placeholder="Username"/></li>
+							<li><label class="labelFix" for="createEmail">Email:</label><input type="text" name="createEmail" placeholder="Email"/></li>
+							<li><label class="labelFix" for="createPass">Password:</label><input type="text" name="createPass" placeholder="Password"/></li>
+							<li><label class="labelFix" for="createConfirm">Confirm Password:</label><input type="text" name="createConfirm" placeholder="Password"/></li>
 						</ul>
 						<input type="submit" name="signup" value="Sign Up" class="btn btn-default complete"/>
 					</fieldset>
