@@ -13,8 +13,10 @@ $('#loginForm').on('submit', function(e) {
 
 		e.preventDefault();
 		e.returnValue = false;
-	}else
+	}else{
+		document.getElementById('loghash').value=CryptoJS.SHA256(loginPass.value);
 		e.returnValue = true;
+	}
 
 });
 

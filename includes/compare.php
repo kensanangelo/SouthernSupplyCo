@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 	if (isset($_POST['login'])) {
 
 		$user=$_POST['loginUser'];
-		$pass=$_POST['loginPass'];
+		$pass=$_POST['loghash'];
 
 		$user = $connection->real_escape_string($user);
 		$pass = $connection->real_escape_string($pass);
