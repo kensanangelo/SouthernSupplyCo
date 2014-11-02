@@ -149,6 +149,7 @@ session_start();
 						<?php /*<p>Qty: <input type="text" value="30" size="3"/>
 						
 						<button class="button">Update</button></p>*/ ?>
+						<p><a href="cart.php?mode=remove&product_id=<?php echo $result['productID']; ?>" class="button">Remove</button></p>
 					</div>
 				</div>
 

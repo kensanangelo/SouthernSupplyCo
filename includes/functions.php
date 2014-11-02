@@ -71,6 +71,12 @@ function ssc_query($search_term, $mode = 'search'){
 
 function process_cart($mode, $id){
 
+	//ToDo:
+	/*
+		- Sanitize string, since it comes from the get array
+
+	*/
+
 	// convert the integer passed into this function as $id to a string for easier management
 	$id_str = (string)$id;
 

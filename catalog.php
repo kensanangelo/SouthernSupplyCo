@@ -19,7 +19,7 @@ session_start();
 			if(isset($_GET['product'])){
 				$product_id = $_GET['product'];
 				$result_array = ssc_query($product_id, 'ID');
-				pre_print_r($query);
+				// pre_print_r($query);
 				$is_search = 1;
 				
 			} elseif(isset($_GET['category'])){ 
@@ -63,11 +63,12 @@ session_start();
 										<p class="price">$<?php echo $row['price']; ?></p>
 									</div>
 									<div class="col-md-8">
+										<form action="process_cart.php" method="post">
+											
+										</form>
+										<a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a>
 										<p>Qty: <input type="text" value="1" size="3"/></p>
 									</div>
-								</div>
-								<div>
-									<a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a>
 								</div>
 							</div>
 						</div>
