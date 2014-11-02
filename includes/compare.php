@@ -16,9 +16,15 @@ function loginCheck($user, $pass){
 	}
 }
 
-function signupCheck()
+function signupAdd($user,$email,$pass)
 {
-	
+	include 'CRUD.php';
+
+	$array=array($user,$pass,2,"namey","lastnamey",$email,"address",'');
+
+	$success=addToDB('users',$array);
+
+	return $success;	
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
@@ -49,11 +55,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 		}
 
 	} else if (isset($_POST['signup'])){//If the user clicked signup
-
 		$user=$_POST['createUser'];
 		$email=$_POST['createEmail'];
-		$pass=$_POST['createPass'];
-		$passConfirm=$_POST['createConfirm'];
+		$pass=$_POST['signhash'];
+		$passConfirm=$_POST['signhash2'];
 
 		$user = $connection->real_escape_string($user);
 		$pass = $connection->real_escape_string($pass);
@@ -63,7 +68,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 		if($user && $pass && $passConfirm && $email){
 
 			if ($pass==$passConfirm) {
-				echo "CREATE ACCOUNT SUCCEDES";
+				$signupSuccess=signupAdd($user,$email,$pass);
+
+				if($signupSuccess=="Success")
+					echo "YOU WERE ADDED TO THE DATABASE!";
+				else
+					echo "You werent added to the database :(";
 			}
 			else{
 				echo "YOUR PASSWORDS DIDNT MATCH";
@@ -73,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 				echo "YOU MUST ENTER ALL FIELDS";
 		}
 	}else
-		echo "It didnt work :(";
+		echo "404: It didnt work :(";
 }
 
 ?>
