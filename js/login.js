@@ -53,6 +53,8 @@ $('#signupForm').on('submit', function(e) {
 		e.preventDefault();
 		e.returnValue = false;
 	}else{
+		document.getElementById('signhash').value=CryptoJS.SHA256(signupPass.value);
+		document.getElementById('signhash2').value=CryptoJS.SHA256(signupConfirm.value);
 		e.returnValue = true;
 	}
 

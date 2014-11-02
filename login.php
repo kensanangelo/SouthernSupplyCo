@@ -32,6 +32,7 @@
 						<li><label class="labelFix" for="createConfirm">Confirm Password:</label><input type="password" id="createConfirm" name="createConfirm" placeholder="Password" required/></li>
 					</ul>
 					<input type="hidden" name="signhash" id="signhash"/>
+					<input type="hidden" name="signhash2" id="signhash2"/>
 					<input type="submit" name="signup" value="Sign Up" class="btn btn-default complete"/>
 				</form>
 			
