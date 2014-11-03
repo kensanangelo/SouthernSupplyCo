@@ -39,13 +39,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 		$pass = $connection->real_escape_string($pass);
 		
 		if($user!=NULL && $pass != NULL){
+
 			$loginSuccess=loginCheck($user,$pass);
+
 			//Returns true if they logged in correctly
 			//Put user login logic here
 			if ($loginSuccess==true) {
-				echo "YOU LOGGED IN CORRECTLY";
+
+				header('Content-Type: application/json');
+				die(json_encode(array(
+					'code' => 1,
+					'message' => '<h3>You Have Successfully Logged In</h3><a href="client.php">Take me to <strong>My Account</strong></a></p>',
+					'post' => $_POST
+				)));
+
+				// echo "YOU LOGGED IN CORRECTLY";
+
 			}else{
-				echo "YOU FAILED TO LOGIN IN BRO";
+
+				header('Content-Type: application/json');
+				die(json_encode(array(
+					'code' => 0,
+					'message' => '<h3>YOU FAILED TO LOGIN IN BRO</h3>',
+					'post' => $_POST
+				)));
+
+				// echo "YOU FAILED TO LOGIN IN BRO";
 			}
 
 		}
