@@ -80,7 +80,7 @@ session_start();
 
 					$cart = explode(', ',$_SESSION['cart']);
 					$cart_length = count($cart) - 1;
-					$total_price = 0;
+					$order_total = 0;
 
 					for($i = 0;$i < $cart_length; $i++){
 
@@ -95,8 +95,10 @@ session_start();
 					$sales_tax = $sub_total * 0.07;
 					$sales_tax = round($sales_tax, 2);
 
-					$total_price = $sub_total + $sales_tax;
-					$total_price = round($total_price, 2);
+					$order_total = $sub_total + $sales_tax;
+					$order_total = round($order_total, 2);
+
+					$stripe_total = $order_total * 100;
 
 				}
 
@@ -149,37 +151,12 @@ session_start();
 						<?php /*<p>Qty: <input type="text" value="30" size="3"/>
 						
 						<button class="button">Update</button></p>*/ ?>
-						<p><a href="cart.php?mode=remove&product_id=<?php echo $result['productID']; ?>" class="button">Remove</button></p>
+						<p><a href="cart.php?mode=remove&product_id=<?php echo $result['productID']; ?>" class="button">Remove</a></p>
 					</div>
 				</div>
 
 			<?php } ?>
 			
-			<?php /*<div class="row option">
-				<div class="col-md-3">
-					<a href="product.php">
-						<img class='img-responsive' src="img/products/8.jpg" alt="A 47lb bag of portland cement">
-					</a>
-				</div>
-				<div class="col-md-6 col-md-offset-1">
-					<a class="productLink" href="product.php"><h3>47lb Portland Cement</h3></a>
-					<div class="catStars">
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="glyphicon glyphicon-star-empty"></span>
-						<span class="glyphicon glyphicon-star-empty"></span>
-					</div>
-					<p>QUIKRETE® Portland Cement complies with current ASTM C150 and Federal Specifications for portland cement. Can be mixed with aggregate and other ingredients to make concrete mix, mortar mix, and base coat stucco. Available in Type I, Type I/II and Type III.</p>
-				</div>
-				<div class="col-md-2 text-right">
-					<p class="cartPrice marT-20">Item Total: $102.34</p>
-					<p class="">Unit Price: $5.47 </p>
-					<p>Qty: <input type="text" value="22" size="3"/>
-					
-					<button class="button">Update</button></p>
-				</div>
-			</div>*/ ?>
 		</div>
 
 		<div class="container marT-20">
@@ -188,9 +165,16 @@ session_start();
 					<ul>
 						<li>Subtotal: $<?php echo $sub_total; ?></li>
 						<li>Sales Tax: $<?php echo $sales_tax; ?></li>
-						<li class="price marT-20">Total: $<?php echo $total_price; ?></li>
+						<li class="price marT-20">Total: $<?php echo $order_total; ?></li>
 					</ul>
-					<a href="checkout.php" class="btn btn-default"><span class="glyphicon glyphicon-lock"></span> Checkout Now</a>
+					<form action="checkout.php" method="POST">
+						<input type="hidden" name="stripe_total" value="<?php echo $stripe_total; ?>">
+						<input type="hidden" name="order_total" value="<?php echo $order_total; ?>">
+						<button type="submit" class="btn btn-default">
+							<span class="glyphicon glyphicon-lock"></span> Checkout Now
+						</button>
+					</form>
+						<!-- <a href="checkout.php" class="btn btn-default"></a> -->
 				</div>
 			</div>
 		</div>

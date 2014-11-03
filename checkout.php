@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+$order_total = $_POST['order_total'];
+$stripe_total = $_POST['stripe_total'];
+
 ?>
 <!DOCTYPE html>
 	<html lang="en">
@@ -11,11 +15,13 @@ session_start();
 		<?php 
 			include 'header.php';
 			include 'includes.php';
+
 		?>
 		<div class="container">
 			<div class="option">
 				<h3>Complete Your Purchase</h3>
-				<form id="checkout-form" action="" method="POST">
+				<h4>Order Total: <?php echo $order_total; ?></h4>
+				<form id="checkout-form" action="charge.php" method="POST">
 					<fieldset>
     					<legend>Your Details</legend>
     					<ul>
@@ -131,11 +137,27 @@ session_start();
 						</ul>
 					</fieldset>
 					<input type="submit" value="Complete Purchase" class="btn btn-default complete"/>
+					<input type="hidden" name="stripe_total" value="<?php echo $stripe_total; ?>">
+					<input type="hidden" name="order_total" value="<?php echo $order_total; ?>">
+					<span class="payment-errors"></span>
 				</form>
 			</div>
-		</div>		
+		</div>
 
 		<?php include 'footer.php'; ?>
+
+		<?php
+
+			// ---Important--- Stripe Config File
+			require_once('includes/Stripe/config.php');
+
+		?>
+
+		<?php /* Stripe JS Library */ ?>
+		<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+		<script src="js/checkout.js"></script>
+
+
 
 	</body>
 </html>
