@@ -1,14 +1,14 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 body{
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 	background-color: #FFF;
 
 }
 
 h1,h2,h3,h4{
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 }
 
@@ -17,7 +17,8 @@ h1{
 	margin: 0;
 }
 
-h2{
+h3, .h3{
+	font-size: 19px;
 }
 
 /*Error paragraph for login page*/
@@ -26,15 +27,22 @@ h2{
 }
 
 /*---Stuff for header and navbar*/
+
+#header{
+	background-color: #2D2D2D;
+	width: 100%;
+}
+
 .logo{
 	margin-top: 25px;
 	margin-bottom: 10px;
-	width: 232px;
-	height: 108px;
+	width: 227px;
+	height: 115px;
 }
 
 .login{
 	margin-top: 130px;
+	color: #f4f4f4;
 }
 
 .login>a{
@@ -46,11 +54,6 @@ h2{
 	margin-bottom: 20px;
 	border-radius: 15px;
 	border: 0;
-}
-
-#header{
-	background-color: #393939;
-	width: 100%;
 }
 
 
@@ -75,6 +78,7 @@ h2{
 	/*border-radius: 5px;*/
 	/*border:1px solid #ccc;*/
 	padding-left: 0;
+	width: 100%;
 }
 
 .icon-bar{
@@ -95,7 +99,7 @@ h2{
 
 .navbar .navbar-nav>li>a{
 	color: #444;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 }
 

@@ -16,7 +16,7 @@ $user_access="3"; ?>
 	<div id="header">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-2 brand"><a href="home.php"><img class="logo" src="img/logo.png" alt="Southern Supply Co. Logo"></a>
+			<div class="col-md-2 brand"><a href="home.php"><img class="logo" src="img/logo-white.png" alt="Southern Supply Co. Logo"></a>
 			</div>
 			<div class=" login col-md-2 col-md-offset-8">
 				<?php
