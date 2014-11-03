@@ -13,6 +13,7 @@ $user_access="3"; ?>
 	<![endif]-->
 </head>
 <body>
+	<div id="header">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-2 brand"><a href="home.php"><img class="logo" src="img/logo.png" alt="Southern Supply Co. Logo"></a>
@@ -30,6 +31,7 @@ $user_access="3"; ?>
 	</div>
 	<div class="navbar" role="navigation">
 		<div class="container">	
+			
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
 					<span class="sr-only">Toggle navigation</span>
@@ -58,5 +60,6 @@ $user_access="3"; ?>
 					<li class="menuitem"><a href="catalog.php?category=Roofing">Roofing</a></li>
 				</ul>
 			</div><!--/.navbar-collapse -->
+		</div>
 		</div>
 	</div>

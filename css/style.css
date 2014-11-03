@@ -1,14 +1,14 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700);
 
 body{
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 400;
 	background-color: #FFF;
 
 }
 
 h1,h2,h3,h4{
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 700;
 }
 
@@ -48,6 +48,18 @@ h2{
 	border: 0;
 }
 
+#header{
+	background-color: #393939;
+	width: 100%;
+}
+
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  background-color: #1E1E1E;
+  color: #F2AA00;
+}
+
 .navbar>.container{
 	background-color: #FFF;
 
@@ -69,9 +81,9 @@ h2{
 	background-color:#333; 
 }
 
-/*.navbar-toggle{
+.navbar-toggle{
 	border-color: #ccc;
-}*/
+}
 
 /*.navbar .navbar-nav>li{
 	border-left: 1px solid #ccc;
@@ -83,7 +95,7 @@ h2{
 
 .navbar .navbar-nav>li>a{
 	color: #444;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 700;
 }
 
@@ -242,6 +254,7 @@ fieldset{
 
 /*--Stuff for footer--*/
 .footer{
+	background-color: #E5E5E5;
 	border-top: 1px solid #e5e5e5;
 	margin-top: 100px;
 	padding-top: 15px;
