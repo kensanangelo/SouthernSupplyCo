@@ -29,19 +29,23 @@ h3, .h3{
 /*---Stuff for header and navbar*/
 
 #header{
-	background-color: #2D2D2D;
+	background-color: #f8e300;
 	width: 100%;
 }
 
 .logo{
 	margin-top: 25px;
 	margin-bottom: 10px;
-	width: 227px;
-	height: 115px;
+	width: 232px;
+	height: 108px;
 }
 
 .login{
 	margin-top: 130px;
+}
+
+.icon-bar{
+	background-color: #f4f4f4 !important;
 }
 
 .white{
@@ -67,17 +71,7 @@ h3, .h3{
 }
 
 .navbar>.container{
-	background-color: #FFF;
-
-	background: #f8e300; /* Old browsers */
-	/*background: -moz-linear-gradient(top,  #f8e300 0%, #ECD900 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#feffff), color-stop(100%,#d5e1ea)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #f8e300 0%,#ECD900 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #f8e300 0%,#ECD900 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #f8e300 0%,#ECD900 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #f8e300 0%,#ECD900 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8e300', endColorstr='#ECD900',GradientType=0 ); /* IE6-9 */
-
+	background-color: #323232;
 	/*border-radius: 5px;*/
 	/*border:1px solid #ccc;*/
 	padding-left: 0;
@@ -101,7 +95,7 @@ h3, .h3{
 }*/
 
 .navbar .navbar-nav>li>a{
-	color: #444;
+	color: #f4f4f4;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 }
@@ -266,7 +260,7 @@ fieldset{
 
 /*--Stuff for footer--*/
 .footer{
-	background-color: #E5E5E5;
+	background-color: #323232;
 	border-top: 1px solid #e5e5e5;
 	margin-top: 100px;
 	padding-top: 15px;

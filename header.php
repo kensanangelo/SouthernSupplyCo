@@ -16,16 +16,16 @@ $user_access="3"; ?>
 	<div id="header">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-2 brand"><a href="home.php"><img class="logo" src="img/logo-white.png" alt="Southern Supply Co. Logo"></a>
+			<div class="col-md-2 brand"><a href="home.php"><img class="logo" src="img/logo.png" alt="Southern Supply Co. Logo"></a>
 			</div>
 			<div class=" login col-md-2 col-md-offset-8">
 				<?php
 					//Puts either Login or Account link depending on user access level
 					if($user_access>=1)
-						echo "<a href='client.php'><span class='white glyphicon glyphicon-user'></span> Account</a>";
+						echo "<a href='client.php'><span class=' glyphicon glyphicon-user'></span> Account</a>";
 					else
-						echo "<a href='login.php'><span class='white glyphicon glyphicon-user'></span> Login</a>";
-				?> | <a href="cart.php"><span class="white glyphicon glyphicon-shopping-cart"></span>Cart</a>
+						echo "<a href='login.php'><span class=' glyphicon glyphicon-user'></span> Login</a>";
+				?> | <a href="cart.php"><span class=" glyphicon glyphicon-shopping-cart"></span>Cart</a>
 			</div>
 		</div>	
 	</div>
