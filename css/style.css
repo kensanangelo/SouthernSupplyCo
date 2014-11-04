@@ -26,6 +26,12 @@ h3, .h3{
 	color: red;
 }
 
+/* Used to keep containers in the center of the page */
+.center {
+	margin:0 auto;
+	max-width: 1170px;
+}
+
 /*---Stuff for header and navbar*/
 
 #header{
@@ -59,12 +65,6 @@ h3, .h3{
 	border: 0;
 }
 
-
-.nav > li > a:hover,
-.nav > li > a:focus {
-  background-color: #1E1E1E;
-  color: #F2AA00;
-}
 
 .navbar>.container{
 	background-color: #FFF;
@@ -104,6 +104,21 @@ h3, .h3{
 	color: #444;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
+	text-transform: uppercase;
+	
+}
+
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  background-color: #1E1E1E;
+  color: #F2AA00;
+}
+
+
+#header .header-links {
+	color: white;
+	margin-bottom: 20px;
 }
 
 
