@@ -22,10 +22,10 @@ $user_access="3"; ?>
 					<?php
 						//Puts either Login or Account link depending on user access level
 						if($user_access>=1)
-							echo "<a class='header-links' href='client.php'><span class='glyphicon glyphicon-user'></span> Account</a>";
+							echo "<a href='client.php'><span class='glyphicon glyphicon-user'></span> Account</a>";
 						else
-							echo "<a class='header-links' href='login.php'><span class='glyphicon glyphicon-user'></span> Login</a>";
-					?> | <a class='header-links' href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>
+							echo "<a href='login.php'><span class='glyphicon glyphicon-user'></span> Login</a>";
+					?> | <a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>
 				</div>
 			</div>	
 		</div>

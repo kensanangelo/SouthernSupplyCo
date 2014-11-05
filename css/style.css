@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
+
 body{
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
@@ -20,6 +21,9 @@ h1{
 h3, .h3{
 	font-size: 18px;
 }
+
+
+
 
 /*Error paragraph for login page*/
 #loginError, #signupError{
