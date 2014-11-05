@@ -72,8 +72,9 @@ session_start();
 										<form action="process_cart.php" method="post">
 											
 										</form>
-										<a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a>
-										<p>Qty: <input type="text" value="1" size="3"/></p>
+										<p class="push">Qty: <input type="text" value="1" size="3"/></p>
+										<a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default push"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a>
+										
 									</div>
 								</div>
 							</div>

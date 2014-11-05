@@ -203,7 +203,9 @@ h3, .h3{
 
 /*--Stuff for catalog and checkout page--*/
 
-
+.push{
+	float: right;
+}
 
 .option{
 	padding: 10px;
