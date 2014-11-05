@@ -4,7 +4,7 @@
 				<div class="row">
 					<div class="col-md-3 col-sm-3 col-xs-6">
 						<ul>
-							<li><p class="lead">Categories</p></li>
+							<li><p class="lead white">Categories</p></li>
 							<li><a href="catalog.php">Hardwoods</a></li>
 							<li><a href="catalog.php">Softwoods</a></li>
 							<li><a href="catalog.php">Plywood</a></li>
@@ -15,7 +15,7 @@
 					</div>
 					<div class="col-md-3 col-sm-3 col-xs-6">
 						<ul>
-							<li><p class="lead">Options</p></li>
+							<li><p class="lead white">Options</p></li>
 							<li><a href="client.php">Account</a></li>
 							<li><a href="cart.php">Shopping Cart</a></li>
 							<?php
@@ -25,7 +25,7 @@
 						</ul>
 					</div>
 					<div class="col-md-3 col-sm-3  col-xs-6">
-						<ul>
+						<ul class="white">
 							<li>1155 Corporate Ave</li>
 							<li>Orlando, Fl 32792</li>
 							<li>&nbsp;</li>

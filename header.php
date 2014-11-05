@@ -19,18 +19,19 @@ session_start();
 	<div id="header">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-2 brand"><a href="home.php"><img class="logo" src="img/logo-white.png" alt="Southern Supply Co. Logo"></a>
+				<div class="col-md-2 brand"><a href="home.php"><img class="logo" src="img/logo.png" alt="Southern Supply Co. Logo"></a>
 				</div>
 				<div class=" login col-md-2 col-md-offset-8">
 					<?php
 						//Puts either Login or Account link depending on user access level
 						if($_SESSION['logged_in'] == 1){
-							echo "<a id='account-button' class='header-links' href='client.php'><span class='white glyphicon glyphicon-user'></span> Account</a>";
-							echo "<a id='logout-button' class='header-links' href='login.php?mode=logout'><span class='white glyphicon glyphicon-logout'></span> Log Out</a>";
+							echo "<a id='account-button' href='client.php'><span class='glyphicon glyphicon-user'></span> Account</a>";
+							echo "<a id='logout-button' href='login.php?mode=logout'><span class='glyphicon glyphicon-logout'></span> Log Out</a>";
 						} else {
-							echo "<a id='login-button' class='header-links' href='login.php'><span class='white glyphicon glyphicon-user'></span> <span class='button-txt'>Login</span></a>";
+							echo "<a id='login-button' href='login.php'><span class='glyphicon glyphicon-user'></span> <span class='button-txt'>Login</span></a>";
 						}
-					?> | <a class='header-links' href="cart.php"><span class="white glyphicon glyphicon-shopping-cart"></span>Cart</a>
+					?> | <a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>
+
 				</div>
 			</div>	
 		</div>
@@ -67,8 +68,6 @@ session_start();
 						</ul>
 					</div><!--/.navbar-collapse -->
 				</div>
-				
-				
 			</div>
 		</div>
 	</div>

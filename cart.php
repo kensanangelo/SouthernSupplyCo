@@ -152,7 +152,7 @@ session_start();
 						<?php /*<p>Qty: <input type="text" value="30" size="3"/>
 						
 						<button class="button">Update</button></p>*/ ?>
-						<p><a href="cart.php?mode=remove&product_id=<?php echo $result['productID']; ?>" class="button">Remove</a></p>
+						<p><a href="cart.php?mode=remove&product_id=<?php echo $result['productID']; ?>" class="button"><span class="glyphicon glyphicon-remove"></span> Remove</a></p>
 					</div>
 				</div>
 

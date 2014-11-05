@@ -51,6 +51,7 @@ session_start();
 				</div>
 			</div>
 		</div>
+		
 		<div class='container categories'>
 			<h1 class="marT-20">Categories</h1>
 			<div class="row">
