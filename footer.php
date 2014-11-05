@@ -1,20 +1,24 @@
 <?php ?>
 		<div class="footer">
-			<div class="container">
+			<div class="container footer-space">
 				<div class="row">
 					<div class="col-md-3 col-sm-3 col-xs-6">
 						<ul>
 							<li><p class="lead white">Categories</p></li>
-							<li><a href="catalog.php">Hardwoods</a></li>
-							<li><a href="catalog.php">Softwoods</a></li>
-							<li><a href="catalog.php">Plywood</a></li>
-							<li><a href="catalog.php">Concrete</a></li>
-							<li><a href="catalog.php">Drywall</a></li>
-							<li><a href="catalog.php">Roofing</a></li>
+							<li><a href="catalog.php?category=Hardwoods">Hardwoods</a></li>
+							<li><a href="catalog.php?category=Softwood">Softwoods</a></li>
+							<li><a href="catalog.php?category=Plywood">Plywood</a></li>
+							<li><a href="catalog.php?category=Concrete">Concrete</a></li>
+							<li><a href="catalog.php?category=Drywall">Drywall</a></li>
+							<li><a href="catalog.php?category=Roofing">Roofing</a></li>
 						</ul>
 					</div>
 					<div class="col-md-3 col-sm-3 col-xs-6">
 						<ul>
+							<li><p class="lead white">Corporate</p></li>
+							<li><a href="#">About Southern Supply Co.</a></li> <!--Can change wording-->
+							<li><a href="#">Business Policies</a></li>
+							<p></p>
 							<li><p class="lead white">Options</p></li>
 							<li><a href="client.php">Account</a></li>
 							<li><a href="cart.php">Shopping Cart</a></li>
@@ -49,11 +53,13 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-12 text-center disclaimer">
-						<p>This site is not official and is an assignment for a UCF Digital Media course.</p>
-						<p>Designed and developed by Group 4 - Southern Supply Co.</p>
-					</div>
+			</div>
+		</div>
+		<div class="disclaimer-wrapper">
+			<div class="row">
+				<div class="col-md-12 text-center disclaimer white">
+					<p>This site is not official and is an assignment for a UCF Digital Media course.</p>
+					<p>Designed and developed by Group 4 - Southern Supply Co.</p>
 				</div>
 			</div>
 		</div>

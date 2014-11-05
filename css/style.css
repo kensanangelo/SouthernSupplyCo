@@ -13,6 +13,8 @@ h1,h2,h3,h4{
 	font-weight: 700;
 }
 
+
+
 h1{
 	font-size: 30px;
 	margin: 0;
@@ -21,8 +23,6 @@ h1{
 h3, .h3{
 	font-size: 18px;
 }
-
-
 
 
 /*Error paragraph for login page*/
@@ -103,6 +103,10 @@ h3, .h3{
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	text-transform: uppercase;
+	-webkit-transition: color 0.3s ease-out;
+  	-moz-transition: color 0.3s ease-out;
+  	-o-transition: color 0.3s ease-out;
+  	transition: color 0.3s ease-out;
 	
 }
 
@@ -111,12 +115,7 @@ h3, .h3{
 .nav > li > a:focus {
   background-color: #1E1E1E;
   color: #F2AA00;
-}
-
-
-#header .header-links {
-	color: white;
-	margin-bottom: 20px;
+  cursor: pointer;
 }
 
 
@@ -198,6 +197,9 @@ h3, .h3{
 .slot p{
 	padding: 10px;
 }
+
+
+
 
 /*--Stuff for catalog and checkout page--*/
 
@@ -285,17 +287,52 @@ fieldset{
 	padding-top: 15px;
 }
 
+.footer a{
+	color: #747474;
+	-webkit-transition: color 0.3s ease-out;
+  	-moz-transition: color 0.3s ease-out;
+  	-o-transition: color 0.3s ease-out;
+  	transition: color 0.3s ease-out;
+  	text-decoration: none; 
+}
+
+.footer-space{
+	margin-top: 20px;
+	padding-bottom: 20px;
+}
+
+.footer a:hover, a:hover{
+	color: #F2AA00;
+	cursor: pointer;
+}
+
+a{
+	text-decoration: none !important;
+	color: #1E1E1E;
+	-webkit-transition: color 0.3s ease-out;
+  	-moz-transition: color 0.3s ease-out;
+  	-o-transition: color 0.3s ease-out;
+  	transition: color 0.3s ease-out;
+}
+
 ul{
 	list-style-type: none;
 }
 
 .lead{
 	margin-bottom: 5px;
+	color: #f4f4f4;
+	text-transform: uppercase;
 }
 
 .disclaimer{
-	margin-top: 25px;
+	margin-top: 10px;
 	font-size: 12px;
+}
+
+.disclaimer-wrapper{
+	background-color: #2a2929;
+	width: 100%;
 }
 
 #ajax-search-results {
