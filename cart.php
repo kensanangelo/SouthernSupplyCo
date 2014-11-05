@@ -9,8 +9,8 @@ session_start();
 			<title>Southern Supply Co. Cart - Group 4</title>
 
 		<?php 
-			include 'header.php';
 			include 'includes.php';
+			include 'header.php';
 
 			//echo 'Get: <br />';
 			//pre_print_r($_GET);
@@ -61,6 +61,7 @@ session_start();
 
 						unset($_SESSION['cart']);
 						unset($cart);
+						$_SESSION['logged_in'] = 1;
 						$display_msg =  'Your Cart has been emptied<br />';
 
 					} else {

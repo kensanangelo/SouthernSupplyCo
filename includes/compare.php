@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 function loginCheck($user, $pass){
 	include 'CRUD.php';
@@ -44,24 +44,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 
 			//Returns true if they logged in correctly
 			//Put user login logic here
-			if ($loginSuccess==true) {
+			if ($loginSuccess==true) {	
+
+				// Query the database for a user matching the username posted to the server
+				$query = "SELECT * FROM users WHERE username='$user'";
+				$results = $connection->query($query);
+
+				$user_results = mysqli_fetch_assoc($results);
+				$user_id = $user_results['id'];
+				$user_access = $user_results['user_access'];
+
+				//	Set up a message to be appended to the html via AJAX at the bottom of login.php
+				$message = '<h3>Welcome, '.$user.'! You Have Successfully Logged In</h3>';
+				$message .= '<p>Your User ID is: '.$user_id.'</p>';
+				$message .= '<p>Your User Access is: '.$user_access.'</p>';
+				$message .= '<a href="client.php">Take me to <strong>My Account</strong></a></p>';
+
+				//	Store login data in the Session (Not working through ajax... it only stores when I set it outside AJAX requests)
+				$_SESSION['logged_in'] = 1;
+				$_SESSION['user_id'] = $user_id;
 
 				header('Content-Type: application/json');
 				die(json_encode(array(
 					'code' => 1,
-					'message' => '<h3>You Have Successfully Logged In</h3><a href="client.php">Take me to <strong>My Account</strong></a></p>',
-					'post' => $_POST
+					'message' => $message,
+					'query' => $query,
+					'user_id' => $user_id,
+					'loginSuccess' => $loginSuccess
 				)));
 
 				// echo "YOU LOGGED IN CORRECTLY";
 
 			}else{
 
+				// $_SESSION['logged_in'] = 0;
+				// unset($_SESSION['user_id']);
+
 				header('Content-Type: application/json');
 				die(json_encode(array(
 					'code' => 0,
 					'message' => '<h3>YOU FAILED TO LOGIN IN BRO</h3>',
-					'post' => $_POST
+					'post' => $_POST,
+					'user_id' => $user_id,
+					'loginSuccess' => $loginSuccess
 				)));
 
 				// echo "YOU FAILED TO LOGIN IN BRO";
@@ -92,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 				if($signupSuccess=="Success")
 					echo "YOU WERE ADDED TO THE DATABASE!";
 				else
-					echo "You werent added to the database :(";
+					echo $signupSuccess." - You werent added to the database :(";
 			}
 			else{
 				echo "YOUR PASSWORDS DIDNT MATCH";

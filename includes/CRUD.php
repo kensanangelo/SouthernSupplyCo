@@ -15,7 +15,7 @@
 		$results=mysqli_query($connection, $query);
 
 
-		mysqli_close($connection);
+		// mysqli_close($connection);
 
 
 		if(!$results){
@@ -39,7 +39,7 @@
 	
 		$results=mysqli_query($connection, $query);
 
-		mysqli_close($connection);
+		// mysqli_close($connection);
 
 		if($results){
 		    return $results; 
@@ -58,7 +58,7 @@
 
 		$results=mysqli_query($connection, $query);
 
-		mysqli_close($connection);
+		// mysqli_close($connection);
 
 		if($results){
 		    return "Success"; 
@@ -76,7 +76,7 @@
 
 		$results=mysqli_query($connection, $query);
 
-		mysqli_close($connection);
+		// mysqli_close($connection);
 
 		if($results){
 		    return "Success"; 

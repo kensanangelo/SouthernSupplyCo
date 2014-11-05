@@ -1,6 +1,9 @@
 <?php
-//Hard coded user access level (Temporary)
-$user_access="3"; ?>
+session_start();
+
+//	Print everything inside the Session global array
+//pre_print_r($_SESSION);
+?>
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
@@ -21,10 +24,12 @@ $user_access="3"; ?>
 				<div class=" login col-md-2 col-md-offset-8">
 					<?php
 						//Puts either Login or Account link depending on user access level
-						if($user_access>=1)
-							echo "<a class='header-links' href='client.php'><span class='white glyphicon glyphicon-user'></span> Account</a>";
-						else
-							echo "<a class='header-links' href='login.php'><span class='white glyphicon glyphicon-user'></span> Login</a>";
+						if($_SESSION['logged_in'] == 1){
+							echo "<a id='account-button' class='header-links' href='client.php'><span class='white glyphicon glyphicon-user'></span> Account</a>";
+							echo "<a id='logout-button' class='header-links' href='login.php?mode=logout'><span class='white glyphicon glyphicon-logout'></span> Log Out</a>";
+						} else {
+							echo "<a id='login-button' class='header-links' href='login.php'><span class='white glyphicon glyphicon-user'></span> <span class='button-txt'>Login</span></a>";
+						}
 					?> | <a class='header-links' href="cart.php"><span class="white glyphicon glyphicon-shopping-cart"></span>Cart</a>
 				</div>
 			</div>	

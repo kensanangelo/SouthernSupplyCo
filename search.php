@@ -9,8 +9,8 @@ session_start();
 			<title>Southern Supply Co. Search - Group 4</title>
 
 		<?php 
-			include 'header.php';
 			include 'includes.php';
+			include 'header.php';
 
 			if(isset($_POST['search_term'])){
 				$search_term = $_POST['search_term'];

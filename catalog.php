@@ -9,8 +9,8 @@ session_start();
 			<title>Southern Supply Co. Catalog - Group 4</title>
 
 		<?php 
-			include 'header.php';
 			include 'includes.php';
+			include 'header.php';
 
 			$is_search = 0;
 

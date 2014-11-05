@@ -28,8 +28,8 @@ session_start();
       <title>Southern Supply Co. Checkout - Group 4</title>
 
     <?php 
-      require 'header.php';
       require 'includes.php';
+      require 'header.php';
 
     ?>
     <div class="container">

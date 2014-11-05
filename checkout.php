@@ -13,8 +13,8 @@ $stripe_total = $_POST['stripe_total'];
 			<title>Southern Supply Co. Checkout - Group 4</title>
 
 		<?php 
-			include 'header.php';
 			include 'includes.php';
+			include 'header.php';
 
 		?>
 		<div class="container">
