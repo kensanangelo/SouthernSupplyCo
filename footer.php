@@ -18,7 +18,7 @@
 							<li><p class="lead white">Corporate</p></li>
 							<li><a href="#">About Southern Supply Co.</a></li> <!--Can change wording-->
 							<li><a href="#">Business Policies</a></li>
-							<p></p>
+							<li>&nbsp;</li>
 							<li><p class="lead white">Options</p></li>
 							<li><a href="client.php">Account</a></li>
 							<li><a href="cart.php">Shopping Cart</a></li>
@@ -30,10 +30,13 @@
 					</div>
 					<div class="col-md-3 col-sm-3  col-xs-6">
 						<ul class="white">
+							<li><p class="lead">Contact Info</p></li>
+							<li>Southern Supply Co.</li>
 							<li>1155 Corporate Ave</li>
 							<li>Orlando, Fl 32792</li>
 							<li>&nbsp;</li>
-							<li>1-800-555-2649</li>
+							<li><span class="glyphicon glyphicon-earphone"></span>  <a href="callto:18005552649">1-800-555-2649</a></li>
+							<li><span class="glyphicon glyphicon-envelope"></span>  <a href="#">info@southernsupplyco.com</a></li>
 						</ul>
 					</div>
 					<div class="col-md-3 col-sm-3 col-xs-6">

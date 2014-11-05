@@ -322,6 +322,7 @@ ul{
 }
 
 .lead{
+	font-size: 15px;
 	margin-bottom: 5px;
 	color: #f4f4f4;
 	text-transform: uppercase;
