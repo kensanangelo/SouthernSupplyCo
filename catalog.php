@@ -37,7 +37,13 @@ session_start();
 		<div class='container categories'>
 			<ol class="breadcrumb">
 				<li><a href="home.php">Home</a></li>
-				<li class="active">Concrete</li>
+				<?php if($current_cat){ ?>
+					<li class="active"><?php echo $current_cat; ?></li>
+				<?php } else if($product_id){ ?>
+					<li class="active"><?php echo $result_array[0]['productName']; ?></li>
+				<?php } else { ?>
+					<li class="active">Catalog</li>
+				<?php } ?>
 			</ol>
 			
 			<?php if($is_search) { ?>
@@ -50,11 +56,11 @@ session_start();
 					<?php foreach($result_array as $row){ ?>
 	
 						<div class="col-md-3 col-sm-6 option">
-							<a href="product.php">
+							<a href="product.php?product=<?php echo $row['productID']; ?>">
 								<img class='img-responsive' src="<?php echo $row['productImage']; ?>" alt="<?php echo $row['productName']; ?>">
 							</a>
 							<div>
-								<a class="productLink  " href="product.php"><h3 class="productSpacer"><?php echo $row['productName']; ?></h3></a>
+								<a class="productLink" href="product.php?product=<?php echo $row['productID']; ?>"><h3 class="productSpacer"><?php echo $row['productName']; ?></h3></a>
 								<div class="catStars">
 									<?php print_stars($row['rating'], $row['numOfVotes']); ?>
 								</div>

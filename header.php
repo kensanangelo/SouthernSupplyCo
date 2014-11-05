@@ -14,52 +14,54 @@ $user_access="3"; ?>
 </head>
 <body>
 	<div id="header">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-2 brand"><a href="home.php"><img class="logo" src="img/logo.png" alt="Southern Supply Co. Logo"></a>
-			</div>
-			<div class=" login col-md-2 col-md-offset-8">
-				<?php
-					//Puts either Login or Account link depending on user access level
-					if($user_access>=1)
-						echo "<a href='client.php'><span class=' glyphicon glyphicon-user'></span> Account</a>";
-					else
-						echo "<a href='login.php'><span class=' glyphicon glyphicon-user'></span> Login</a>";
-				?> | <a href="cart.php"><span class=" glyphicon glyphicon-shopping-cart"></span>Cart</a>
-			</div>
-		</div>	
-	</div>
-	<div class="navbar" role="navigation">
-		<div class="container">	
-			
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</div>
-  
-			<div class="navbar-collapse collapse">
-				<div class="navbar-form navbar-right">
-					<form action="search.php" method="post" class="input-group" role="search">
-						<input type="text" class="form-control" name="search_term" placeholder="Search">
-						<div id="ajax-search-results"></div>
-						<div class="input-group-btn">
-							<a href="search.php"><button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button></a>
-						</div>
-					</form>
-				</div>       
-				<ul class="nav navbar-nav">
-					<li class="menuitem"><a href="catalog.php?category=Hardwoods">Hardwoods</a></li>
-					<li class="menuitem"><a href="catalog.php?category=Softwood">Softwoods</a></li>
-					<li class="menuitem"><a href="catalog.php?category=Plywood">Plywood</a></li>
-					<li class="menuitem"><a href="catalog.php?category=Concrete">Concrete</a></li>
-					<li class="menuitem"><a href="catalog.php?category=Drywall">Drywall</a></li>
-					<li class="menuitem"><a href="catalog.php?category=Roofing">Roofing</a></li>
-				</ul>
-			</div><!--/.navbar-collapse -->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2 brand"><a href="home.php"><img class="logo" src="img/logo.png" alt="Southern Supply Co. Logo"></a>
+				</div>
+				<div class=" login col-md-2 col-md-offset-8">
+					<?php
+						//Puts either Login or Account link depending on user access level
+						if($user_access>=1)
+							echo "<a class='header-links' href='client.php'><span class='glyphicon glyphicon-user'></span> Account</a>";
+						else
+							echo "<a class='header-links' href='login.php'><span class='glyphicon glyphicon-user'></span> Login</a>";
+					?> | <a class='header-links' href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>
+				</div>
+			</div>	
 		</div>
+		<div class="navbar" role="navigation">
+			<div class="container">	
+
+				<div class="center">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					
+					<div class="navbar-collapse collapse">
+						<div class="navbar-form navbar-right">
+							<form action="search.php" method="post" class="input-group" role="search">
+								<input type="text" class="form-control" name="search_term" placeholder="Search">
+								<div id="ajax-search-results"></div>
+								<div class="input-group-btn">
+									<a href="search.php"><button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button></a>
+								</div>
+							</form>
+						</div>       
+						<ul class="nav navbar-nav">
+							<li class="menuitem"><a href="catalog.php?category=Hardwoods">Hardwoods</a></li>
+							<li class="menuitem"><a href="catalog.php?category=Softwood">Softwoods</a></li>
+							<li class="menuitem"><a href="catalog.php?category=Plywood">Plywood</a></li>
+							<li class="menuitem"><a href="catalog.php?category=Concrete">Concrete</a></li>
+							<li class="menuitem"><a href="catalog.php?category=Drywall">Drywall</a></li>
+							<li class="menuitem"><a href="catalog.php?category=Roofing">Roofing</a></li>
+						</ul>
+					</div><!--/.navbar-collapse -->
+				</div>
+			</div>
 		</div>
 	</div>
