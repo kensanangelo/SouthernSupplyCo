@@ -26,11 +26,11 @@ session_start();
 						//Puts either Login or Account link depending on user access level
 						if($_SESSION['logged_in'] == 1){
 							echo "<a id='account-button' href='client.php'><span class='glyphicon glyphicon-user'></span> Account</a>";
-							echo "<a id='logout-button' href='login.php?mode=logout'><span class='glyphicon glyphicon-logout'></span> Log Out</a>";
+							echo "<a id='logout-button' href='login.php?mode=logout'><span class='glyphicon glyphicon-user'></span> Log Out</a>";
 						} else {
 							echo "<a id='login-button' href='login.php'><span class='glyphicon glyphicon-user'></span> <span class='button-txt'>Login</span></a>";
 						}
-					?> | <a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>
+					?>  &nbsp;<a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>
 
 				</div>
 			</div>	
