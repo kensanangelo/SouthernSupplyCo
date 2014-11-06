@@ -28,7 +28,7 @@
 						<li><a href="client.php">Account</a></li>
 						<li><a href="cart.php">Shopping Cart</a></li>
 						<?php
-							if($user_access==3)
+							if($user_access > 2)
 								echo '<li><a href="admin.php">Admin</a></li>';
 						?>
 					</ul>

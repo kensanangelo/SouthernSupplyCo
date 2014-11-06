@@ -52,6 +52,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 
 				$user_results = mysqli_fetch_assoc($results);
 				$user_id = $user_results['id'];
+				//	User access 1 = Guest
+				//	User access 2 = Signed in User
+				//	User access 3 = Admin
+				//	User access 4 = Super
 				$user_access = $user_results['user_access'];
 
 				//	Set up a message to be appended to the html via AJAX at the bottom of login.php

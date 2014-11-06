@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+if(!isset($_SESSION['user_access'])){
+	$_SESSION['user_access'] = 1;
+}
+
 //	Print everything inside the Session global array
 //pre_print_r($_SESSION);
 ?>
