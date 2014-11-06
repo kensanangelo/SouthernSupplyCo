@@ -16,6 +16,10 @@ session_start();
 	<![endif]-->
 </head>
 <body>
+
+	<div id="wrap">
+
+	
 	<div id="header">
 		<div class="container">
 			<div class="row">
