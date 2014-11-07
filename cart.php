@@ -1,5 +1,4 @@
 <?php
-session_start();
 ?>
 <!DOCTYPE html>
 	<html lang="en">
@@ -15,7 +14,8 @@ session_start();
 			//echo 'Get: <br />';
 			//pre_print_r($_GET);
 
-			$cart = $_SESSION['cart'];
+
+			@$cart = $_SESSION['cart'];
 
 				//echo 'Get: <br />';
 				//pre_print_r($_GET);

@@ -67,6 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 				//	Store login data in the Session (Not working through ajax... it only stores when I set it outside AJAX requests)
 				$_SESSION['logged_in'] = 1;
 				$_SESSION['user_id'] = $user_id;
+				$_SESSION['user_access'] = $user_access;
+
 
 				header('Content-Type: application/json');
 				die(json_encode(array(
@@ -74,7 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 					'message' => $message,
 					'query' => $query,
 					'user_id' => $user_id,
-					'loginSuccess' => $loginSuccess
+					'loginSuccess' => $loginSuccess,
+					'user_access' => $user_access
 				)));
 
 				// echo "YOU LOGGED IN CORRECTLY";

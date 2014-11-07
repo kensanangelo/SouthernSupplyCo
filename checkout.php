@@ -1,9 +1,4 @@
 <?php
-session_start();
-
-$order_total = $_POST['order_total'];
-$stripe_total = $_POST['stripe_total'];
-
 ?>
 <!DOCTYPE html>
 	<html lang="en">
@@ -16,6 +11,9 @@ $stripe_total = $_POST['stripe_total'];
 			include 'includes.php';
 			include 'header.php';
 
+
+			$order_total = $_POST['order_total'];
+			$stripe_total = $_POST['stripe_total'];
 		?>
 		<div class="container">
 			<div class="option">

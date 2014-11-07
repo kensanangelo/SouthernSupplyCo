@@ -1,5 +1,4 @@
 <?php
-session_start();
 ?>
 <!DOCTYPE html>
 	<html lang="en">
@@ -20,7 +19,8 @@ session_start();
 					$_SESSION['user_access'] = 1;
 				}
 				
-			}
+			}else
+				$mode='';
 		?>
 		<div class="container">
 			<div class="option">	
