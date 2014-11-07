@@ -1,4 +1,5 @@
 <?php
+
 ?>
 <!DOCTYPE html>
 	<html lang="en">
@@ -11,7 +12,16 @@
 			include 'includes.php';
 			include 'header.php';
 
-			$result=readFromDB("products", "*", false);
+			if(isset($_POST["users"])){
+				$table='users';
+				$result=readFromDB('users','*',false);
+			}else if(isset($_POST["reviews"])){
+				$table='reviews';
+				$result=readFromDB('reviews','*',false);
+			}else{
+				$table='products';
+				$result=readFromDB('products','*', false);
+			}
 		?>
 		<div class="container">
 			<div class="marT-20 marB-20">
@@ -23,22 +33,44 @@
   					<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
  					<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Remove</button>
 				</div>
+				<div class="marB-20 pull-right">
+					<form action="admin.php" method="POST">
+						<div class="btn-group">
+							<input type="submit" class="btn btn-default" name="products" value="Products"></input>
+		  					<input type="submit" class="btn btn-default" name="users" value="Users"></input>
+		 					<input type="submit" class="btn btn-default" name="reviews" value="Reviews"></input>
+						</div>
+					</form>
+				</div>
 				<table class="table table-responsive table-striped table-bordered">
 					<thead>
 						<tr>
-							<th>Sel</th>
-							<th>ID</th>
-							<th>Product Name</th>
-							<th>Description</th>
-							<th>Category</th>
-							<th>SKU</th>
-							<th>Stock</th>
-							<th>Cost</th>
-							<th>Price</th>
-							<th>Sale Price</th>
-							<th>Product Image URL</th>
-							<th>Rating</th>
-							<th>Number of Votes</th>
+							<?php if($table=='products'){
+							echo"	<th>Sel</th>
+								<th>ID</th>
+								<th>Product Name</th>
+								<th>Description</th>
+								<th>Category</th>
+								<th>SKU</th>
+								<th>Stock</th>
+								<th>Cost</th>
+								<th>Price</th>
+								<th>Sale Price</th>
+								<th>Product Image URL</th>
+								<th>Rating</th>
+								<th>Number of Votes</th>";
+							} else if($table=='users'){
+							echo"	<th>Sel</th>
+								<th>ID</th>
+								<th>Username</th>
+								<th>Password (Hashed)</th>
+								<th>User Access</th>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Email</th>
+								<th>Address</th>
+								<th>Cart</th>";
+							}?>
 						</tr>
 					</thead>
 					<?php foreach($result as $row){ ?> 

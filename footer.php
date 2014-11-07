@@ -25,7 +25,10 @@
 						<li><a href="#">Business Policies</a></li>
 						<li>&nbsp;</li>
 						<li><p class="lead white">Options</p></li>
-						<li><a href="client.php">Account</a></li>
+						<?php
+							if($user_access > 1)
+								echo '<li><a href="client.php">Account</a></li>';
+						?>
 						<li><a href="cart.php">Shopping Cart</a></li>
 						<?php
 							if($user_access > 2)
