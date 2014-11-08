@@ -62,7 +62,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 				$message = '<h3>Welcome, '.$user.'! You Have Successfully Logged In</h3>';
 				$message .= '<p>Your User ID is: '.$user_id.'</p>';
 				$message .= '<p>Your User Access is: '.$user_access.'</p>';
-				$message .= '<a href="client.php">Take me to <strong>My Account</strong></a></p>';
+				if($user_access>2)
+					$message .= '<a href="admin.php">Take me to the <strong>Admin Panel.</strong></a>';
+				else
+					$message .= '<a href="client.php">Take me to <strong>My Account.</strong></a>';
 
 				//	Store login data in the Session (Not working through ajax... it only stores when I set it outside AJAX requests)
 				$_SESSION['logged_in'] = 1;

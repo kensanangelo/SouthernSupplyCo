@@ -79,72 +79,69 @@
 							<?php } ?>
 					</form>
 				</div>
-				<table class="table table-responsive table-striped table-bordered">
-					<thead>
-						<tr>
-							<?php if($table=='products'){?>
-								<th>Sel</th>
-								<th>ID</th>
-								<th>Product Name</th>
-								<th>Description</th>
-								<th>Category</th>
-								<th>SKU</th>
-								<th>Stock</th>
-								<th>Cost</th>
-								<th>Price</th>
-								<th>Sale Price</th>
-								<th>Product Image URL</th>
-								<th>Rating</th>
-								<th>Number of Votes</th>
-							<?php } else if($table=='users'){ ?>
-								<th>Sel</th>
-								<th>ID</th>
-								<th>Username</th>
-								<th>Password (Hashed)</th>
-								<th>User Access</th>
-								<th>First Name</th>
-								<th>Last Name</th>
-								<th>Email</th>
-								<th>Address</th>
-							<?php } ?>
-						</tr>
-					</thead>
-					<?php foreach($result as $row){ ?> 
-					  		<tr>
-					  			<?php if($table=='products'){?>
-									<td><input type='radio' name='sel' id="<?php echo $row['productID']; ?>"/></td>
-									<td><?php echo $row['productID']; ?></td>
-									<td><?php echo $row['productName']; ?></td>
-									<td><?php echo $row['description']; ?></td>
-									<td><?php echo $row['category']; ?></td>
-									<td><?php echo $row['SKU']; ?></td>
-									<td><?php echo $row['stock']; ?></td>
-									<td><?php echo $row['cost']; ?></td>
-									<td><?php echo $row['price']; ?></td>
-									<td><?php echo $row['salePrice']; ?></td>
-									<td><?php echo $row['productImage']; ?></td>
-									<td><?php echo $row['rating']; ?></td>
-									<td><?php echo $row['numOfVotes']; ?></td>
-							<?php } else if($table=='users'){ ?>
-									<td><input type='radio' name='sel' id="<?php echo $row['id']; ?>"/></td>
-									<td><?php echo $row['id']; ?></td>
-									<td><?php echo $row['username']; ?></td>
-									<td><?php echo $row['password']; ?></td>
-									<td><?php echo $row['user_access']; ?></td>
-									<td><?php echo $row['first_name']; ?></td>
-									<td><?php echo $row['last_name']; ?></td>
-									<td><?php echo $row['email']; ?></td>
-									<td><?php echo $row['address']; ?></td>
-							<?php } ?>
-								
+				<div class="table-responsive">
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<?php if($table=='products'){?>
+									<th>Sel</th>
+									<th>ID</th>
+									<th>Product Name</th>
+									<th>Description</th>
+									<th>Category</th>
+									<th>SKU</th>
+									<th>Stock</th>
+									<th>Cost</th>
+									<th>Price</th>
+									<th>Sale Price</th>
+									<th>Product Image URL</th>
+									<th>Rating</th>
+									<th>Number of Votes</th>
+								<?php } else if($table=='users'){ ?>
+									<th>Sel</th>
+									<th>ID</th>
+									<th>Username</th>
+									<th>Password (Hashed)</th>
+									<th>User Access</th>
+									<th>First Name</th>
+									<th>Last Name</th>
+									<th>Email</th>
+									<th>Address</th>
+								<?php } ?>
 							</tr>
-					<?php } ?>
-					
-				</table>
-				<div class="btn-group">
-					<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Add</button>
-  					<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
- 					<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Remove</button>
+						</thead>
+						<?php foreach($result as $row){ ?> 
+						  		<tr>
+						  			<?php if($table=='products'){?>
+										<td><input type='radio' name='sel' value="<?php echo $row['productID']; ?>"/></td>
+										<td id="Row<?php $row['productID']; ?>-id"><?php echo $row['productID']; ?></td>
+										<td id="Row<?php $row['productID']; ?>-name"><?php echo $row['productName']; ?></td>
+										<td id="Row<?php $row['productID']; ?>-desc"><?php echo $row['description']; ?></td>
+										<td><?php echo $row['category']; ?></td>
+										<td><?php echo $row['SKU']; ?></td>
+										<td><?php echo $row['stock']; ?></td>
+										<td><?php echo $row['cost']; ?></td>
+										<td><?php echo $row['price']; ?></td>
+										<td><?php echo $row['salePrice']; ?></td>
+										<td><?php echo $row['productImage']; ?></td>
+										<td><?php echo $row['rating']; ?></td>
+										<td><?php echo $row['numOfVotes']; ?></td>
+								<?php } else if($table=='users'){ ?>
+										<td><input type='radio' name='sel' value="<?php echo $row['id']; ?>"/></td>
+										<td><?php echo $row['id']; ?></td>
+										<td><?php echo $row['username']; ?></td>
+										<td><?php echo $row['password']; ?></td>
+										<td><?php echo $row['user_access']; ?></td>
+										<td><?php echo $row['first_name']; ?></td>
+										<td><?php echo $row['last_name']; ?></td>
+										<td><?php echo $row['email']; ?></td>
+										<td><?php echo $row['address']; ?></td>
+								<?php } ?>
+									
+								</tr>
+						<?php } ?>
+						
+					</table>
 				</div>
 			</div>
 		</div>
