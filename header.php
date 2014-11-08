@@ -41,7 +41,7 @@ if(!isset($_SESSION['user_access'])){
 						} else {
 							echo "<a id='login-button' href='login.php'><span class='glyphicon glyphicon-user'></span> <span class='button-txt'>Login</span></a>";
 						}
-					?>  &nbsp;<a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>
+					?><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>
 
 				</div>
 			</div>	

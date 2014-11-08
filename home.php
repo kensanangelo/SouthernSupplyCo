@@ -15,7 +15,7 @@
 
 		<div class="container foreground">
 			<div class="row">
-				
+				<div class="featured-wrapper">
 				<div class="col-md-4 col-md-offset-7 featured">
 					<h2>Daily Deal</h2>
 					<?php
@@ -49,6 +49,7 @@
 								</div>';
 					?>
 				</div>
+			</div>
 			</div>
 		</div>
 		

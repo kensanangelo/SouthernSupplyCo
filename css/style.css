@@ -1,5 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
+html, body {
+  width: auto !important;
+  overflow-x: hidden !important;
+}
 
 body{
 	height: 100%;
@@ -69,7 +73,8 @@ html {
 	margin-top: 130px;
 	width: 305px;
 	display: inline-block;
-	padding-top: 100px;
+	padding-top: 120px;
+	padding-bottom: 10px;
 	float: right;
 	margin: 0;
 	-webkit-transition: all;
@@ -105,6 +110,7 @@ html {
 
 .navbar{
 	margin-top: 0px;
+	margin-bottom: 0;
 	/*margin-bottom: 20px;*/
 	border-radius: 15px;
 	border: 0;
@@ -132,14 +138,6 @@ html {
 	border-color: #ccc;
 }
 
-/*.navbar .navbar-nav>li{
-	border-left: 1px solid #ccc;
-}
-
-.navbar .navbar-nav>li:last-child{
-	border-right: 1px solid #ccc;
-}*/
-
 .navbar .navbar-nav>li>a{
 	color: #f4f4f4;
 	font-family: 'Open Sans', sans-serif;
@@ -151,7 +149,6 @@ html {
   	transition: color 0.3s ease-out;
 	
 }
-
 
 .nav > li > a:hover,
 .nav > li > a:focus {
@@ -175,9 +172,12 @@ html {
 	-o-background-size: cover;
 	background-size: cover;
 
+
    
 }
-
+.featured-wrapper{
+	margin: 0 auto;
+}
 .featured{
 	background-color:#FFF; 
 	/*background-color: #f3df00;
@@ -404,42 +404,45 @@ ul{
 	border-bottom: 1px solid gray;
 }
 
-@media (max-width: 768px) {
+/*mediaQ*/
+
+@media (max-width: 767px) {
 	.brand{
 		text-align: center;
-		padding-top: 60px;
+		padding-top: 30px;
 	}
+
+	.login {
+
+		padding-top: 20px;
+		display: block;
+		text-align: center;
+		margin: 0 auto;
+		width: 100%;
+
+	}
+
 
 	.menuitem{
 		text-align: center;
 	}
 
 	.featured{
-		left: 10%;
-		width:80%;
-		margin-top: 20px;
-		margin-bottom: 20px;
+		width:50%;
+		margin: 0 auto;
+		margin-top: 30px;
+
 	}
 
 	.foreground{
 		background-image:none;
 	
 	}
-	.login {
-		display: inline-block;
-		margin-top: 20px;
-		padding-top: 0;
-		display: block;
-		position: absolute;
-		top: 0;
-		padding: 0;
-		left: 50%;
-		margin-left: -139px;
-	}
 
 }
 
 @media (min-width: 768px){
+
 	.brand {
 		float: left;
 	}
@@ -448,9 +451,29 @@ ul{
 		text-align: right;
 
 	}
+
+@media (max-width: 991px) and (min-width: 768px){
+	.foreground{
+		width: 100%;
+	}
+
+	.featured{
+		left: 53%;
+		width: 40%;
+
+	}
 }
 
-@media (max-width: 960px) {
+@media screen and (min-width: 960px){
+	#catalog .col-md-3 {
+		width: 21.5%;
+		margin-right: 2%;
+	}
+}
+
+
+@media (max-width: 991px) {
+
 
     .navbar-header {
         float: none;
@@ -512,11 +535,6 @@ ul{
     }
 }
 
-@media screen and (min-width: 960px){
-	#catalog .col-md-3 {
-		width: 21.5%;
-		margin-right: 2%;
-	}
-}
+
 
 
