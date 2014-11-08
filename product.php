@@ -53,7 +53,7 @@
 
 							<div class="col-md-4 marT-20 text-right">
 
-								<p class="price"><?php echo $row['price']; ?></p>
+								<p class="price">$<?php echo $row['price']; ?></p>
 
 								<p>Qty: <input type="text" value="1" size="3"/></p>
 
