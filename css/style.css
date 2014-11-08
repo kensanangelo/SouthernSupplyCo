@@ -108,6 +108,9 @@ html {
 	color: #444;
 }
 
+.login>a:hover{
+	color: #a3a3a3;
+}
 .navbar{
 	margin-top: 0px;
 	margin-bottom: 0;
@@ -374,7 +377,7 @@ ul{
 .lead{
 	font-size: 15px;
 	margin-bottom: 5px;
-	color: #f4f4f4;
+	color: #F2AA00;
 	text-transform: uppercase;
 }
 
@@ -464,6 +467,10 @@ ul{
 		left: 53%;
 		width: 40%;
 
+	}
+
+	.thumbnail{
+		height: 270px ;
 	}
 }
 
