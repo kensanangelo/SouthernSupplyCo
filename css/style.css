@@ -266,6 +266,7 @@ html {
 	padding: 10px;
 	border: 1px solid #ccc;
 	margin-bottom: 20px;
+
 }
 
 .catStars{
@@ -447,10 +448,10 @@ ul{
 
 	}
 
-	/*.foreground{
+	.foreground{
 		background-image:none;
 	
-	}*/
+	}
 
 }
 
@@ -466,9 +467,9 @@ ul{
 	}
 
 @media (max-width: 991px) and (min-width: 768px){
-	.foreground{
+	/*.foreground{
 		width: 100%;
-	}
+	}*/
 
 	.featured{
 		left: 53%;
@@ -478,6 +479,19 @@ ul{
 
 	.thumbnail{
 		height: 270px ;
+	}
+
+	.productSpacer{
+	height: 70px;
+}
+
+	h3, .h3{
+		font-size: 15px;
+	}
+
+	.option{
+		padding-left: 6px;
+		padding-right: 6px;
 	}
 }
 
@@ -559,6 +573,10 @@ ul{
 
 	.productSpacer{
 		height: 70px ;
+	}
+
+	.featured{
+		padding-right: 40px;
 	}
 }
 
