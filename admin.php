@@ -38,14 +38,14 @@
 				<div class="marB-20 pull-right">
 					<form action="admin.php" method="POST">
 						<div class="btn-group">
-							<input type="submit" class="btn <?php if($table=='products'){echo 'btn-primary active';}else{echo 'btn-default';}?>" name="products" id='adminProducts' value="Products"></input>
-		  					<input type="submit" class="btn <?php if($table=='users'){echo 'btn-primary active';}else{echo 'btn-default';}?>" name="users" id='adminUsers' value="Users"></input>
-		 					<input type="submit" class="btn <?php if($table=='reviews'){echo 'btn-primary active';}else{echo 'btn-default';}?>" name="reviews" id='adminReviews' value="Reviews"></input>
+							<input type="submit" class="btn <?php if($table=='products'){echo 'btn-info active';}else{echo 'btn-default';}?>" name="products" id='adminProducts' value="Products"></input>
+		  					<input type="submit" class="btn <?php if($table=='users'){echo 'btn-info active';}else{echo 'btn-default';}?>" name="users" id='adminUsers' value="Users"></input>
+		 					<input type="submit" class="btn <?php if($table=='reviews'){echo 'btn-info active';}else{echo 'btn-default';}?>" name="reviews" id='adminReviews' value="Reviews"></input>
 						</div>
 					</form>
 				</div>
 				<div>
-					<form action="admin.php" method="get" class="marT-20 marB-20 hidden" id="adminForm">
+					<form action="admin.php" method="get" class="marT-20 hidden" id="adminForm">
 							<?php if($table=='products'){?>
 								<ul class='col-md-4'>
 									<li><label class='labelFix' for="id">ID: </label><input type='text' size='' name='id' placeholder='productID'></input></li>
@@ -77,6 +77,15 @@
 									<li><label class='labelFix' for="address">Address: </label><input type='text' size='' name='address' placeholder='address'></input></li>
 								</ul>
 							<?php } ?>
+							<div class="col-md-8 marB-20">
+								<input type="button" class="center-block btn" id="add-edit-button" value="Add product"/>
+								<!--<p><strong>Are you sure?</strong>
+									<div class="btn-group">
+										<input type="submit" class="btn btn-success" id="confirm" value="Yes">
+										<input type="submit" class="btn btn-danger" id="confirm" value="No">
+									</div>
+								</p>-->
+							</div>
 					</form>
 				</div>
 				<div class="table-responsive">
@@ -128,14 +137,14 @@
 										<td id="<?php echo $row['productID']; ?>-numOfVotes"><?php echo $row['numOfVotes']; ?></td>
 								<?php } else if($table=='users'){ ?>
 										<td><input type='radio' name='sel' value="<?php echo $row['id']; ?>"/></td>
-										<tdid="<?php echo $row['productID']; ?>-desc"><?php echo $row['id']; ?></td>
-										<tdid="<?php echo $row['productID']; ?>-desc"><?php echo $row['username']; ?></td>
-										<tdid="<?php echo $row['productID']; ?>-desc"><?php echo $row['password']; ?></td>
-										<tdid="<?php echo $row['productID']; ?>-desc"><?php echo $row['user_access']; ?></td>
-										<tdid="<?php echo $row['productID']; ?>-desc"><?php echo $row['first_name']; ?></td>
-										<tdid="<?php echo $row['productID']; ?>-desc"><?php echo $row['last_name']; ?></td>
-										<tdid="<?php echo $row['productID']; ?>-desc"><?php echo $row['email']; ?></td>
-										<tdid="<?php echo $row['productID']; ?>-desc"><?php echo $row['address']; ?></td>
+										<td id="<?php echo $row['id']; ?>-id"><?php echo $row['id']; ?></td>
+										<td id="<?php echo $row['id']; ?>-username"><?php echo $row['username']; ?></td>
+										<td id="<?php echo $row['id']; ?>-password"><?php echo $row['password']; ?></td>
+										<td id="<?php echo $row['id']; ?>-user_access"><?php echo $row['user_access']; ?></td>
+										<td id="<?php echo $row['id']; ?>-first_name"><?php echo $row['first_name']; ?></td>
+										<td id="<?php echo $row['id']; ?>-last_name"><?php echo $row['last_name']; ?></td>
+										<td id="<?php echo $row['id']; ?>-email"><?php echo $row['email']; ?></td>
+										<td id="<?php echo $row['id']; ?>-address"><?php echo $row['address']; ?></td>
 								<?php } ?>
 									
 								</tr>
