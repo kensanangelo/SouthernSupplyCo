@@ -38,9 +38,9 @@
 				<div class="marB-20 pull-right">
 					<form action="admin.php" method="POST">
 						<div class="btn-group">
-							<input type="submit" class="btn <?php if($table=='products'){echo 'btn-primary active';}else{echo 'btn-default';}?>" name="products" value="Products"></input>
-		  					<input type="submit" class="btn <?php if($table=='users'){echo 'btn-primary active';}else{echo 'btn-default';}?>" name="users" value="Users"></input>
-		 					<input type="submit" class="btn <?php if($table=='reviews'){echo 'btn-primary active';}else{echo 'btn-default';}?>" name="reviews" value="Reviews"></input>
+							<input type="submit" class="btn <?php if($table=='products'){echo 'btn-primary active';}else{echo 'btn-default';}?>" name="products" id='adminProducts' value="Products"></input>
+		  					<input type="submit" class="btn <?php if($table=='users'){echo 'btn-primary active';}else{echo 'btn-default';}?>" name="users" id='adminUsers' value="Users"></input>
+		 					<input type="submit" class="btn <?php if($table=='reviews'){echo 'btn-primary active';}else{echo 'btn-default';}?>" name="reviews" id='adminReviews' value="Reviews"></input>
 						</div>
 					</form>
 				</div>
@@ -114,28 +114,28 @@
 						  		<tr>
 						  			<?php if($table=='products'){?>
 										<td><input type='radio' name='sel' value="<?php echo $row['productID']; ?>"/></td>
-										<td id="Row<?php $row['productID']; ?>-id"><?php echo $row['productID']; ?></td>
-										<td id="Row<?php $row['productID']; ?>-name"><?php echo $row['productName']; ?></td>
-										<td id="Row<?php $row['productID']; ?>-desc"><?php echo $row['description']; ?></td>
-										<td><?php echo $row['category']; ?></td>
-										<td><?php echo $row['SKU']; ?></td>
-										<td><?php echo $row['stock']; ?></td>
-										<td><?php echo $row['cost']; ?></td>
-										<td><?php echo $row['price']; ?></td>
-										<td><?php echo $row['salePrice']; ?></td>
-										<td><?php echo $row['productImage']; ?></td>
-										<td><?php echo $row['rating']; ?></td>
-										<td><?php echo $row['numOfVotes']; ?></td>
+										<td id="<?php echo $row['productID']; ?>-productID"><?php echo $row['productID']; ?></td>
+										<td id="<?php echo $row['productID']; ?>-productName"><?php echo $row['productName']; ?></td>
+										<td id="<?php echo $row['productID']; ?>-description"><?php echo $row['description']; ?></td>
+										<td id="<?php echo $row['productID']; ?>-category"><?php echo $row['category']; ?></td>
+										<td id="<?php echo $row['productID']; ?>-SKU"><?php echo $row['SKU']; ?></td>
+										<td id="<?php echo $row['productID']; ?>-stock"><?php echo $row['stock']; ?></td>
+										<td id="<?php echo $row['productID']; ?>-cost"><?php echo $row['cost']; ?></td>
+										<td id="<?php echo $row['productID']; ?>-price"><?php echo $row['price']; ?></td>
+										<td id="<?php echo $row['productID']; ?>-salePrice"><?php echo $row['salePrice']; ?></td>
+										<td id="<?php echo $row['productID']; ?>-productImage"><?php echo $row['productImage']; ?></td>
+										<td id="<?php echo $row['productID']; ?>-rating"><?php echo $row['rating']; ?></td>
+										<td id="<?php echo $row['productID']; ?>-numOfVotes"><?php echo $row['numOfVotes']; ?></td>
 								<?php } else if($table=='users'){ ?>
 										<td><input type='radio' name='sel' value="<?php echo $row['id']; ?>"/></td>
-										<td><?php echo $row['id']; ?></td>
-										<td><?php echo $row['username']; ?></td>
-										<td><?php echo $row['password']; ?></td>
-										<td><?php echo $row['user_access']; ?></td>
-										<td><?php echo $row['first_name']; ?></td>
-										<td><?php echo $row['last_name']; ?></td>
-										<td><?php echo $row['email']; ?></td>
-										<td><?php echo $row['address']; ?></td>
+										<tdid="<?php echo $row['productID']; ?>-desc"><?php echo $row['id']; ?></td>
+										<tdid="<?php echo $row['productID']; ?>-desc"><?php echo $row['username']; ?></td>
+										<tdid="<?php echo $row['productID']; ?>-desc"><?php echo $row['password']; ?></td>
+										<tdid="<?php echo $row['productID']; ?>-desc"><?php echo $row['user_access']; ?></td>
+										<tdid="<?php echo $row['productID']; ?>-desc"><?php echo $row['first_name']; ?></td>
+										<tdid="<?php echo $row['productID']; ?>-desc"><?php echo $row['last_name']; ?></td>
+										<tdid="<?php echo $row['productID']; ?>-desc"><?php echo $row['email']; ?></td>
+										<tdid="<?php echo $row['productID']; ?>-desc"><?php echo $row['address']; ?></td>
 								<?php } ?>
 									
 								</tr>
