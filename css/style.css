@@ -126,7 +126,8 @@ html {
 
 
 .navbar>.container{
-	background-color: #323232;
+	background: url(../img/footer.png) repeat;
+	/*background-color: #323232;*/ 
 	/*border-radius: 5px;*/
 	/*border:1px solid #ccc;*/
 	padding-left: 0;
@@ -171,6 +172,7 @@ html {
 
 .foreground{
 	padding: 0;
+	width: 100%;
 	background-color: rgba(255,255,255,.3);
 	background-image: url('../img/contractor.jpg');
 	background-repeat:no-repeat;
@@ -186,6 +188,7 @@ html {
 }
 .featured{
 	background-color:#FFF; 
+	width: 27%;
 	/*background-color: #f3df00;
 	*/
 	border:1px solid #999;
@@ -340,7 +343,7 @@ fieldset{
 
 /*--Stuff for footer--*/
 .footer{
-	background-color: #323232;
+	background: url(../img/footer.png) repeat;
 	border-top: 1px solid #e5e5e5;
 	margin-top: -214px;
 	padding-top: 15px;
@@ -391,7 +394,7 @@ ul{
 }
 
 .disclaimer-wrapper{
-	background-color: #2a2929;
+	background-color: #070406;
 	width: 100%;
 }
 
@@ -444,10 +447,10 @@ ul{
 
 	}
 
-	.foreground{
+	/*.foreground{
 		background-image:none;
 	
-	}
+	}*/
 
 }
 
@@ -552,6 +555,10 @@ ul{
 @media (max-width: 1199px) and (min-width: 992px){
 	.thumbnail{
 		height: 220px;
+	}
+
+	.productSpacer{
+		height: 70px ;
 	}
 }
 
