@@ -251,6 +251,10 @@ html {
 
 /*--Stuff for catalog and checkout page--*/
 
+.active{
+	font-weight: 700 !important;
+}
+
 .push{
 	float: right;
 }
@@ -545,6 +549,11 @@ ul{
     }
 }
 
+@media (max-width: 1199px) and (min-width: 992px){
+	.thumbnail{
+		height: 220px;
+	}
+}
 
 
 
