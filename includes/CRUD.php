@@ -8,12 +8,12 @@
 
 		if($table=="products"){
 			$query='INSERT INTO products (`productID`, `productName`, `description`, `category`, `SKU`, `stock`, `cost`, `price`, `salePrice`, `productImage`, `rating`,`numOfVotes`) VALUES (NULL, "'.$values[0].'","'.$values[1].'","'.$values[2].'",'.$values[3].','.$values[4].','.$values[5].','.$values[6].','.$values[7].',"'.$values[8].'",'.$values[9].','.$values[10].')';
-		}else if($table=="users"){
+		}
+		elseif($table=="users"){
 			$query='INSERT INTO  users (`id` ,`username` ,`password` ,`user_access` ,`first_name` ,`last_name` ,`email` ,`address` ,`cart`) VALUES (NULL ,  "'.$values[0].'", "'.$values[1].'", '.$values[2].', "'.$values[3].'", "'.$values[4].'", "'.$values[5].'", "'.$values[6].'", "'.$values[7].'")';
 		}
 
 		$results=mysqli_query($connection, $query);
-
 
 		// mysqli_close($connection);
 
@@ -84,4 +84,17 @@
 			return "Failure";	 
 		}
 	}
+
+	function numberOfReviews($product_id)
+	{
+		include 'connectdb.php';
+
+		$query = $connection->prepare("SELECT * FROM `reviews` WHERE `product_id` = '".$product_id."'");
+		$query->execute();
+		$query->store_result();
+
+		$rows = $query->num_rows;
+		return $rows;
+	}
+
 ?>

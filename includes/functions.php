@@ -68,7 +68,6 @@ function ssc_query($search_term, $mode = 'search'){
 
 }
 
-
 function process_cart($mode, $id){
 
 	//ToDo:

@@ -1,5 +1,4 @@
 <?php
-session_start();
 ?>
 <!DOCTYPE html>
 	<html lang="en">
@@ -15,7 +14,8 @@ session_start();
 			//echo 'Get: <br />';
 			//pre_print_r($_GET);
 
-			$cart = $_SESSION['cart'];
+
+			@$cart = $_SESSION['cart'];
 
 				//echo 'Get: <br />';
 				//pre_print_r($_GET);
@@ -164,9 +164,15 @@ session_start();
 			<div class="row">
 				<div class="col-md-3 col-md-offset-9 text-right">
 					<ul>
-						<li>Subtotal: $<?php echo $sub_total; ?></li>
-						<li>Sales Tax: $<?php echo $sales_tax; ?></li>
-						<li class="price marT-20">Total: $<?php echo $order_total; ?></li>
+						<?php if(isset($sub_total)){ ?>
+							<li>Subtotal: $<?php echo $sub_total; ?></li>
+						<?php } ?>
+						<?php if(isset($sales_tax)){ ?>
+							<li>Sales Tax: $<?php echo $sales_tax; ?></li>
+						<?php } ?>
+						<?php if(isset($sales_tax)){ ?>
+							<li class="price marT-20">Total: $<?php echo $order_total; ?></li>
+						<?php } ?>
 					</ul>
 					<form action="checkout.php" method="POST">
 						<input type="hidden" name="stripe_total" value="<?php echo $stripe_total; ?>">

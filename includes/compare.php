@@ -52,17 +52,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 
 				$user_results = mysqli_fetch_assoc($results);
 				$user_id = $user_results['id'];
+				//	User access 1 = Guest
+				//	User access 2 = Signed in User
+				//	User access 3 = Admin
+				//	User access 4 = Super
 				$user_access = $user_results['user_access'];
 
 				//	Set up a message to be appended to the html via AJAX at the bottom of login.php
 				$message = '<h3>Welcome, '.$user.'! You Have Successfully Logged In</h3>';
 				$message .= '<p>Your User ID is: '.$user_id.'</p>';
 				$message .= '<p>Your User Access is: '.$user_access.'</p>';
-				$message .= '<a href="client.php">Take me to <strong>My Account</strong></a></p>';
+				if($user_access>2)
+					$message .= '<a href="admin.php">Take me to the <strong>Admin Panel.</strong></a>';
+				else
+					$message .= '<a href="client.php">Take me to <strong>My Account.</strong></a>';
 
 				//	Store login data in the Session (Not working through ajax... it only stores when I set it outside AJAX requests)
 				$_SESSION['logged_in'] = 1;
 				$_SESSION['user_id'] = $user_id;
+				$_SESSION['user_access'] = $user_access;
+
 
 				header('Content-Type: application/json');
 				die(json_encode(array(
@@ -70,7 +79,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 					'message' => $message,
 					'query' => $query,
 					'user_id' => $user_id,
-					'loginSuccess' => $loginSuccess
+					'loginSuccess' => $loginSuccess,
+					'user_access' => $user_access
 				)));
 
 				// echo "YOU LOGGED IN CORRECTLY";

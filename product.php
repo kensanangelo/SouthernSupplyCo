@@ -1,5 +1,4 @@
 <?php
-session_start();
 ?>
 <!DOCTYPE html>
 	<html lang="en">
@@ -7,6 +6,7 @@ session_start();
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<title>Southern Supply Co. Product - Group 4</title>
+			<link rel="stylesheet" type="text/css" href="css/star-rating.css">
 
 		<?php 
 			include 'includes.php';
@@ -16,6 +16,7 @@ session_start();
 
 			if(isset($_GET['product'])){
 				$product_id = $_GET['product'];
+				$_SESSION['current_product'] = $product_id;
 				$result_array = ssc_query($product_id, 'ID');
 				// pre_print_r($query);
 			}
@@ -48,13 +49,25 @@ session_start();
 								</div>
 
 								<h4>Description</h4>
-								<p><?php echo $row['description']; ?></p>
+								<p><?php echo $row['description']; ?></p><br />
+
+								<?php 
+								$review_count = numberOfReviews($product_id);
+
+								if ($review_count > 0) {
+									include 'reviews.php';
+								}
+								elseif (!isset($_SESSION['reviewed'][$product_id])) {
+									include 'leave-review.php';
+								}
+
+								?>
 
 							</div>
 
 							<div class="col-md-4 marT-20 text-right">
 
-								<p class="price"><?php echo $row['price']; ?></p>
+								<p class="price">$<?php echo $row['price']; ?></p>
 
 								<p>Qty: <input type="text" value="1" size="3"/></p>
 

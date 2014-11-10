@@ -1,6 +1,13 @@
 <?php
 session_start();
 
+if(!isset($_SESSION['user_access'])){
+	$_SESSION['user_access'] = 1;
+	$user_access=1;
+}
+
+@$loggedIn=$_SESSION['logged_in'];
+@$user_access=$_SESSION['user_access'];
 //	Print everything inside the Session global array
 //pre_print_r($_SESSION);
 ?>
@@ -16,6 +23,10 @@ session_start();
 	<![endif]-->
 </head>
 <body>
+
+	<div id="wrap">
+
+	
 	<div id="header">
 		<div class="container">
 			<div class="row">
@@ -24,13 +35,13 @@ session_start();
 				<div class=" login col-md-2 col-md-offset-8">
 					<?php
 						//Puts either Login or Account link depending on user access level
-						if($_SESSION['logged_in'] == 1){
+						if($loggedIn == 1){
 							echo "<a id='account-button' href='client.php'><span class='glyphicon glyphicon-user'></span> Account</a>";
-							echo "<a id='logout-button' href='login.php?mode=logout'><span class='glyphicon glyphicon-logout'></span> Log Out</a>";
+							echo "<a id='logout-button' href='login.php?mode=logout'><span class='glyphicon glyphicon-user'></span> Log Out</a>";
 						} else {
 							echo "<a id='login-button' href='login.php'><span class='glyphicon glyphicon-user'></span> <span class='button-txt'>Login</span></a>";
 						}
-					?> | <a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>
+					?><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>
 
 				</div>
 			</div>	

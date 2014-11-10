@@ -1,5 +1,4 @@
 <?php
-session_start();
 ?>
 <!DOCTYPE html>
 	<html lang="en">
@@ -34,7 +33,7 @@ session_start();
 			
 		?>
 
-		<div class='container categories'>
+		<div id="catalog" class='container categories'>
 			<ol class="breadcrumb">
 				<li><a href="home.php">Home</a></li>
 				<?php if($current_cat){ ?>
@@ -68,7 +67,7 @@ session_start();
 									<div class="col-md-4">
 										<p class="price">$<?php echo $row['price']; ?></p>
 									</div>
-									<div class="col-md-8">
+									<div class="col-md-8 qty-add">
 										<form action="process_cart.php" method="post">
 											
 										</form>
