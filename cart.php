@@ -11,18 +11,21 @@
 			include 'includes.php';
 			include 'header.php';
 
-			//echo 'Get: <br />';
-			//pre_print_r($_GET);
+			if ($_POST['mode']) {
+				if ($_POST['mode'] == 'add') {
+					$product_id = $_POST['product_id'];
+					echo $product_id;
+				}
+				
+			}
 
+			pre_print_r($_POST);
 
-			@$cart = $_SESSION['cart'];
+			$cart = $_SESSION['cart'];
 
-				//echo 'Get: <br />';
-				//pre_print_r($_GET);
-
-				if(isset($_GET['mode'])){
-					$mode = $_GET['mode'];
-					$product_id = $_GET['product_id'];
+				if(isset($_POST['mode'])){
+					$mode = $_POST['mode'];
+					$product_id = $_POST['product_id'];
 
 					if($mode == 'add'){
 						if($product_id){
@@ -138,11 +141,6 @@
 						<a class="productLink" href="product.php"><h3><?php echo $result['productName']; ?></h3></a>
 						<div class="catStars">
 							<?php print_stars($result['rating'], $result['numOfVotes']); ?>
-							<!-- <span class="glyphicon glyphicon-star"></span>
-							<span class="glyphicon glyphicon-star"></span>
-							<span class="glyphicon glyphicon-star"></span>
-							<span class="glyphicon glyphicon-star"></span>
-							<span class="glyphicon glyphicon-star"></span> -->
 						</div>
 						<p>QUIKRETE® Concrete Mix is the original 4000 psi average compressive strength blend of portland cement, sand, and gravel or stone. Just add water. Use for any general concrete work.</p>
 					</div>

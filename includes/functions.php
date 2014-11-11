@@ -69,25 +69,21 @@ function ssc_query($search_term, $mode = 'search'){
 }
 
 
-function process_cart($mode, $id){
+function process_cart($mode, $id, $qty){
 
 	//ToDo:
 	/*
 		- Sanitize string, since it comes from the get array
 
 	*/
-
-	// convert the integer passed into this function as $id to a string for easier management
 	$id_str = (string)$id;
 
-	// if the $_SESSION cart has been established, we need to decide whether the user is trying to add or remove an item
 	if(isset($_SESSION['cart'])){
 
 		$cart = $_SESSION['cart'];
 
 		if($mode == 'add'){
 
-			// add the item to the end of the cart
 			$cart .= $id_str.', ';
 
 			$_SESSION['cart'] = $cart;

@@ -68,11 +68,12 @@
 										<p class="price">$<?php echo $row['price']; ?></p>
 									</div>
 									<div class="col-md-8 qty-add">
-										<form action="process_cart.php" method="post">
-											
+										<form action="cart.php?mode=add" method="post">
+											<input type="hidden" name="product_id" value='<?php echo $row['productID']; ?>' />
+											<p class="push">Qty: <input type="text" name="product_quantity" value="1" size="3"/></p>
+											<span class="glyphicon glyphicon-plus"></span> <input type="submit" class="add-qty-btn btn btn-default" size="3" value="Add to Cart" />
 										</form>
-										<p class="push">Qty: <input type="text" value="1" size="3"/></p>
-										<a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default push"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a>
+										<!-- <a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default push"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a> -->
 										
 									</div>
 								</div>
