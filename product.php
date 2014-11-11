@@ -6,6 +6,7 @@
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<title>Southern Supply Co. Product - Group 4</title>
+			<link rel="stylesheet" type="text/css" href="css/star-rating.css">
 
 		<?php 
 			include 'includes.php';
@@ -15,6 +16,7 @@
 
 			if(isset($_GET['product'])){
 				$product_id = $_GET['product'];
+				$_SESSION['current_product'] = $product_id;
 				$result_array = ssc_query($product_id, 'ID');
 				// pre_print_r($query);
 			}
@@ -47,7 +49,19 @@
 								</div>
 
 								<h4>Description</h4>
-								<p><?php echo $row['description']; ?></p>
+								<p><?php echo $row['description']; ?></p><br />
+
+								<?php 
+								$review_count = numberOfReviews($product_id);
+
+								if ($review_count > 0) {
+									include 'reviews.php';
+								}
+								elseif (!isset($_SESSION['reviewed'][$product_id])) {
+									include 'leave-review.php';
+								}
+
+								?>
 
 							</div>
 

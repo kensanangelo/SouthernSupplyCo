@@ -68,9 +68,7 @@ function ssc_query($search_term, $mode = 'search'){
 
 }
 
-
 function process_cart($mode, $id, $qty){
-
 	//ToDo:
 	/*
 		- Sanitize string, since it comes from the get array
