@@ -139,6 +139,7 @@ function process_cart($mode, $id, $qty = 1){
 				$cart .= $id_str.',1,';
 			}
 
+
 			
 
 			$_SESSION['cart'] = $cart;

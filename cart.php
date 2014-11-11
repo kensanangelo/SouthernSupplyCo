@@ -16,7 +16,7 @@
 			if ($_POST['mode']) {
 				if ($_POST['mode'] == 'update_total') {
 					$product_id = $_POST['product_id'];
-					$qty = $_POST['product_quantity']
+					$qty = $_POST['product_quantity'];
 				}
 				
 			}

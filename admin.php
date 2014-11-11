@@ -12,6 +12,7 @@
 			include 'includes.php';
 			include 'header.php';
 
+			//Figures out which database we are in and pulls the data
 			if(isset($_POST["users"])){
 				$table='users';
 				$result=readFromDB('users','*',false);
@@ -23,6 +24,7 @@
 				$result=readFromDB('products','*', false);
 			}
 
+			//Blocks the user if they arent an admin
 			if($user_access>2){
 		?>
 		<div class="container">
@@ -46,7 +48,9 @@
 				</div>
 				<div>
 					<form action="admin.php" method="get" class="marT-20 hidden" id="adminForm">
-							<?php if($table=='products'){?>
+							<?php 
+							//Generates admin for based on which DB it is
+							if($table=='products'){?>
 								<ul class='col-md-4'>
 									<li><label class='labelFix' for="id">ID: </label><input type='text' size='' name='id' placeholder='productID'></input></li>
 									<li><label class='labelFix' for="name">Product Name: </label><input type='text' size='' name='name' placeholder='productName'></input></li>
@@ -92,7 +96,9 @@
 					<table class="table table-striped table-bordered">
 						<thead>
 							<tr>
-								<?php if($table=='products'){?>
+								<?php 
+								//Prints the table labels based on which DB
+								if($table=='products'){?>
 									<th>Sel</th>
 									<th>ID</th>
 									<th>Product Name</th>
@@ -119,7 +125,9 @@
 								<?php } ?>
 							</tr>
 						</thead>
-						<?php foreach($result as $row){ ?> 
+						<?php 
+						//Prints each items info from DB
+						foreach($result as $row){ ?> 
 						  		<tr>
 						  			<?php if($table=='products'){?>
 										<td><input type='radio' name='sel' value="<?php echo $row['productID']; ?>"/></td>
@@ -156,7 +164,9 @@
 		</div>
 		
 
-		<?php }else{echo "<div class='container marT-20'><a>You are not able to access this feature.</a></div>";}
+		<?php 
+		//Tells the user to turn back if they arent an admin
+		}else{echo "<div class='container marT-20'><a>You are not able to access this feature.</a></div>";}
 
 		include 'footer.php'; ?>
 		<script src='js/admin.js'></script>
