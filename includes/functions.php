@@ -95,16 +95,6 @@ function split_cart($str_cart){
 	for ($j=0; $j < count($product_ids); $j++) { 
 		$new_array[$product_ids[$j]] = $quantities[$j];
 	}
-
-	return $new_array;
-}
-
-function arrays_to_str($product_ids, $quantities){
-	// Once we have arrays set up for product ids and quantites, 
-	//	make a single 2d array out of them
-	for ($j=0; $j < count($product_ids); $j++) { 
-		$new_array[$product_ids[$j]] = $quantities[$j];
-	}
 	$str_array = array();
 	foreach($new_array as $product => $quantity){
 		$str_array[] = (string)$product;
@@ -133,9 +123,15 @@ function process_cart($mode, $id, $qty = 1){
 
 			$split_cart = split_cart($cart);
 
-			// foreach($split_cart as $product){
-
-			// }
+			foreach($split_cart as $product_id => $quantity){
+				if($id_str == $product_id){
+					// If the new quantity is higher than the old quantity
+					if($qty == 0){
+						unset($product_id);
+						
+					}
+				}
+			}
 
 			if($product_qty){
 				$cart .= $id_str.','.$product_qty.',';
