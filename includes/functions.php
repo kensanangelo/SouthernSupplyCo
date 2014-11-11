@@ -128,7 +128,7 @@ function process_cart($mode, $id, $qty = 1){
 					// If the new quantity is higher than the old quantity
 					if($qty == 0){
 						unset($product_id);
-						
+
 					}
 				}
 			}
@@ -136,7 +136,7 @@ function process_cart($mode, $id, $qty = 1){
 			if($product_qty){
 				$cart .= $id_str.','.$product_qty.',';
 			} else {
-				$cart .= $id_str.','.(string)1.',';
+				$cart .= $id_str.',1,';
 			}
 
 			
