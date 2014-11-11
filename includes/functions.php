@@ -133,11 +133,11 @@ function process_cart($mode, $id, $qty = 1){
 				}
 			}
 
-			if($product_qty){
+			/*if($product_qty){
 				$cart .= $id_str.','.$product_qty.',';
 			} else {
 				$cart .= $id_str.','.(string)1.',';
-			}
+			}*/
 
 			
 
