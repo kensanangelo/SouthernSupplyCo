@@ -68,7 +68,7 @@
 										<p class="price">$<?php echo $row['price']; ?></p>
 									</div>
 									<div class="col-md-8 qty-add">
-										<form action="cart.php?mode=add" method="post">
+										<form action="cart.php?mode=update_total" method="post">
 											<input type="hidden" name="product_id" value='<?php echo $row['productID']; ?>' />
 											<p class="push">Qty: <input type="text" name="product_quantity" value="1" size="3"/></p>
 											<span class="glyphicon glyphicon-plus"></span> <input type="submit" class="add-qty-btn btn btn-default" size="3" value="Add to Cart" />

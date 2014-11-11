@@ -68,21 +68,82 @@ function ssc_query($search_term, $mode = 'search'){
 
 }
 
-function process_cart($mode, $id, $qty){
+function split_cart($str_cart){
+	$i = 0;
+	$x = 2;
+
+	foreach($cart as $key => $value){
+		echo 'key = '.$key.'<br />';
+		echo 'value = '.$value.'<br />';
+
+		// This operator alternates between true or false , aka even rows and odd rows
+		if ($i % $x == 0) {
+			// Even slot
+			$product_ids[] = $value;
+			$last_product_id = $new_cart[$key];
+		} else {
+			// Odd slow
+			$quantities[] = $value;
+		}
+
+		$i++;
+
+	}
+
+	// Once we have arrays set up for product ids and quantites, 
+	//	make a single 2d array out of them
+	for ($j=0; $j < count($product_ids); $j++) { 
+		$new_array[$product_ids[$j]] = $quantities[$j];
+	}
+
+	return $new_array;
+}
+
+function arrays_to_str($product_ids, $quantities){
+	// Once we have arrays set up for product ids and quantites, 
+	//	make a single 2d array out of them
+	for ($j=0; $j < count($product_ids); $j++) { 
+		$new_array[$product_ids[$j]] = $quantities[$j];
+	}
+	$str_array = array();
+	foreach($new_array as $product => $quantity){
+		$str_array[] = (string)$product;
+		$str_array[] = (string)$quantity;
+	}
+	$new_array = implode($str_array, ',');
+
+	return $new_array;
+}
+
+
+function process_cart($mode, $id, $qty = 1){
 	//ToDo:
 	/*
 		- Sanitize string, since it comes from the get array
 
 	*/
 	$id_str = (string)$id;
+	$product_qty = (string)$qty;
 
 	if(isset($_SESSION['cart'])){
 
 		$cart = $_SESSION['cart'];
 
-		if($mode == 'add'){
+		if($mode == 'update_total'){
 
-			$cart .= $id_str.', ';
+			$split_cart = split_cart($cart);
+
+			// foreach($split_cart as $product){
+
+			// }
+
+			if($product_qty){
+				$cart .= $id_str.','.$product_qty.',';
+			} else {
+				$cart .= $id_str.','.(string)1.',';
+			}
+
+			
 
 			$_SESSION['cart'] = $cart;
 

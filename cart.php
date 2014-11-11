@@ -11,10 +11,12 @@
 			include 'includes.php';
 			include 'header.php';
 
+			$sub_total = 0;
+
 			if ($_POST['mode']) {
-				if ($_POST['mode'] == 'add') {
+				if ($_POST['mode'] == 'update_total') {
 					$product_id = $_POST['product_id'];
-					echo $product_id;
+					$qty = $_POST['product_quantity']
 				}
 				
 			}
@@ -27,10 +29,10 @@
 					$mode = $_POST['mode'];
 					$product_id = $_POST['product_id'];
 
-					if($mode == 'add'){
+					if($mode == 'update_total'){
 						if($product_id){
 
-							$cart = process_cart('add', $product_id);
+							$cart = process_cart('update_total', $product_id, $qty);
 
 							$display_msg = 'Item added to Cart';
 
