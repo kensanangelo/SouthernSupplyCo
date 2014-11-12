@@ -19,58 +19,74 @@
 					</ul>
 				</div>
 				<div class="col-md-3 col-sm-3 col-xs-6">
-					<ul>
-						<li><p class="lead white">Corporate</p></li>
-						<li><a href="#">About Southern Supply Co.</a></li> <!--Can change wording-->
-						<li><a href="#">Business Policies</a></li>
-						<li>&nbsp;</li>
-						<li><p class="lead white">Options</p></li>
-						<?php
-							if($user_access > 1)
-								echo '<li><a href="client.php">Account</a></li>';
-						?>
-						<li><a href="cart.php">Shopping Cart</a></li>
-						<?php
-							if($user_access > 2)
-								echo '<li><a href="admin.php">Admin</a></li>';
-						?>
-					</ul>
-				</div>
-				<div class="col-md-3 col-sm-3  col-xs-6">
-					<ul class="white">
-						<li><p class="lead">Contact Info</p></li>
-						<li>Southern Supply Co.</li>
-						<li>1155 Corporate Ave</li>
-						<li>Orlando, Fl 32792</li>
-						<li>&nbsp;</li>
-						<li><span class="glyphicon glyphicon-earphone"></span>  <a href="callto:18005552649">1-800-555-2649</a></li>
-						<li><span class="glyphicon glyphicon-envelope"></span>  <a href="#">info@southernsupplyco.com</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 col-sm-3 col-xs-6">
-					<div class="row social">
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<a href="https://www.facebook.com/"><img src="img/facebook.png" alt="" class="img-responsive"></a>
-						</div>
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<a href="https://plus.google.com/"><img src="img/googleplus.png" alt="" class="img-responsive"></a>
-						</div>
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<a href="http://instagram.com/"><img src="img/instagram.png" alt="" class="img-responsive"></a>
-						</div>
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<a href="https://twitter.com/?lang=en"><img src="img/twitter.png" alt="" class="img-responsive"></a>
-						</div>
+					<div class="row">
+						<ul>
+							<li><p class="lead white">Corporate</p></li>
+							<li><a href="#">About Southern Supply Co.</a></li> <!--Can change wording-->
+							<li><a href="#">Business Policies</a></li>
+						</ul>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
+					<div class="row">
+						<ul>
+							<li><p class="lead white">Options</p></li>
+							<?php
+								if($user_access > 1)
+									echo '<li><a href="client.php">Account</a></li>';
+							?>
+							<li><a href="cart.php">Shopping Cart</a></li>
+							<?php
+								if($user_access > 2)
+									echo '<li><a href="admin.php">Admin</a></li>';
+							?>
+						</ul>
+					</div>
+						
+				</div> <!--Col-->
+
+				<div class="col-md-3 col-sm-3  col-xs-6">
+					<div class="row">
+						<ul class="white">
+							<li><p class="lead">Contact Info</p></li>
+							<li>Southern Supply Co.</li>
+							<li>1155 Corporate Ave</li>
+							<li>Orlando, Fl 32792</li>
+						</ul>
+					</div>
+
+					<div class="row">
+						<ul class="white">
+							<li><span class="glyphicon glyphicon-earphone"></span>  <a href="callto:18005552649">1-800-555-2649</a></li>
+							<li><span class="glyphicon glyphicon-envelope"></span>  <a href="#">info@ssc.com</a></li>
+						</ul>
+					</div>
+				</div><!--/Col-->
+
+				<div class="col-md-3 col-sm-3 col-xs-6">
+					<div id="align" class="row social">
+						<div class="row">
+							<ul>
+								<li><a href="https://www.facebook.com/"> <i class="fa fa-facebook-square fa-3x"></i> </a></li>
+								<li><a href="https://plus.google.com/"> <i class="fa fa-google-plus-square fa-3x"></i></a></li>
+								<li><a href="http://instagram.com/"> <i class="fa fa-instagram fa-3x"></i></a></li>
+								<li><a href="https://twitter.com/?lang=en"><i class="fa fa-twitter-square fa-3x"></i></a></li>
+							</ul>
+						</div>
+				
+					</div>
+				</div><!--/Col-->
+
+			</div><!--Row-->
+		</div><!--/Container-->
+	</div><!--/Footer-->
+
 	<div class="disclaimer-wrapper">
-		<div class="row">
-			<div class="col-md-12 text-center disclaimer white">
-				<p>This site is not official and is an assignment for a UCF Digital Media course.</p>
-				<p>Designed and developed by Group 4 - Southern Supply Co.</p>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center disclaimer white">
+					<p>This site is not official and is an assignment for a UCF Digital Media course.</p>
+					<p>Designed and developed by Group 4 - Southern Supply Co.</p>
+				</div>
 			</div>
 		</div>
 	</div>
