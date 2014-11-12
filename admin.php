@@ -16,17 +16,32 @@
 				$actionHappened=true;
 				if($_POST['add-edit-button']=='Add product'){
 					$values=array($_POST['name'], $_POST['desc'], $_POST['cat'], $_POST['SKU'], $_POST['stock'], $_POST['cost'], $_POST['price'], $_POST['sale'], $_POST['url'], $_POST['rating'], $_POST['numVotes']);
-					$result=addToDB('products', $values);
-					$statusString='Product was successfully added! '.$result;
+					$resultMessage=addToDB('products', $values);
+					if($resultMessage=="Success")
+						$statusString='Product was successfully added!';
+					else
+						$statusString='Product failed to be added!';
 				}else if($_POST['add-edit-button']=='Edit product'){
 					$returnedId=$_POST['hiddenId'];
-					$result=changeInDB('products', 'productName="'.$_POST['name'].'", description="'.$_POST['desc'].'", category="'.$_POST['cat'].'", SKU="'.$_POST['SKU'].'", stock="'.$_POST['stock'].'", cost="'.$_POST['cost'].'", price="'.$_POST['price'].'", salePrice="'.$_POST['sale'].'", productImage="'.$_POST['url'].'", rating="'.$_POST['rating'].'", numOfVotes="'.$_POST['numVotes'].'"', 'productID="'.$returnedId.'"');
-					$statusString='Product was successfully edited!'.$result;
+					$resultMessage=changeInDB('products', 'productName="'.$_POST['name'].'", description="'.$_POST['desc'].'", category="'.$_POST['cat'].'", SKU="'.$_POST['SKU'].'", stock="'.$_POST['stock'].'", cost="'.$_POST['cost'].'", price="'.$_POST['price'].'", salePrice="'.$_POST['sale'].'", productImage="'.$_POST['url'].'", rating="'.$_POST['rating'].'", numOfVotes="'.$_POST['numVotes'].'"', 'productID="'.$returnedId.'"');
+					
+					if($resultMessage=="Success")
+						$statusString='Product was successfully edited!';
+					else
+						$statusString='Product failed to be edited!';
 
 				}else if($_POST['add-edit-button']=='Delete product'){
 					$returnedId=$_POST['hiddenId'];
-					$result=removeFromDB('products', '*', 'productID='.$returnedId);
-					$statusString='Product was successfully removed!';
+
+					if($returnedId>=0)
+						$resultMessage=removeFromDB('products', 'productID="'.$returnedId.'"');
+					else
+						$resultMessage='Failure';
+
+					if($resultMessage=="Success")
+						$statusString='Product was successfully removed!';
+					else
+						$statusString='Product failed to be removed!';			
 				}
 			}
 
@@ -65,7 +80,7 @@
 					</form>
 				</div>
 				<?php if(isset($actionHappened) && $actionHappened==true){?>
-					<p id='status area' class='bg-success'><?php echo $statusString; ?></p>
+					<p id='status area' class="<?php if($resultMessage=='Success'){echo 'bg-success';}else {echo 'bg-danger';} ?>"><?php echo $statusString ?></p>
 				<?php } ?>
 				<div>
 					<form action="admin.php" method="POST" class="marT-20 hidden" id="adminForm">

@@ -138,6 +138,7 @@ $("#adminRemove").click(function(){
 			//and disables inputs
 			fillForm($('input:radio[name="sel"]:checked').val());
 			$("#adminForm input[type='text']").prop('disabled', true);
+			$("#adminForm input[name='hiddenId']").prop('disabled', false);
 			$("#adminForm").removeClass("hidden");
 			$("#adminRemove").addClass("btn-danger active");
 			$("#adminAdd").removeClass("btn-primary active");
