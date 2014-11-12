@@ -12,6 +12,23 @@
 			include 'includes.php';
 			include 'header.php';
 
+			if(isset($_POST['add-edit-button'])){
+				$actionHappened=true;
+				if($_POST['add-edit-button']=='Add product'){
+					$values=array($_POST['name'], $_POST['desc'], $_POST['cat'], $_POST['SKU'], $_POST['stock'], $_POST['cost'], $_POST['price'], $_POST['sale'], $_POST['url'], $_POST['rating'], $_POST['numVotes']);
+					$result=addToDB('products', $values);
+					$statusString='Product was successfully added! '.$result;
+				}else if($_POST['add-edit-button']=='Edit product'){
+					$returnedId=$_POST['id'];
+					$statusString='Product was successfully edited!';
+
+				}else if($_POST['add-edit-button']=='Delete product'){
+					$returnedId=$_POST['id'];
+					$result=removeFromDB('products', '*', 'productID='.$returnedId);
+					$statusString='Product was successfully removed!';
+				}
+			}
+
 			//Figures out which database we are in and pulls the data
 			if(isset($_POST["users"])){
 				$table='users';
@@ -46,8 +63,11 @@
 						</div>
 					</form>
 				</div>
+				<?php if(isset($actionHappened) && $actionHappened==true){?>
+					<p id='status area' class='bg-success'><?php echo $statusString; ?></p>
+				<?php } ?>
 				<div>
-					<form action="admin.php" method="get" class="marT-20 hidden" id="adminForm">
+					<form action="admin.php" method="POST" class="marT-20 hidden" id="adminForm">
 							<?php 
 							//Generates admin for based on which DB it is
 							if($table=='products'){?>
@@ -82,7 +102,7 @@
 								</ul>
 							<?php } ?>
 							<div class="col-md-8 marB-20">
-								<input type="button" class="center-block btn" id="add-edit-button" value="Add product"/>
+								<input type="submit" class="center-block btn" id="add-edit-button" name="add-edit-button" value="Add product"/>
 								<!--<p><strong>Are you sure?</strong>
 									<div class="btn-group">
 										<input type="submit" class="btn btn-success" id="confirm" value="Yes">
