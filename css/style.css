@@ -260,6 +260,7 @@ html {
 
 .push{
 	float: right;
+	display: block;
 }
 
 .option{
@@ -377,6 +378,13 @@ fieldset{
 	color: #F2AA00;
 	cursor: pointer;
 }
+
+#align ul li{
+	display: inline;
+	padding: 5px 5px;
+}
+
+
 
 a{
 	text-decoration: none !important;

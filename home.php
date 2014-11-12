@@ -31,10 +31,10 @@
 						$new=$result['salePrice'];
 
 						//Prints featured product page
-						echo'<a href="product.php"><img class="img-responsive" src="'.$url.'" alt="Featured Product Image"></a>
+						echo'<a href="product.php?product=1"><img class="img-responsive" src="'.$url.'" alt="Featured Product Image"></a>
 								<div class="row">
 									<div class="col-md-9">
-										<a class="productLink" href="product.php"><h4>'.$name.'</h4></a>
+										<a class="productLink" href="product.php?product=1"><h4>'.$name.'</h4></a>
 										<div class="catStars">';
 
 						print_stars($result['rating'], $result['numOfVotes']);
@@ -47,6 +47,8 @@
 										<p class="new">$'.$new.'</p>
 									</div>
 								</div>';
+
+
 					?>
 				</div>
 			</div>
