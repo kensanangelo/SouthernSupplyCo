@@ -3,11 +3,13 @@ session_start();
 
 if(!isset($_SESSION['user_access'])){
 	$_SESSION['user_access'] = 1;
-	$user_access=1;
+	$user_access = 1;
+} else {
+	$user_access = $_SESSION['user_access'];
+	$loggedIn = $_SESSION['logged_in'];
+	$user_id = $_SESSION['user_id'];
 }
 
-@$loggedIn=$_SESSION['logged_in'];
-@$user_access=$_SESSION['user_access'];
 //	Print everything inside the Session global array
 //pre_print_r($_SESSION);
 ?>
@@ -36,7 +38,7 @@ if(!isset($_SESSION['user_access'])){
 					<?php
 						//Puts either Login or Account link depending on user access level
 						if($loggedIn == 1){
-							echo "<a id='account-button' href='client.php'><span class='glyphicon glyphicon-user'></span> Account</a>";
+							echo "<a id='account-button' href='client.php?user_id=".$user_id."'><span class='glyphicon glyphicon-user'></span> Account</a>";
 							echo "<a id='logout-button' href='login.php?mode=logout'><span class='glyphicon glyphicon-user'></span> Log Out</a>";
 						} else {
 							echo "<a id='login-button' href='login.php'><span class='glyphicon glyphicon-user'></span> <span class='button-txt'>Login</span></a>";

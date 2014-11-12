@@ -25,15 +25,23 @@
 
 			$cart = $_SESSION['cart'];
 
-				if(isset($_POST['mode'])){
+				if (isset($_GET['mode']) && $_GET['mode'] == 'empty_cart') {
+
+					unset($_SESSION['cart']);
+					unset($_SESSION['cdb']);
+					unset($cart);
+					$_SESSION['logged_in'] = 1;
+					$display_msg =  'Your Cart has been emptied<br />';
+
+				} else if(isset($_POST['mode'])){
 					$mode = $_POST['mode'];
 					$product_id = $_POST['product_id'];
+					$qty = $_POST['product_quantity'];
 
 					if($mode == 'update_total'){
-						if($product_id){
+						if($product_id != null){
 
-							$cart = process_cart('update_total', $product_id, $qty);
-
+							$split_cart = isset($qty) ? process_cart('update_total', $product_id, $qty) : process_cart('update_total', $product_id);
 							$display_msg = 'Item added to Cart';
 
 							$cart_has_products = 1;
@@ -62,13 +70,6 @@
 						}
 
 
-					} else if($mode == 'empty_cart'){
-
-						unset($_SESSION['cart']);
-						unset($cart);
-						$_SESSION['logged_in'] = 1;
-						$display_msg =  'Your Cart has been emptied<br />';
-
 					} else {
 						$display_msg =  'Invalid Cart Mode. Please refresh the page.';
 					}
@@ -82,21 +83,26 @@
 
 				//	Populate Cart array
 
-				if(isset($_SESSION['cart'])){
+				if(isset($split_cart)){
 
-					$cart = explode(', ',$_SESSION['cart']);
-					$cart_length = count($cart) - 1;
-					$order_total = 0;
+					echo '<br /><br />';
+					echo 'Print $split_cart';
+					pre_print_r($split_cart);
+					echo '<br />';
 
-					for($i = 0;$i < $cart_length; $i++){
+					// $cart = explode(', ',$_SESSION['cart']);
+					// $cart_length = count($cart) - 1;
+					// $order_total = 0;
 
-						$product_id = (int)$cart[$i];
-						$result_array[$i] = ssc_query($product_id, 'ID');
-						$cart_data[] = $result_array[$i][0];
+					// for($i = 0;$i < $cart_length; $i++){
 
-						$sub_total += $result_array[$i][0]['price'];
+					// 	$product_id = (int)$cart[$i];
+					// 	$result_array[$i] = ssc_query($product_id, 'ID');
+					// 	$cart_data[] = $result_array[$i][0];
 
-					}
+					// 	$sub_total += $result_array[$i][0]['price'];
+
+					// }
 
 					$sales_tax = $sub_total * 0.07;
 					$sales_tax = round($sales_tax, 2);
@@ -110,7 +116,9 @@
 
 				//pre_print_r($cart_data);
 				//die();
-
+				echo 'Print $_SESSION';
+				pre_print_r($_SESSION);
+				echo '<br />';
 
 		?>
 		<div class="container">

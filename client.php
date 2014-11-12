@@ -21,6 +21,14 @@
 			?>
 			
 			<div class="container">
+				<ol class="breadcrumb">
+					<li><a href="home.php">Home</a></li>
+					<?php if($user_data['first_name']){ ?>
+						<li class="active"><?php echo $user_data['first_name']; ?></li>
+					<?php } else { ?>
+						<li class="active">User: <?php echo $user_id; ?></li>
+					<?php } ?>
+				</ol>
 				<h1 class="marB-20">Account Information</h1>
 				<div class="option">
 					<div class="row">

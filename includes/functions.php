@@ -69,18 +69,25 @@ function ssc_query($search_term, $mode = 'search'){
 }
 
 function split_cart($str_cart){
+
+	//	-IMPORTANT-
 	$i = 0;
 	$x = 2;
+	$product_ids = array();
+	$quantities = array();
+
+	$cart = explode(',', $str_cart);
 
 	foreach($cart as $key => $value){
-		echo 'key = '.$key.'<br />';
-		echo 'value = '.$value.'<br />';
+		// echo 'key = '.$key.'<br />';
+		// echo 'value = '.$value.'<br />';
 
 		// This operator alternates between true or false , aka even rows and odd rows
+		//	Even rows we fill products_id array, odds we fill quantities array
 		if ($i % $x == 0) {
 			// Even slot
 			$product_ids[] = $value;
-			$last_product_id = $new_cart[$key];
+
 		} else {
 			// Odd slow
 			$quantities[] = $value;
@@ -95,90 +102,162 @@ function split_cart($str_cart){
 	for ($j=0; $j < count($product_ids); $j++) { 
 		$new_array[$product_ids[$j]] = $quantities[$j];
 	}
-	$str_array = array();
-	foreach($new_array as $product => $quantity){
+	return $new_array;
+}
+
+function cart_to_str($array_2d){
+	foreach($array_2d as $product => $quantity){
 		$str_array[] = (string)$product;
 		$str_array[] = (string)$quantity;
 	}
 	$new_array = implode($str_array, ',');
 
 	return $new_array;
+
 }
 
 
-function process_cart($mode, $id, $qty = 1){
-	//ToDo:
-	/*
-		- Sanitize string, since it comes from the get array
+function process_cart($mode, $id, $qty){
 
-	*/
-	$id_str = (string)$id;
-	$product_qty = (string)$qty;
+	//	Note to Self:
+	//	Be careful with data types here
+	unset($_SESSION['cdb']);
+	
+	$id = isset($id) ? (int)$id : null;
+	$qty = isset($qty) ? (int)$qty : 1;
 
 	if(isset($_SESSION['cart'])){
 
 		$cart = $_SESSION['cart'];
+		$split_cart = split_cart($cart);
+
+		pre_print_r($split_cart);
+
+		$_SESSION['cdb'] .= 'id_str = '.$id_str;
 
 		if($mode == 'update_total'){
 
-			$split_cart = split_cart($cart);
+			echo 'print_r split_cart';
+			print_r($split_cart);
 
-			foreach($split_cart as $product_id => $quantity){
-				if($id_str == $product_id){
+			foreach($split_cart as $key => $value){
+				
+				$item_found = 0;
+				echo '<br />Product_id= '.$key.', Id=  '.$id.'<br />';
+
+				if($id == $key){
+
+					$item_found = 1;
 					// If the new quantity is higher than the old quantity
-					if($qty == 0){
-						unset($product_id);
+					if((int)$qty == 0){
+						//  unset($product_id);
+
+						$_SESSION['cdb'] .= ', qty = 0 condition met';
+
+						return $split_cart;
+
+					// $qty = Value passed into this function (new value)
+					//	$value = Value stored in the cart array (old value)
+					} elseif ((int)$qty > 0) {
+
+						$_SESSION['cdb'] .= ', qty > 0 hit';
+
+						$value = $qty;
+
+						$_SESSION['cart'] = cart_to_str($split_cart);
+
+						return $split_cart;
+
+					} else {
+
+						die('How did I get here ??? Cart Error!!');
 
 					}
 				}
+
+			} // endforeach
+
+			// if the item is not already in the cart
+			if (!$item_found && $qty) {
+
+				$_SESSION['cdb'] .= ', item not currently in cart';
+
+				//	Take the string cart and add a new product and quantity to the end of it
+				$cart = cart_to_str($split_cart);
+
+				echo $cart;
+
+				$split_cart[$id] = $qty;
+				// $cart .= $id_str.',1,';
+
+				$_SESSION['cart'] = $cart;
+
+				return $split_cart;
 			}
 
-			if($product_qty){
-				$cart .= $id_str.','.$product_qty.',';
-			} else {
-				$cart .= $id_str.',1,';
-			}
+		} 
+		// elseif ($mode = 'add') {
 
+		// 	foreach($split_cart as $product_id => $quantity){
+		// 		$item_found = 0;
+		// 		// if the product is already in the cart
+		// 		if($id_str == $product_id){
+		// 			$item_found = 1;
+		// 			// If the new quantity is higher than the old quantity
+		// 			if($qty == 0){
+		// 				unset($product_id);
 
-			
+		// 				return $split_cart;
 
-			$_SESSION['cart'] = $cart;
+		// 			// $qty = Value passed into this function (new value)
+		// 			//	$quantity = Value stored in the cart array (old value)
+		// 			} elseif ($qty > 0) {
 
-			return $cart;
+		// 				$quantity = $qty;
 
+		// 				return $split_cart;
 
-		} else if($mode == 'remove'){
+		// 			} else {
 
-			// split the session cart into an array, seperated at the commas
-			$cart = explode(', ', $cart);
-			foreach($cart as $key => $product){
+		// 				die('How did I get here ??? Cart Error!!');
 
-				// if the value of the item in the array is equal to the id passed to this function:
-				if($product == $id){
+		// 			} // endif
+		// 		} // endif
+		// 	} // endforeach
 
-					// Remove this item from the array
-					unset($cart[$key]);
+		// } else if($mode == 'remove'){
 
-				}
-			}
+		// 	// split the session cart into an array, seperated at the commas
+		// 	$cart = explode(', ', $cart);
+		// 	foreach($cart as $key => $product){
 
-			$cart = implode(', ', $cart);
+		// 		// if the value of the item in the array is equal to the id passed to this function:
+		// 		if($product == $id){
 
-			$_SESSION['cart'] = $cart;
+		// 			// Remove this item from the array
+		// 			unset($cart[$key]);
 
-			return $cart;
+		// 		}
+		// 	}
 
-		} else {
+		// 	$cart = implode(', ', $cart);
 
-			return 'Invalid Cart Mode. Please refresh the page.';
+		// 	$_SESSION['cart'] = $cart;
 
-		}
+		// 	return $cart;
+
+		// } else {
+
+		// 	return 'Invalid Cart Mode. Please refresh the page.';
+
+		// }
 
 	// add item to the beginning of cart
 	} else {
 
-		// add the item to the beginning of the cart
-		$cart = $id_str.', ';
+		$_SESSION['cdb'] .= ', no session cart conditional';
+
+		$cart = $id.','.$qty.',';
 
 		$_SESSION['cart'] = $cart;
 
