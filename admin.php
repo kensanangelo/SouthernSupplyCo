@@ -19,11 +19,12 @@
 					$result=addToDB('products', $values);
 					$statusString='Product was successfully added! '.$result;
 				}else if($_POST['add-edit-button']=='Edit product'){
-					$returnedId=$_POST['id'];
-					$statusString='Product was successfully edited!';
+					$returnedId=$_POST['hiddenId'];
+					$result=changeInDB('products', 'productName="'.$_POST['name'].'", description="'.$_POST['desc'].'", category="'.$_POST['cat'].'", SKU="'.$_POST['SKU'].'", stock="'.$_POST['stock'].'", cost="'.$_POST['cost'].'", price="'.$_POST['price'].'", salePrice="'.$_POST['sale'].'", productImage="'.$_POST['url'].'", rating="'.$_POST['rating'].'", numOfVotes="'.$_POST['numVotes'].'"', 'productID="'.$returnedId.'"');
+					$statusString='Product was successfully edited!'.$result;
 
 				}else if($_POST['add-edit-button']=='Delete product'){
-					$returnedId=$_POST['id'];
+					$returnedId=$_POST['hiddenId'];
 					$result=removeFromDB('products', '*', 'productID='.$returnedId);
 					$statusString='Product was successfully removed!';
 				}
@@ -101,6 +102,7 @@
 									<li><label class='labelFix' for="address">Address: </label><input type='text' size='' name='address' placeholder='address'></input></li>
 								</ul>
 							<?php } ?>
+							<input type='text' class='hidden' name='hiddenId'></input>
 							<div class="col-md-8 marB-20">
 								<input type="submit" class="center-block btn" id="add-edit-button" name="add-edit-button" value="Add product"/>
 								<!--<p><strong>Are you sure?</strong>

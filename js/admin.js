@@ -28,6 +28,7 @@ function fillForm(value){
 	    	$("input[name='numVotes']").val("");
     	}else{//Places the info in the inputs
 	    	$("input[name='id']").val($("#"+value+"-productID").html());
+	    	$("input[name='hiddenId']").val($("#"+value+"-productID").html());
 	    	$("input[name='name']").val($("#"+value+"-productName").html());
 	    	$("input[name='desc']").val($("#"+value+"-description").html());
 	    	$("input[name='cat']").val($("#"+value+"-category").html());
@@ -76,6 +77,7 @@ $("#adminAdd").click(function(){
 		//If this is our first time clicking, opens the form and clears it
 		fillForm('addClear');
 		$("#adminForm input[type='text']").prop('disabled', false);
+		$("#adminForm input[name='id']").prop('disabled', true);
 		$("#adminForm").removeClass("hidden");
 		$("#adminAdd").addClass("btn-primary active");
 		$("#adminEdit").removeClass("btn-warning active");
@@ -101,6 +103,7 @@ $("#adminEdit").click(function(){
 			//opens the form and places info if radio is selected
 			fillForm($('input:radio[name="sel"]:checked').val());
 			$("#adminForm input[type='text']").prop('disabled', false);
+			$("#adminForm input[name='id']").prop('disabled', true);
 			$("#adminForm").removeClass("hidden");
 			$("#adminEdit").addClass("btn-warning active");
 			$("#adminAdd").removeClass("btn-primary active");
