@@ -129,135 +129,57 @@ function process_cart($mode, $id, $qty){
 	if(isset($_SESSION['cart'])){
 
 		$cart = $_SESSION['cart'];
-		$split_cart = split_cart($cart);
-
 		$_SESSION['cdb'] .= 'id_str = '.$id_str;
 
 		if($mode == 'update_total'){
 
-			echo 'print_r split_cart';
-			pre_print_r($split_cart);
+			$split_cart = split_cart($cart);
 
-			foreach($split_cart as $key => $value){
+			//	If item is not currently in the cart:
+			if (array_key_exists($id, $split_cart)) {
+				// If the new quantity is higher than the old quantity
+				if((int)$qty == 0){
+					//  unset($product_id);
 
-				if($key){
+					$_SESSION['cdb'] .= ', qty = 0 condition met';
+					return $split_cart;
 
-					$item_found = 0;
-					echo '<br />Product_id= '.$key.', Id=  '.$id.'<br />';
+				// $qty = Value passed into this function (new value)
+				//	$value = Value stored in the cart array (old value)
+				} elseif ((int)$qty > 0) {
 
-					if($id == $key){
+					$_SESSION['cdb'] .= ', qty > 0 hit';
+					$value = $qty;
+					$split_cart[$id] = $qty;
+					$_SESSION['cart'] = cart_to_str($split_cart);
+					return $split_cart;
 
-						$item_found = 1;
-						// If the new quantity is higher than the old quantity
-						if((int)$qty == 0){
-							//  unset($product_id);
+				} else {
 
-							$_SESSION['cdb'] .= ', qty = 0 condition met';
+					die('How did I get here ??? Cart Error!!');
 
-							return $split_cart;
-
-						// $qty = Value passed into this function (new value)
-						//	$value = Value stored in the cart array (old value)
-						} elseif ((int)$qty > 0) {
-
-							$_SESSION['cdb'] .= ', qty > 0 hit';
-
-							$value = $qty;
-
-							$_SESSION['cart'] = cart_to_str($split_cart);
-
-							return $split_cart;
-
-						} else {
-
-							die('How did I get here ??? Cart Error!!');
-
-						}
-					}
 				}
-				
-
-			} // endforeach
-
-			// if the item is not already in the cart
-			if (!$item_found && $qty) {
+			//	else item is not currently in the cart
+			} else {
 
 				$_SESSION['cdb'] .= ', item not currently in cart';
-
 				//	Take the string cart and add a new product and quantity to the end of it
 				$cart = cart_to_str($split_cart);
-
-				// $split_cart[$id] = $qty;
-				$cart .= $id.','.$qty.',';
-
+				$cart .= ','.$id.','.$qty;
 				$_SESSION['cart'] = $cart;
 
 				return $cart;
 			}
 
 		} 
-		// elseif ($mode = 'add') {
-
-		// 	foreach($split_cart as $product_id => $quantity){
-		// 		$item_found = 0;
-		// 		// if the product is already in the cart
-		// 		if($id_str == $product_id){
-		// 			$item_found = 1;
-		// 			// If the new quantity is higher than the old quantity
-		// 			if($qty == 0){
-		// 				unset($product_id);
-
-		// 				return $split_cart;
-
-		// 			// $qty = Value passed into this function (new value)
-		// 			//	$quantity = Value stored in the cart array (old value)
-		// 			} elseif ($qty > 0) {
-
-		// 				$quantity = $qty;
-
-		// 				return $split_cart;
-
-		// 			} else {
-
-		// 				die('How did I get here ??? Cart Error!!');
-
-		// 			} // endif
-		// 		} // endif
-		// 	} // endforeach
-
-		// } else if($mode == 'remove'){
-
-		// 	// split the session cart into an array, seperated at the commas
-		// 	$cart = explode(', ', $cart);
-		// 	foreach($cart as $key => $product){
-
-		// 		// if the value of the item in the array is equal to the id passed to this function:
-		// 		if($product == $id){
-
-		// 			// Remove this item from the array
-		// 			unset($cart[$key]);
-
-		// 		}
-		// 	}
-
-		// 	$cart = implode(', ', $cart);
-
-		// 	$_SESSION['cart'] = $cart;
-
-		// 	return $cart;
-
-		// } else {
-
-		// 	return 'Invalid Cart Mode. Please refresh the page.';
-
-		// }
+		
 
 	// add item to the beginning of cart
 	} else {
 
 		$_SESSION['cdb'] .= ', no session cart conditional';
 
-		$cart = $id.','.$qty.',';
+		$cart = $id.','.$qty;
 
 		$_SESSION['cart'] = $cart;
 

@@ -42,7 +42,7 @@
 						if($product_id != null){
 
 							$split_cart = isset($qty) ? process_cart('update_total', $product_id, $qty) : process_cart('update_total', $product_id);
-							$display_msg = 'Item added to Cart';
+							$display_msg = 'Item added to Cart!';
 
 							$cart_has_products = 1;
 
