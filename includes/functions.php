@@ -131,49 +131,51 @@ function process_cart($mode, $id, $qty){
 		$cart = $_SESSION['cart'];
 		$split_cart = split_cart($cart);
 
-		pre_print_r($split_cart);
-
 		$_SESSION['cdb'] .= 'id_str = '.$id_str;
 
 		if($mode == 'update_total'){
 
 			echo 'print_r split_cart';
-			print_r($split_cart);
+			pre_print_r($split_cart);
 
 			foreach($split_cart as $key => $value){
-				
-				$item_found = 0;
-				echo '<br />Product_id= '.$key.', Id=  '.$id.'<br />';
 
-				if($id == $key){
+				if($key){
 
-					$item_found = 1;
-					// If the new quantity is higher than the old quantity
-					if((int)$qty == 0){
-						//  unset($product_id);
+					$item_found = 0;
+					echo '<br />Product_id= '.$key.', Id=  '.$id.'<br />';
 
-						$_SESSION['cdb'] .= ', qty = 0 condition met';
+					if($id == $key){
 
-						return $split_cart;
+						$item_found = 1;
+						// If the new quantity is higher than the old quantity
+						if((int)$qty == 0){
+							//  unset($product_id);
 
-					// $qty = Value passed into this function (new value)
-					//	$value = Value stored in the cart array (old value)
-					} elseif ((int)$qty > 0) {
+							$_SESSION['cdb'] .= ', qty = 0 condition met';
 
-						$_SESSION['cdb'] .= ', qty > 0 hit';
+							return $split_cart;
 
-						$value = $qty;
+						// $qty = Value passed into this function (new value)
+						//	$value = Value stored in the cart array (old value)
+						} elseif ((int)$qty > 0) {
 
-						$_SESSION['cart'] = cart_to_str($split_cart);
+							$_SESSION['cdb'] .= ', qty > 0 hit';
 
-						return $split_cart;
+							$value = $qty;
 
-					} else {
+							$_SESSION['cart'] = cart_to_str($split_cart);
 
-						die('How did I get here ??? Cart Error!!');
+							return $split_cart;
 
+						} else {
+
+							die('How did I get here ??? Cart Error!!');
+
+						}
 					}
 				}
+				
 
 			} // endforeach
 
@@ -185,14 +187,12 @@ function process_cart($mode, $id, $qty){
 				//	Take the string cart and add a new product and quantity to the end of it
 				$cart = cart_to_str($split_cart);
 
-				echo $cart;
-
-				$split_cart[$id] = $qty;
-				// $cart .= $id_str.',1,';
+				// $split_cart[$id] = $qty;
+				$cart .= $id.','.$qty.',';
 
 				$_SESSION['cart'] = $cart;
 
-				return $split_cart;
+				return $cart;
 			}
 
 		} 

@@ -86,7 +86,7 @@
 				if(isset($split_cart)){
 
 					echo '<br /><br />';
-					echo 'Print $split_cart';
+					echo 'Print $split_cart from cart.php';
 					pre_print_r($split_cart);
 					echo '<br />';
 
