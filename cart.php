@@ -158,7 +158,9 @@
 						<div class="catStars">
 							<?php print_stars($result['rating'], $result['numOfVotes']); ?>
 						</div>
-						<p>QUIKRETE® Concrete Mix is the original 4000 psi average compressive strength blend of portland cement, sand, and gravel or stone. Just add water. Use for any general concrete work.</p>
+						<?php if (isset($result['description'])) { ?>
+							<p><?php echo $result['description']; ?></p>
+						<?php } ?>
 					</div>
 					<div class="col-md-2 text-right">
 						<p class="cartPrice marT-20">Item Total: $<?php echo $cart_additional[$i]['item_total']; ?></p>
@@ -167,7 +169,7 @@
 							<input type="hidden" name="product_id" value='<?php echo $result['productID']; ?>' />
 							<input type="hidden" name="mode" value='update_total' />
 							<p class="push">Qty: <input class="input-ext" type="text" name="product_quantity" value="<?php echo $cart_additional[$i]['quantity']; ?>" size="3"/></p>
-							<!--<span class="glyphicon glyphicon-plus"></span>--> <input type="submit" class="add-qty-btn btn btn-ext btn-default push" size="3" value="Update" />
+							<input type="submit" class="add-qty-btn btn btn-ext btn-default push" size="3" value="Update" />
 						</form>
 						<!-- <a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default push"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a> -->
 						<form action="cart.php" method="post">

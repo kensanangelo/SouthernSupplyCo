@@ -352,6 +352,28 @@ fieldset{
 	margin-top: -40px;
 }
 
+#checkout-form input {
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+#checkout-form .form-section ul {
+	padding-left: 0;
+}
+
+#card-types [type="radio"] {
+	width: 20px;
+}
+
+.expiration-month {
+	width: 52px;
+}
+
+.expiration-year {
+	width: 103px;
+}
+
+
 /*--Stuff for footer--*/
 .footer{
 	background: url(../img/footer.png) repeat;
@@ -472,6 +494,10 @@ ul{
 
 }
 
+@media screen and (max-width: 481px){
+	.expiration-month {}
+}
+
 @media (min-width: 768px){
 
 	.brand {
@@ -516,6 +542,11 @@ ul{
 	#catalog .col-md-3 {
 		width: 21.5%;
 		margin-right: 2%;
+	}
+
+	#checkout-form .form-section {
+		float: left;
+		margin: 40px 45px 0 40px;
 	}
 }
 

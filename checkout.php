@@ -11,7 +11,6 @@
 			include 'includes.php';
 			include 'header.php';
 
-
 			$order_total = $_POST['order_total'];
 			$stripe_total = $_POST['stripe_total'];
 		?>
@@ -20,85 +19,85 @@
 				<h3>Complete Your Purchase</h3>
 				<h4>Order Total: <?php echo $order_total; ?></h4>
 				<form id="checkout-form" action="charge.php" method="POST">
-					<fieldset>
+					<fieldset class="form-section">
     					<legend>Your Details</legend>
     					<ul>
 							<li>
 								<label class="labelFix" for="name">
 									Name:
 								</label>
-								<input type="text" id="name" placeholder="First and Last Name"/>
+								<input type="text" id="name" name="full_name" placeholder="First and Last Name"/>
 							</li>
 							<li>
 								<label class="labelFix" for="phone">
 									Phone #:
 								</label>
-								<input size="13" type="text" id="phone" placeholder="(555)555-5555"/>
+								<input size="13" type="text" name="customer_phone" id="phone" placeholder="(555)555-5555"/>
 							</li>
 							<li>
 								<label class="labelFix" for="email">
 									Email:
 								</label>
-								<input type="text" id="email" placeholder="example@sample.com"/>
+								<input type="text" id="email" name="customer_email" placeholder="example@sample.com"/>
 							</li>						
 						</ul>
 					</fieldset>
-					<fieldset>
+					<fieldset class="form-section">
     					<legend>Shipping Information</legend>
     					<ul>
 							<li>
 								<label class="labelFix" for="line1">
 									Address Line 1:
 								</label>
-								<input type="text" id="line1" placeholder="555 Sample Ave."/>
+								<input type="text" id="line1" name="address_line1" placeholder="555 Sample Ave."/>
 							</li>
 							<li>
 								<label class="labelFix" for="line2">
 									Address Line 2:
 								</label>
-								<input type="text" id="line2" placeholder="Apt. 555"/>
+								<input type="text" id="line2" name="address_line2" placeholder="Apt. 555"/>
 							</li>
 							<li>
 								<label class="labelFix" for="city">
 									City:
 								</label>
-								<input type="text" id="city" placeholder="Example City"/>
+								<input type="text" id="city"  name="address_city" placeholder="Example City"/>
 							</li>
 							<li>
 								<label class="labelFix" for="state">
 									State:
 								</label>
-								<input size="2" type="text" id="state" placeholder="FL"/>
+								<input size="2" type="text" id="state" name="address_state" placeholder="FL"/>
 							</li>
 							<li>
 								<label class="labelFix" for="zip">
 									Zip Code:
 								</label>
-								<input size="5" type="text" id="zip" placeholder="55555"/>
+								<input size="5" type="text" id="zip" name="address_zip" placeholder="55555"/>
 							</li>
 						</ul>
 					</fieldset>
-					<fieldset>
+					<fieldse class="form-section">
     					<legend>Card Details</legend>
     					<ul>
 							<li>
 								<fieldset id="card">
 									<legend>Card Type</legend>
-									<ul>
+									<ul  id="card-types">
 										<li>
-											<input type="radio" value="visa" id="visa"/>
+											<input type="radio" name="cc_visa" value="visa" id="visa"/>
 											<label for="visa">
 												Visa
 											</label>
 										</li>
 										<li>
-											<input type="radio" value="mastercard" id="mastercard"/>
+											<input type="radio" name="cc_mastercard" value="mastercard" id="mastercard"/>
 											<label for="mastercard">
 												Mastercard
 											</label>
 										</li>
 										<li>
-											<input type="radio" value="discover" id="discover"/>
+											<input type="radio" value="discover" name="cc_discover" id="discover"/>
 											<label for="discover">
 												Discover
 											</label>
@@ -122,15 +121,15 @@
 								<label class="labelFix" for="nameCard">
 									Name on Card:
 								</label>
-								<input type="text" id="nameCard" placeholder="Firstname M. Lastname"/>
+								<input type="text" id="nameCard" name="card_full_name" placeholder="Firstname M. Lastname"/>
 							</li>
 							<li>
 								<label class="labelFix">
 									<span>Expiration (MM/YYYY)</span>
-									<input type="text" size="2" data-stripe="exp-month" placeholder="MM" />
 								</label>
+								<input type="text" size="2" class="expiration-month" data-stripe="exp-month" placeholder="MM" />
 								<span> / </span>
-								<input type="text" size="4" data-stripe="exp-year" placeholder="YYYY" />
+								<input type="text" size="4" class="expiration-year" data-stripe="exp-year" placeholder="YYYY" />
 							</li>
 						</ul>
 					</fieldset>

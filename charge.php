@@ -18,6 +18,8 @@ session_start();
       'currency' => 'usd'
   ));
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -39,6 +41,14 @@ session_start();
         
       </div>
     </div>
+
+    <?php 
+
+      
+      pre_print_r($charge);
+      pre_print_r($_POST);
+
+     ?>
 
     <?php include 'footer.php'; ?>
 
