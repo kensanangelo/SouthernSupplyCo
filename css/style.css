@@ -156,7 +156,7 @@ html {
 
 .nav > li > a:hover,
 .nav > li > a:focus {
-  background-color: #1E1E1E;
+  background-color: #444444;
   color: #F2AA00;
   cursor: pointer;
 }
