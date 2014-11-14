@@ -30,7 +30,6 @@
 					unset($_SESSION['cart']);
 					unset($_SESSION['cdb']);
 					unset($cart);
-					$_SESSION['logged_in'] = 1;
 					$display_msg =  'Your Cart has been emptied<br />';
 
 				} else if(isset($_POST['mode'])){
@@ -65,7 +64,7 @@
 
 							$display_msg = 'Item removed from Cart';
 							if(!$cart || strlen($_SESSION['cart'] == 0)){
-								$display_msg .= '<div>Your Cart has been emptied</div>';
+								$display_msg .= '<br /><div>Your Cart has been emptied</div>';
 							} else {
 								$cart_has_products = 1;
 							}
