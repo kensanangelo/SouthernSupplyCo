@@ -19,7 +19,7 @@
 
 
 		if(!$results){
-		    return "Failure"; 
+		    return "Failure : ".mysqli_error($connection); 
 		}else{
 			return "Success";	 
 		}
@@ -63,16 +63,16 @@
 		if($results){
 		    return "Success"; 
 		}else{
-			return "Failure";	 
+			return "Failure : ".mysqli_error($connection);	 
 		}
 	}
 
 	//Removes values from the database
-	function removeFromDB($table, $value, $where)
+	function removeFromDB($table, $where)
 	{
 		include 'connectdb.php';
 
-		$query='DELETE '.$value.' FROM '.$table.' WHERE '.$where;
+		$query='DELETE FROM '.$table.' WHERE '.$where;
 
 		$results=mysqli_query($connection, $query);
 
@@ -81,7 +81,7 @@
 		if($results){
 		    return "Success"; 
 		}else{
-			return "Failure";	 
+			return "Failure : ".mysqli_error($connection);	 
 		}
 	}
 

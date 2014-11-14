@@ -12,13 +12,81 @@
 			include 'includes.php';
 			include 'header.php';
 
+			//Checks which state the button was in
+			if(isset($_POST['add-edit-button'])){
+				$actionHappened=true;
+				if($_POST['add-edit-button']=='Add product'){
+					//If they are trying to add a product
+					$values=array($_POST['name'], $_POST['desc'], $_POST['cat'], $_POST['SKU'], $_POST['stock'], $_POST['cost'], $_POST['price'], $_POST['sale'], $_POST['url'], $_POST['rating'], $_POST['numVotes']);
+					$resultMessage=addToDB('products', $values);
+					if($resultMessage=="Success")
+						$statusString='Product was successfully added!';
+					else
+						$statusString='Product failed to be added!';
+				}else if($_POST['add-edit-button']=='Edit product'){
+					//If they are trying to edit a product
+					$returnedId=$_POST['hiddenId'];
+					$resultMessage=changeInDB('products', 'productName="'.$_POST['name'].'", description="'.$_POST['desc'].'", category="'.$_POST['cat'].'", SKU="'.$_POST['SKU'].'", stock="'.$_POST['stock'].'", cost="'.$_POST['cost'].'", price="'.$_POST['price'].'", salePrice="'.$_POST['sale'].'", productImage="'.$_POST['url'].'", rating="'.$_POST['rating'].'", numOfVotes="'.$_POST['numVotes'].'"', 'productID="'.$returnedId.'"');
+					
+					if($resultMessage=="Success")
+						$statusString='Product was successfully edited!';
+					else
+						$statusString='Product failed to be edited!';
+
+				}else if($_POST['add-edit-button']=='Delete product'){
+					//If they are trying to delete a product
+					$returnedId=$_POST['hiddenId'];
+
+					if($returnedId>=0)
+						$resultMessage=removeFromDB('products', 'productID="'.$returnedId.'"');
+					else
+						$resultMessage='Failure';
+
+					if($resultMessage=="Success")
+						$statusString='Product was successfully removed!';
+					else
+						$statusString='Product failed to be removed!';			
+				}else if($_POST['add-edit-button']=='Add user'){
+					//If they are trying to add a user
+					$values=array($_POST['hiddenId'], $_POST['username'], $_POST['pass'], $_POST['userAccess'], $_POST['first'], $_POST['last'], $_POST['email'], $_POST['address']);
+					$resultMessage=addToDB('users', $values);
+					if($resultMessage=="Success")
+						$statusString='User was successfully added!';
+					else
+						$statusString='User failed to be added!';
+				}else if($_POST['add-edit-button']=='Edit user'){
+					//If they are trying to edit a user
+					$returnedId=$_POST['hiddenId'];
+					$resultMessage=changeInDB('users', 'username="'.$_POST['username'].'", password="'.$_POST['pass'].'", user_access="'.$_POST['userAccess'].'", first_name="'.$_POST['first'].'", last_name="'.$_POST['last'].'", email="'.$_POST['email'].'", address="'.$_POST['address'].'"', 'id="'.$returnedId.'"');
+					
+					if($resultMessage=="Success")
+						$statusString='User was successfully edited!';
+					else
+						$statusString='User failed to be edited!'.$resultMessage;
+
+				}else if($_POST['add-edit-button']=='Delete user'){
+					//If they are trying to delete a user
+					$returnedId=$_POST['hiddenId'];
+
+					if($returnedId>=0)
+						$resultMessage=removeFromDB('users', 'id="'.$returnedId.'"');
+					else
+						$resultMessage='Failure';
+
+					if($resultMessage=="Success")
+						$statusString='User was successfully removed!';
+					else
+						$statusString='User failed to be removed!';			
+				}
+			}
+
 			//Figures out which database we are in and pulls the data
 			if(isset($_POST["users"])){
 				$table='users';
 				$result=readFromDB('users','*',false);
-			}else if(isset($_POST["reviews"])){
-				$table='reviews';
-				$result=readFromDB('reviews','*',false);
+			}else if(isset($_POST["orders"])){
+				$table='orders';
+				$result=readFromDB('orders','*',false);
 			}else{
 				$table='products';
 				$result=readFromDB('products','*', false);
@@ -42,12 +110,15 @@
 						<div class="btn-group">
 							<input type="submit" class="btn <?php if($table=='products'){echo 'btn-info active';}else{echo 'btn-default';}?>" name="products" id='adminProducts' value="Products"></input>
 		  					<input type="submit" class="btn <?php if($table=='users'){echo 'btn-info active';}else{echo 'btn-default';}?>" name="users" id='adminUsers' value="Users"></input>
-		 					<input type="submit" class="btn <?php if($table=='reviews'){echo 'btn-info active';}else{echo 'btn-default';}?>" name="reviews" id='adminReviews' value="Reviews"></input>
+		 					<input type="submit" class="btn <?php if($table=='orders'){echo 'btn-info active';}else{echo 'btn-default';}?>" name="orders" id='adminOrders' value="Orders"></input>
 						</div>
 					</form>
 				</div>
+				<?php if(isset($actionHappened) && $actionHappened==true){?>
+					<p id='status area' class="<?php if($resultMessage=='Success'){echo 'bg-success';}else {echo 'bg-danger';} ?>"><?php echo $statusString ?></p>
+				<?php } ?>
 				<div>
-					<form action="admin.php" method="get" class="marT-20 hidden" id="adminForm">
+					<form action="admin.php" method="POST" class="marT-20 hidden" id="adminForm">
 							<?php 
 							//Generates admin for based on which DB it is
 							if($table=='products'){?>
@@ -81,8 +152,9 @@
 									<li><label class='labelFix' for="address">Address: </label><input type='text' size='' name='address' placeholder='address'></input></li>
 								</ul>
 							<?php } ?>
+							<input type='text' class='' name='hiddenId'></input>
 							<div class="col-md-8 marB-20">
-								<input type="button" class="center-block btn" id="add-edit-button" value="Add product"/>
+								<input type="submit" class="center-block btn" id="add-edit-button" name="add-edit-button" value="Add product"/>
 								<!--<p><strong>Are you sure?</strong>
 									<div class="btn-group">
 										<input type="submit" class="btn btn-success" id="confirm" value="Yes">
