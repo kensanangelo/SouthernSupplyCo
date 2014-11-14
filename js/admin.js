@@ -7,14 +7,15 @@ if($("#adminProducts").hasClass("active"))
 	var panel='product';
 else if($("#adminUsers").hasClass("active"))
 	var panel='user';
-else if($("adminReviews").hasClass("active"))
-	var panel='review';
+else if($("adminOrders").hasClass("active"))
+	var panel='order';
 
 //Fills in #adminForm
 function fillForm(value){
 	if(panel=='product'){//Different DBs have different cols
     	if(value=='addClear'){//Clears the inputs for add
 			$("input[name='id']").val("");
+			$("input[name='hiddenId']").val("");
 	    	$("input[name='name']").val("");
 	    	$("input[name='desc']").val("");
 	    	$("input[name='cat']").val("");
@@ -44,6 +45,7 @@ function fillForm(value){
     }else if(panel=='user'){
     	if(value=='addClear'){//Clears the inputs for add
 	    	$("input[name='id']").val("");
+	    	$("input[name='hiddenId']").val("");
 	    	$("input[name='username']").val("");
 	    	$("input[name='pass']").val("");
 	    	$("input[name='userAccess']").val("");
@@ -53,6 +55,7 @@ function fillForm(value){
 	    	$("input[name='address']").val("");
     	}else{//Places the info in the inputs
 	    	$("input[name='id']").val($("#"+value+"-id").html());
+	    	$("input[name='hiddenId']").val($("#"+value+"-id").html());
 	    	$("input[name='username']").val($("#"+value+"-username").html());
 	    	$("input[name='pass']").val($("#"+value+"-password").html());
 	    	$("input[name='userAccess']").val($("#"+value+"-user_access").html());
