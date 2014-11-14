@@ -19,12 +19,12 @@
 
 					//If they are trying to add a product
 					$values=array($_POST['name'], $_POST['desc'], $_POST['cat'], $_POST['SKU'], $_POST['stock'], $_POST['cost'], $_POST['price'], $_POST['sale'], $_POST['url'], $_POST['rating'], $_POST['numVotes']);
-					$statusString = addToDB('products', $values);
+					$resultMessage = addToDB('products', $values);
 
-					// if($resultMessage=="Success")
-					// 	$statusString='Product was successfully added!';
-					// else
-					// 	$statusString='Product failed to be added!';
+					if($resultMessage=="Success")
+						$statusString='Product was successfully added!';
+					else
+						$statusString='Product failed to be added! '.$resultMessage;
 
 				}else if($_POST['add-edit-button']=='Edit product'){
 					//If they are trying to edit a product
@@ -157,7 +157,7 @@
 									<li><label class='labelFix' for="address">Address: </label><input type='text' size='' name='address' placeholder='address'></input></li>
 								</ul>
 							<?php } ?>
-							<input type='text' class='' name='hiddenId'></input>
+							<input type='text' class='hidden' name='hiddenId'></input>
 							<div class="col-md-8 marB-20">
 								<input type="submit" class="center-block btn" id="add-edit-button" name="add-edit-button" value="Add product"/>
 								<!--<p><strong>Are you sure?</strong>
