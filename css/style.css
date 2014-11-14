@@ -156,7 +156,7 @@ html {
 
 .nav > li > a:hover,
 .nav > li > a:focus {
-  background-color: #444444;
+  background-color: transparent !important;
   color: #F2AA00;
   cursor: pointer;
 }
@@ -408,6 +408,8 @@ fieldset{
 
 
 
+
+
 a{
 	text-decoration: none !important;
 	color: #1E1E1E;
@@ -460,6 +462,8 @@ ul{
 /*mediaQ*/
 
 @media (max-width: 767px) {
+
+
 	.brand{
 		text-align: center;
 		padding-top: 30px;
@@ -475,7 +479,6 @@ ul{
 
 	}
 
-
 	.menuitem{
 		text-align: center;
 	}
@@ -490,6 +493,13 @@ ul{
 	.foreground{
 		background-image:none;
 	
+	}
+
+	.nav > li > a:hover,
+	.nav > li > a:focus {
+	  background-color: #444444 !important;
+	  color: #F2AA00;
+	  cursor: pointer;
 	}
 
 }
@@ -536,6 +546,8 @@ ul{
 		padding-left: 6px;
 		padding-right: 6px;
 	}
+
+
 }
 
 @media screen and (min-width: 960px){
@@ -552,6 +564,14 @@ ul{
 
 
 @media (max-width: 991px) {
+
+
+ 	.nav > li > a:hover,
+	.nav > li > a:focus {
+	  background-color: #444444 !important;
+	  color: #F2AA00;
+	  cursor: pointer;
+	}
 
 
     .navbar-header {
