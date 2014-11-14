@@ -50,6 +50,8 @@
 
 
 					?>
+
+					<input type="submit" class="add-qty-btn btn btn-ext btn-default push" size="3" value="Add to Cart" />
 				</div>
 			</div>
 			</div>

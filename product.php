@@ -22,8 +22,9 @@
 			}
 
 		?>
-		<div class="container">
 
+		<div id="push-down"></div>
+		<div class="container">
 			<?php if($product_id){ ?>
 
 				<ol class="breadcrumb">
