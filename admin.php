@@ -16,13 +16,16 @@
 			if(isset($_POST['add-edit-button'])){
 				$actionHappened=true;
 				if($_POST['add-edit-button']=='Add product'){
+
 					//If they are trying to add a product
 					$values=array($_POST['name'], $_POST['desc'], $_POST['cat'], $_POST['SKU'], $_POST['stock'], $_POST['cost'], $_POST['price'], $_POST['sale'], $_POST['url'], $_POST['rating'], $_POST['numVotes']);
-					$resultMessage=addToDB('products', $values);
-					if($resultMessage=="Success")
-						$statusString='Product was successfully added!';
-					else
-						$statusString='Product failed to be added!';
+					$statusString = addToDB('products', $values);
+
+					// if($resultMessage=="Success")
+					// 	$statusString='Product was successfully added!';
+					// else
+					// 	$statusString='Product failed to be added!';
+
 				}else if($_POST['add-edit-button']=='Edit product'){
 					//If they are trying to edit a product
 					$returnedId=$_POST['hiddenId'];
@@ -123,7 +126,9 @@
 							//Generates admin for based on which DB it is
 							if($table=='products'){?>
 								<ul class='col-md-4'>
+									<?php /* Commented out because the product id should auto-increment, therefore we do not need to pass it a value
 									<li><label class='labelFix' for="id">ID: </label><input type='text' size='' name='id' placeholder='productID'></input></li>
+									*/ ?>
 									<li><label class='labelFix' for="name">Product Name: </label><input type='text' size='' name='name' placeholder='productName'></input></li>
 									<li><label class='labelFix' for="desc">Description: </label><input type='text' size='' name='desc' placeholder='description'></input></li>
 									<li><label class='labelFix' for="cat">Category: </label><input type='text' size='' name='cat' placeholder='category'></input></li>
