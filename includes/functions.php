@@ -139,7 +139,8 @@ function process_cart($mode, $id, $qty){
 			if (array_key_exists($id, $split_cart)) {
 				// If the new quantity is higher than the old quantity
 				if((int)$qty == 0){
-					//  unset($product_id);
+
+					unset($split_cart[$id]);
 
 					$_SESSION['cdb'] .= ', qty = 0 condition met';
 					return $split_cart;

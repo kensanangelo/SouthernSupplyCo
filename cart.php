@@ -21,7 +21,7 @@
 				
 			}
 
-			pre_print_r($_POST);
+			// pre_print_r($_POST);
 
 			$cart = $_SESSION['cart'];
 
@@ -57,7 +57,11 @@
 
 
 						if($product_id){
-							process_cart('remove', $product_id);
+
+
+							$altered_cart = process_cart('update_total', $product_id, 0);
+
+							$_SESSION['cart'] = cart_to_str($altered_cart);
 
 							$display_msg = 'Item removed from Cart';
 							if(!$cart || strlen($_SESSION['cart'] == 0)){
@@ -83,26 +87,30 @@
 
 				//	Populate Cart array
 
-				if(isset($split_cart)){
+				if(isset($_SESSION['cart'])){
 
-					echo '<br /><br />';
-					echo 'Print $split_cart from cart.php';
-					pre_print_r($split_cart);
-					echo '<br />';
+					$split_cart = split_cart($_SESSION['cart']);
+					
+					$order_total = 0;
 
-					// $cart = explode(', ',$_SESSION['cart']);
-					// $cart_length = count($cart) - 1;
-					// $order_total = 0;
+					// - Important--
+					$j = 0;
 
-					// for($i = 0;$i < $cart_length; $i++){
+					foreach($split_cart as $product_id => $quantity){
 
-					// 	$product_id = (int)$cart[$i];
-					// 	$result_array[$i] = ssc_query($product_id, 'ID');
-					// 	$cart_data[] = $result_array[$i][0];
+						$product_id = (int)$product_id;
+						$result_array[$i] = ssc_query($product_id, 'ID');
+						$cart_data[] = $result_array[$i][0];
 
-					// 	$sub_total += $result_array[$i][0]['price'];
+						$item_total = $result_array[$i][0]['price'] * $quantity;
 
-					// }
+						$sub_total += $item_total;
+
+						$cart_additional[$j]['quantity'] = $quantity;
+						$cart_additional[$j]['item_total'] = $item_total;
+
+						$j++;
+					}
 
 					$sales_tax = $sub_total * 0.07;
 					$sales_tax = round($sales_tax, 2);
@@ -114,24 +122,23 @@
 
 				}
 
-				//pre_print_r($cart_data);
-				//die();
-				echo 'Print $_SESSION';
-				pre_print_r($_SESSION);
-				echo '<br />';
 
 		?>
 		<div class="container">
 			<div class="row marT-20 marB-20">
 				<div class="col-md-6">
 					<h1><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</h1>
-					<?php if($display_msg){ echo '<h3>'.$display_msg.'</h3>'; } ?>
+					<?php if($display_msg){ echo '<h3>'.$display_msg.'</h3>'; ?>
+					<?php } elseif($cart_data) { ?>
+						<h3>There are <?php echo count($cart_data); ?> items in your cart.</h3>
+					<?php } ?>
 				</div>
 				<div class="col-md-2 col-md-offset-4 text-right">
 					<a href="checkout.php" class="btn btn-default"><span class="glyphicon glyphicon-lock"></span> Checkout Now</a>
 					<a href="cart.php?mode=empty_cart" class="btn btn-default"><span class="glyphicon"></span> Empty Cart</a>
 				</div>
 			</div>
+			<?php $i = 0; ?>
 			<?php foreach($cart_data as $result){ 
 
 				// $result['description'];
@@ -148,21 +155,32 @@
 						</a>
 					</div>
 					<div class="col-md-6 col-md-offset-1">
-						<a class="productLink" href="product.php"><h3><?php echo $result['productName']; ?></h3></a>
+						<a class="productLink" href="product.php?product=<?php echo $result['productID']; ?>"><h3><?php echo $result['productName']; ?></h3></a>
 						<div class="catStars">
 							<?php print_stars($result['rating'], $result['numOfVotes']); ?>
 						</div>
 						<p>QUIKRETE® Concrete Mix is the original 4000 psi average compressive strength blend of portland cement, sand, and gravel or stone. Just add water. Use for any general concrete work.</p>
 					</div>
 					<div class="col-md-2 text-right">
-						<p class="cartPrice marT-20">Item Total: $74.40</p>
+						<p class="cartPrice marT-20">Item Total: $<?php echo $cart_additional[$i]['item_total']; ?></p>
 						<p class="">Unit Price: $<?php echo $result['price']; ?> </p>
-						<?php /*<p>Qty: <input type="text" value="30" size="3"/>
-						
-						<button class="button">Update</button></p>*/ ?>
-						<p><a href="cart.php?mode=remove&product_id=<?php echo $result['productID']; ?>" class="button"><span class="glyphicon glyphicon-remove"></span> Remove</a></p>
+						<form action="cart.php?mode=update_total" method="post">
+							<input type="hidden" name="product_id" value='<?php echo $result['productID']; ?>' />
+							<input type="hidden" name="mode" value='update_total' />
+							<p class="push">Qty: <input class="input-ext" type="text" name="product_quantity" value="<?php echo $cart_additional[$i]['quantity']; ?>" size="3"/></p>
+							<!--<span class="glyphicon glyphicon-plus"></span>--> <input type="submit" class="add-qty-btn btn btn-ext btn-default push" size="3" value="Update" />
+						</form>
+						<!-- <a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default push"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a> -->
+						<form action="cart.php" method="post">
+							<input type="hidden" name="product_id" value='<?php echo $result['productID']; ?>' />
+							<input type="hidden" name="mode" value='remove' />
+							<button type="submit" class="button">
+								<span class="glyphicon glyphicon-remove"></span> Remove
+							</button>
+						</form>
 					</div>
 				</div>
+				<?php $i++; ?>
 
 			<?php } ?>
 			

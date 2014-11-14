@@ -26,7 +26,7 @@ jQuery(document).ready(function(){
 	               		var html = '<ul class="list-group">';
 
                			$.each(data, function(i, product){
-		               		html += '<li class="list-group-item"><a href="catalog.php?product='+product.productID+'">Name: '+product.productName+' | '+product.category+'</a></li>';
+		               		html += '<li class="list-group-item"><a href="product.php?product='+product.productID+'">Name: '+product.productName+' | '+product.category+'</a></li>';
 
 		               	});
 						
