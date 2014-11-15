@@ -87,7 +87,7 @@
 					<?php
 						//Loops through other items in the category
 						for($i=0;$i<6;$i++){
-							//If the product is the same as a recommended, it picks a different one, unless that different one is that one
+							//If the product is the same as a recommended, it picks a different one, unless that different one is that product
 							if($result_array[0]['productID']==$similar_array[$i]['productID']
 								&& $result_array[0]['productID']!=$similar_array[6]['productID']) {
 								$oldIter=$i;
@@ -106,16 +106,6 @@
 									<div class="row">
 										<div class="col-md-4">
 											<p class="price">$<?php echo $similar_array[$i]['price']; ?></p>
-										</div>
-										<div class="col-md-8 qty-add">
-											<form action="cart.php?mode=update_total" method="post">
-												<input type="hidden" name="product_id" value='<?php echo $similar_array[$i]['productID']; ?>' />
-												<input type="hidden" name="mode" value='update_total' />
-												<p class="push">Qty: <input class="input-ext" type="text" name="product_quantity" value="1" size="3"/></p>
-												<!--<span class="glyphicon glyphicon-plus"></span>--> <input type="submit" class="add-qty-btn btn btn-ext btn-default push" size="3" value="Add to Cart" />
-											</form>
-											<!-- <a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default push"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a> -->
-											
 										</div>
 									</div>
 								</div>
