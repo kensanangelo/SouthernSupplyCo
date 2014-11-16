@@ -170,11 +170,11 @@
 						<div class="col-md-2 text-right">
 							<p class="cartPrice marT-20">Item Total: $<?php echo $cart_additional[$i]['item_total']; ?></p>
 							<p class="">Unit Price: $<?php echo $result['price']; ?> </p>
-							<form action="cart.php?mode=update_total" method="post">
+							<form class="cart-update-form" action="cart.php?mode=update_total" method="post">
 								<input type="hidden" name="product_id" value='<?php echo $result['productID']; ?>' />
 								<input type="hidden" name="mode" value='update_total' />
-								<p class="push">Qty: <input class="input-ext" type="text" name="product_quantity" value="<?php echo $cart_additional[$i]['quantity']; ?>" size="3"/></p>
-								<input type="submit" class="add-qty-btn btn btn-ext btn-default push" size="3" value="Update" />
+								<p>Qty: <input class="input-ext" type="text" name="product_quantity" value="<?php echo $cart_additional[$i]['quantity']; ?>" size="3"/></p>
+								<input type="submit" class="add-qty-btn btn btn-ext btn-default" size="3" value="Update" />
 							</form>
 							<!-- <a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default push"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a> -->
 							<form action="cart.php" method="post">

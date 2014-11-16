@@ -345,6 +345,10 @@ html {
 	font-weight: 700;
 }
 
+.cart-update-form {
+	margin-bottom: 10px;
+}
+
 .emph{
 	font-size: 1em;
 	font-weight: 700;
