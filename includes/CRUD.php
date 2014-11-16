@@ -13,10 +13,14 @@
 					VALUES ('$values[0]', '$values[1]', '$values[2]', '$values[3]', '$values[4]', '$values[5]', '$values[6]', '$values[7]', '$values[8]', '$values[9]', '$values[10]')";
 		}
 		elseif($table=="users"){
-			$query='INSERT INTO  users (`id` ,`username` ,`password` ,`user_access` ,`first_name` ,`last_name` ,`email` ,`address` ,`cart`) VALUES (NULL ,  "'.$values[0].'", "'.$values[1].'", '.$values[2].', "'.$values[3].'", "'.$values[4].'", "'.$values[5].'", "'.$values[6].'", "'.$values[7].'")';
+			// $query='INSERT INTO  users (`id` ,`username` ,`password` ,`user_access` ,`first_name` ,`last_name` ,`email` ,`address` ,`cart`) 
+			// VALUES (NULL ,  "'.$values[0].'", "'.$values[1].'", '.$values[2].', "'.$values[3].'", "'.$values[4].'", "'.$values[5].'", "'.$values[6].'", "'.$values[7].'")';
+
+			$query="INSERT INTO users (username, password, user_access, first_name, last_name, email, address, cart)
+					VALUES ('$values[0]', '$values[1]', '$values[2]', '$values[3]', '$values[4]', '$values[5]', '$values[6]', '$values[7]')";
 		}
 
-		$results=mysqli_query($connection, $query);
+		$results = mysqli_query($connection, $query);
 
 		// mysqli_close($connection);
 

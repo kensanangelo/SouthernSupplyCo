@@ -9,6 +9,9 @@
 
 		<?php 
 
+			include 'includes.php';
+			include 'header.php';
+
 			if(isset($_GET['mode'])){
 				$mode = $_GET['mode'];
 				if($mode == 'logout'){
@@ -21,9 +24,6 @@
 				$mode='';
 			}
 
-			include 'includes.php';
-			include 'header.php';
-			
 		?>
 		<div id="push-down"></div>
 		<div class="container">
@@ -75,7 +75,8 @@
 							</ul>
 							<input type="hidden" name="signhash" id="signhash"/>
 							<input type="hidden" name="signhash2" id="signhash2"/>
-							<input type="submit" name="signup" value="Sign Up" class="btn btn-default complete"/>
+							<input type="hidden" name="signup" />
+							<input type="submit" value="Sign Up" class="btn btn-default complete"/>
 
 						</form>
 					</div>
@@ -122,9 +123,61 @@
 					type: 'POST',
 					data: form.serialize(),
 					success: function(result) {
-						console.log(result);
 
-										
+						console.log(result);
+						var data = JSON.parse(result);
+						
+						// The ajax response returns data.code = 0 if the login failed
+						if( data.code == 0 ) {
+							successMsg.html(data.message);
+						}
+						
+						// The ajax response returns data.code = 1 if the login was successful
+						if( data.code && data.code == 1 ) {
+							
+							form.find('input[type=text], texarea').val('').trigger('blur');
+							form_container.slideUp();
+							successMsg.html(data.message);
+
+							if(data.loginSuccess){
+								$('#login-button').fadeOut(300, function(){
+									$('#login-button .button-txt').html('Log Out');
+									$('#login-button').attr('href', 'login.php?mode=logout').fadeIn(300);
+								});
+								
+							}
+					
+						}
+						
+					}
+				});
+				
+				return false;
+					
+			});
+
+			// =- =- =- =- =- =- =-
+			//	
+			//	Registration Form Submission
+			//
+			// =- =- =- =- =- =- =- =-
+
+			$('#signupForm').on('submit', function(evt) {
+
+				evt.preventDefault();
+					
+				var form = $(this),
+					btn = form.find('#login-submit'),
+					successMsg = $('#form-success'),
+					form_container = $('#form-container');
+						
+				//send	
+				$.ajax({
+					url: 'includes/compare.php',
+					type: 'POST',
+					data: form.serialize(),
+					success: function(result) {
+
 						var data = result;
 						
 						// The ajax response returns data.code = 0 if the login failed

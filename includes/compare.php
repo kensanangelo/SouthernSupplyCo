@@ -20,9 +20,9 @@ function signupAdd($user,$email,$pass)
 {
 	include 'CRUD.php';
 
-	$array=array($user,$pass,2,"namey","lastnamey",$email,"address",'');
+	$array = array($user, $pass, 2, '', '', $email, '', '');
 
-	$success=addToDB('users',$array);
+	$success = addToDB('users',$array);
 
 	return $success;	
 }
@@ -52,10 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 
 				$user_results = mysqli_fetch_assoc($results);
 				$user_id = $user_results['id'];
-				//	User access 1 = Guest
-				//	User access 2 = Signed in User
-				//	User access 3 = Admin
-				//	User access 4 = Super
 				$user_access = $user_results['user_access'];
 
 				//	Set up a message to be appended to the html via AJAX at the bottom of login.php
@@ -67,13 +63,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 				else
 					$message .= '<a href="client.php?user_id='.$user_id.'">Take me to <strong>My Account.</strong></a>';
 
-				//	Store login data in the Session (Not working through ajax... it only stores when I set it outside AJAX requests)
 				$_SESSION['logged_in'] = 1;
 				$_SESSION['user_id'] = $user_id;
 				$_SESSION['user_access'] = $user_access;
 
 
-				header('Content-Type: application/json');
+				// header('Content-Type: application/json');
 				die(json_encode(array(
 					'code' => 1,
 					'message' => $message,
@@ -90,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 				// $_SESSION['logged_in'] = 0;
 				// unset($_SESSION['user_id']);
 
-				header('Content-Type: application/json');
+				// header('Content-Type: application/json');
 				die(json_encode(array(
 					'code' => 0,
 					'message' => '<h3>YOU FAILED TO LOGIN IN BRO</h3>',
@@ -109,10 +104,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 		}
 
 	} else if (isset($_POST['signup'])){//If the user clicked signup
-		$user=$_POST['createUser'];
-		$email=$_POST['createEmail'];
-		$pass=$_POST['signhash'];
-		$passConfirm=$_POST['signhash2'];
+
+		$user = $_POST['createUser'];
+		$email = $_POST['createEmail'];
+		$pass = $_POST['signhash'];
+		$passConfirm = $_POST['signhash2'];
 
 		$user = $connection->real_escape_string($user);
 		$pass = $connection->real_escape_string($pass);
@@ -122,12 +118,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 		if($user && $pass && $passConfirm && $email){
 
 			if ($pass==$passConfirm) {
-				$signupSuccess=signupAdd($user,$email,$pass);
+				$signupSuccess = signupAdd($user,$email,$pass);
 
-				if($signupSuccess=="Success")
-					echo "YOU WERE ADDED TO THE DATABASE!";
-				else
-					echo $signupSuccess." - You werent added to the database :(";
+				if($signupSuccess == "Success"){
+
+					$message = '<h3>YOU WERE ADDED TO THE DATABASE!</h3>';
+
+					header('Content-Type: application/json');
+					die(json_encode(array(
+						'code' => 1,
+						'message' => $message
+					)));
+
+				} else {
+
+					$message = '<h3>'.$signupSuccess.' - You werent added to the database :(</h3>';
+
+					// header('Content-Type: application/json');
+					die(json_encode(array(
+						'code' => 0,
+						'message' => $message
+					)));
+				}
 			}
 			else{
 				echo "YOUR PASSWORDS DIDNT MATCH";
@@ -136,8 +148,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 		else{
 				echo "YOU MUST ENTER ALL FIELDS";
 		}
-	}else
-		echo "404: It didnt work :(";
+	} else {
+
+		$message = $_POST;
+		
+		header('Content-Type: application/json');
+		die(json_encode(array(
+			'code' => 0,
+			'message' => $message
+		)));
+
+	}
 }
 
 ?>

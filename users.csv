@@ -1,0 +1,5 @@
+id,"username","password",user_access,"first_name","last_name","email","address","cart"
+1,"bobbyboy32","e6baa8a460cc15a544c61e976eae8a7d848408ce1a79db696334e54eb41b6b11",2,"Bob","Stevenson","bob@bob.com","5511 Bobby Way",NULL
+2,"admin","8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",3,"admin","admin","admin","admin",NULL
+5,"user123","6ea33eda48a080f79094e138b696a76efcb635ee8e91a376387d1f67f64bca0d",2,"Steven","Jobs","user@user.com","5572 Apple Way",NULL
+6,"test","9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",2,"namey","lastnamey","test@test.com","address",""
