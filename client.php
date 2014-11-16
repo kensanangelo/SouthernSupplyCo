@@ -49,7 +49,7 @@
 							<?php } ?>
 							
 
-							<h4>Bob's Construction Company</h4>
+							<!-- <h4>Bob's Construction Company</h4> -->
 							<div class="row marT-20">
 								<div class="col-md-6"><span class="emph">Member since:</span><br/> 01/17/2008</div>
 								<div class="col-md-6"><span class="emph">Contact Phone Number:</span><br/> 1 (863) 555-3579</div>
@@ -60,7 +60,7 @@
 							</div>
 						</div>
 						<div class="col-md-4 marT-20 text-right">
-							<p><span class="emph">Account #:</span> 000000<?php echo $user_data['id']; ?></p>
+							<p><span class="emph">Account #: </span><?php echo $user_data['id']; ?></p>
 							<a href="cart.php" class="btn btn-default"><span class="glyphicon glyphicon-shopping-cart"></span> Go to Cart</a>
 						
 						</div>

@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.34)
 # Database: ssc
-# Generation Time: 2014-11-16 05:02:52 +0000
+# Generation Time: 2014-11-16 05:55:40 +0000
 # ************************************************************
 
 
@@ -20,36 +20,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table users
+# Dump of table orders
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `orders`;
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` text NOT NULL,
-  `password` text NOT NULL,
-  `user_access` int(1) NOT NULL,
-  `first_name` text NOT NULL,
-  `last_name` text NOT NULL,
-  `email` text NOT NULL,
-  `address` text NOT NULL,
-  `cart` text,
+CREATE TABLE `orders` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `cart` varchar(2000) DEFAULT NULL,
+  `order_total` decimal(65,0) DEFAULT NULL,
+  `purchase_date` date DEFAULT NULL,
+  `full_name` varchar(2000) DEFAULT NULL,
+  `customer_phone` varchar(2000) DEFAULT NULL,
+  `customer_email` varchar(2000) DEFAULT NULL,
+  `address_line1` varchar(2000) DEFAULT NULL,
+  `address_line2` varchar(2000) DEFAULT NULL,
+  `address_city` varchar(50) DEFAULT NULL,
+  `address_state` varchar(12) DEFAULT NULL,
+  `address_zip` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-
-INSERT INTO `users` (`id`, `username`, `password`, `user_access`, `first_name`, `last_name`, `email`, `address`, `cart`)
-VALUES
-	(1,'bobbyboy32','e6baa8a460cc15a544c61e976eae8a7d848408ce1a79db696334e54eb41b6b11',2,'Bob','Stevenson','bob@bob.com','5511 Bobby Way',NULL),
-	(2,'admin','8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918',3,'admin','admin','admin','admin',NULL),
-	(5,'user123','6ea33eda48a080f79094e138b696a76efcb635ee8e91a376387d1f67f64bca0d',2,'Steven','Jobs','user@user.com','5572 Apple Way',NULL),
-	(6,'test','9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08',2,'namey','lastnamey','test@test.com','address','');
-
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 
