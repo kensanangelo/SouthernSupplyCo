@@ -222,6 +222,21 @@
 									<th>Last Name</th>
 									<th>Email</th>
 									<th>Address</th>
+								<?php } else if($table == 'orders'){ ?>
+									<th>Sel</th>
+									<th>Order ID</th>
+									<th>User ID</th>
+									<th>Cart</th>
+									<th>Order Total</th>
+									<th>Purchase Date</th>
+									<th>Full Name</th>
+									<th>Phone</th>
+									<th>Email</th>
+									<th>Address Line 1</th>
+									<th>Address Line 2</th>
+									<th>Address City</th>
+									<th>Address State</th>
+									<th>Address Zip</th>
 								<?php } ?>
 							</tr>
 						</thead>
@@ -253,6 +268,21 @@
 										<td id="<?php echo $row['id']; ?>-last_name"><?php echo $row['last_name']; ?></td>
 										<td id="<?php echo $row['id']; ?>-email"><?php echo $row['email']; ?></td>
 										<td id="<?php echo $row['id']; ?>-address"><?php echo $row['address']; ?></td>
+								<?php } else if($table=='orders'){ ?>
+										<td><input type='radio' name='sel' value="<?php echo $row['id']; ?>"/></td>
+										<td id="<?php echo $row['id']; ?>-id"><?php echo $row['id']; ?></td>
+										<td id="<?php echo $row['id']; ?>-user_id"><?php echo $row['user_id']; ?></td>
+										<td id="<?php echo $row['id']; ?>-cart"><?php echo $row['cart']; ?></td>
+										<td id="<?php echo $row['id']; ?>-order_total"><?php echo $row['order_total']; ?></td>
+										<td id="<?php echo $row['id']; ?>-purchase_date"><?php echo $row['purchase_date']; ?></td>
+										<td id="<?php echo $row['id']; ?>-full_name"><?php echo $row['full_name']; ?></td>
+										<td id="<?php echo $row['id']; ?>-customer_phone"><?php echo $row['customer_phone']; ?></td>
+										<td id="<?php echo $row['id']; ?>-customer_email"><?php echo $row['customer_email']; ?></td>
+										<td id="<?php echo $row['id']; ?>-address_line1"><?php echo $row['address_line1']; ?></td>
+										<td id="<?php echo $row['id']; ?>-address_line2"><?php echo $row['address_line2']; ?></td>
+										<td id="<?php echo $row['id']; ?>-address_city"><?php echo $row['address_city']; ?></td>
+										<td id="<?php echo $row['id']; ?>-address_state"><?php echo $row['address_state']; ?></td>
+										<td id="<?php echo $row['id']; ?>-address_zip"><?php echo $row['address_zip']; ?></td>
 								<?php } ?>
 									
 								</tr>

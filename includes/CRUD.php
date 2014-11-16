@@ -20,7 +20,7 @@
 					VALUES ('$values[0]', '$values[1]', '$values[2]', '$values[3]', '$values[4]', '$values[5]', '$values[6]', '$values[7]')";
 		}
 		elseif($table=="orders"){
-			$query="INSERT INTO orders (user_id, cart, total, purchase_date, full_name, customer_phone, customer_email, address_line1, address_line2, address_city, address_state, address_zip)
+			$query="INSERT INTO orders (user_id, cart, order_total, purchase_date, full_name, customer_phone, customer_email, address_line1, address_line2, address_city, address_state, address_zip)
 					VALUES ('$values[0]', '$values[1]', '$values[2]', '$values[3]', '$values[4]', '$values[5]', '$values[6]', '$values[7]', '$values[8]', '$values[9]', '$values[10]', '$values[11]')";
 		}
 

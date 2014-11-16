@@ -9,7 +9,6 @@ session_start();
   $token  = $_POST['stripeToken'];
   $order_total = $_POST['order_total'];
   $stripe_total = $_POST['stripe_total'];
-  pre_print_r($_POST);
 
   $customer = Stripe_Customer::create(array(
       'email' => 'hutch78@me.com',
@@ -24,12 +23,10 @@ session_start();
       'currency' => 'usd'
   ));
 
-  if($charge){
-    $values = array($_POST['user_id'], $_POST['cart'], $_POST['total'], $_POST['purchase_date'], $_POST['full_name'], $_POST['customer_phone'], $_POST['customer_email'], $_POST['address_line1'], $_POST['address_line2'], $_POST['address_city'], $_POST['address_state'], $_POST['address_zip']);
-    $process_order = addToDB('orders', $values);
+  if ($charge->paid == 1) {
+    $order_values = array($_POST['user_id'], $_POST['cart'], $_POST['order_total'], $_POST['purchase_date'], $_POST['full_name'], $_POST['customer_phone'], $_POST['customer_email'], $_POST['address_line1'], $_POST['address_line2'], $_POST['address_city'], $_POST['address_state'], $_POST['address_zip']);
+    $process_order = addToDB('orders', $order_values);
   }
-
-
 
 ?>
 
@@ -56,11 +53,7 @@ session_start();
     </div>
 
     <?php 
-
-      
-      pre_print_r($charge);
-      pre_print_r($_POST);
-
+    pre_print_r($_POST);
      ?>
 
     <?php include 'footer.php'; ?>
