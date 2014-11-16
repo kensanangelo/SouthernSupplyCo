@@ -108,7 +108,7 @@
 					$table = 'orders';
 
 					//If they are trying to add an order
-					$values=array($_POST['hiddenId'], $_POST['username'], $_POST['pass'], $_POST['userAccess'], $_POST['first'], $_POST['last'], $_POST['email'], $_POST['address']);
+					$values=array($_POST['userId'], $_POST['cart'], $_POST['orderTotal'], $_POST['purchaseDate'], $_POST['fullName'], $_POST['phone'], $_POST['email'], $_POST['address1'], $_POST['address2'], $_POST['city'], $_POST['state'], $_POST['zip']);
 					$resultMessage=addToDB('orders', $values);
 					if($resultMessage=="Success")
 						$statusString='Order was successfully added!';
