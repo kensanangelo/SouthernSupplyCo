@@ -35,6 +35,7 @@ if (isset($_SESSION['logged_in'])) {
 	    url:"serverscript.php",
 	    success:function(data) {
 	      alert(data);
+	      location.reload();
 	    }
 	  });
 	});

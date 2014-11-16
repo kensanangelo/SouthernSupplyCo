@@ -7,7 +7,7 @@ if($("#adminProducts").hasClass("active"))
 	var panel='product';
 else if($("#adminUsers").hasClass("active"))
 	var panel='user';
-else if($("adminOrders").hasClass("active"))
+else if($("#adminOrders").hasClass("active"))
 	var panel='order';
 
 //Fills in #adminForm
@@ -63,6 +63,38 @@ function fillForm(value){
 	    	$("input[name='last']").val($("#"+value+"-last_name").html());
 	    	$("input[name='email']").val($("#"+value+"-email").html());
 	    	$("input[name='address']").val($("#"+value+"-address").html());
+    	}
+    }else if(panel=='order'){
+    	if(value=='addClear'){//Clears the inputs for add
+	    	$("input[name='id']").val("");
+	    	$("input[name='hiddenId']").val("");
+	    	$("input[name='userId']").val("");
+	    	$("input[name='cart']").val("");
+	    	$("input[name='orderTotal']").val("");
+	    	$("input[name='purchaseDate']").val("");
+	    	$("input[name='fullName']").val("");
+	    	$("input[name='phone']").val("");
+	    	$("input[name='email']").val("");
+	    	$("input[name='address1']").val("");
+	    	$("input[name='address2']").val("");
+	    	$("input[name='city']").val("");
+	    	$("input[name='state']").val("");
+	    	$("input[name='zip']").val("");
+    	}else{//Places the info in the inputs
+	    	$("input[name='id']").val($("#"+value+"-id").html());
+	    	$("input[name='hiddenId']").val($("#"+value+"-id").html());
+	    	$("input[name='userId']").val($("#"+value+"-user_id").html());
+	    	$("input[name='cart']").val($("#"+value+"-cart").html());
+	    	$("input[name='orderTotal']").val($("#"+value+"-order_total").html());
+	    	$("input[name='purchaseDate']").val($("#"+value+"-purchase_date").html());
+	    	$("input[name='fullName']").val($("#"+value+"-full_name").html());
+	    	$("input[name='phone']").val($("#"+value+"-customer_phone").html());
+	    	$("input[name='email']").val($("#"+value+"-customer_email").html());
+	    	$("input[name='address1']").val($("#"+value+"-address_line1").html());
+	    	$("input[name='address2']").val($("#"+value+"-address_line2").html());
+	    	$("input[name='city']").val($("#"+value+"-address_city").html());
+	    	$("input[name='state']").val($("#"+value+"-address_state").html());
+	    	$("input[name='zip']").val($("#"+value+"-address_zip").html());
     	}
     }
 
@@ -122,6 +154,7 @@ $("#adminEdit").click(function(){
 
 //Listener for radio buttons
 $("input[name='sel']").change(function(){
+
 	//Changes the form values when clicked if it is not the add button
     if(clicked=='edit' || clicked=='remove' || clicked=='')
     	fillForm($('input:radio[name="sel"]:checked').val());

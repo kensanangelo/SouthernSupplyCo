@@ -5,7 +5,7 @@
 		<head>
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<title>Southern Supply Co. Product - Group 4</title>
+			<title>Southern Supply Co. | Construction Supplies - Group 4</title>
 			<link rel="stylesheet" type="text/css" href="css/star-rating.css">
 
 		<?php 
@@ -94,7 +94,7 @@
 								$i=6;
 							}
 						?>
-							<div class="col-md-2 col-sm-6 option">
+							<div class="col-md-2 col-sm-4 col-xs-4 option">
 								<a href="product.php?product=<?php echo $similar_array[$i]['productID']; ?>">
 									<img class='img-responsive' src="<?php echo $similar_array[$i]['productImage']; ?>" alt="<?php echo $similar_array[$i]['productName']; ?>">
 								</a>
