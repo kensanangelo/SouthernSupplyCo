@@ -1,0 +1,52 @@
+User-Agent: Googlebot
+Allow: /sitemap.xml
+Allow: /sitemap.xml.gz
+
+User-agent:  *
+# disallow all files in these directories
+Disallow: /cgi-bin/
+Disallow: /_notes/
+Disallow: /css/
+Disallow: /img/
+Disallow: /fonts/
+Disallow: /includes/
+Disallow: /js/
+
+User-agent: Googlebot
+# disallow all files ending with these extensions
+Disallow: /*.php$
+Disallow: /*.js$
+Disallow: /*.inc$
+Disallow: /*.css$
+Disallow: /*.gz$
+Disallow: /*.cgi$
+Disallow: /*.wmv$
+Disallow: /*.png$
+Disallow: /*.gif$
+Disallow: /*.jpg$
+Disallow: /*.cgi$
+Disallow: /*.xhtml$
+Disallow: /*.php*
+Allow: /uploads/
+
+# allow google image bot to search all images
+User-agent: Googlebot-Image
+Allow: /*
+
+# disallow archiving site
+User-agent: ia_archiver
+Disallow: /
+ 
+# disable duggmirror
+User-agent: duggmirror
+Disallow: /
+
+User-agent: Googlebot
+Disallow: /*.php$
+Disallow: /*.js$
+Disallow: /*.inc$
+Disallow: /*.css$
+Disallow: /*.gz$
+Disallow: /*.wmv$
+Disallow: /*.cgi$
+Disallow: /*.xhtml$
