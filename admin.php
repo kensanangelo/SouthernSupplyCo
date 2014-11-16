@@ -14,29 +14,35 @@
 
 			//Checks which state the button was in
 			if(isset($_POST['add-edit-button'])){
+
 				$actionHappened=true;
+
 				if($_POST['add-edit-button']=='Add product'){
 
 					//If they are trying to add a product
-					$values=array($_POST['name'], $_POST['desc'], $_POST['cat'], $_POST['SKU'], $_POST['stock'], $_POST['cost'], $_POST['price'], $_POST['sale'], $_POST['url'], $_POST['rating'], $_POST['numVotes']);
+					$values = array($_POST['name'], $_POST['desc'], $_POST['cat'], $_POST['SKU'], $_POST['stock'], $_POST['cost'], $_POST['price'], $_POST['sale'], $_POST['url'], $_POST['rating'], $_POST['numVotes']);
 					$resultMessage = addToDB('products', $values);
 
-					if($resultMessage=="Success")
-						$statusString='Product was successfully added!';
-					else
-						$statusString='Product failed to be added! '.$resultMessage;
+					if($resultMessage == "Success"){
+						$statusString = 'Product was successfully added!';
+					} else {
+						$statusString = 'Product failed to be added! '.$resultMessage;
+					}
 
 				}else if($_POST['add-edit-button']=='Edit product'){
+
 					//If they are trying to edit a product
-					$returnedId=$_POST['hiddenId'];
-					$resultMessage=changeInDB('products', 'productName="'.$_POST['name'].'", description="'.$_POST['desc'].'", category="'.$_POST['cat'].'", SKU="'.$_POST['SKU'].'", stock="'.$_POST['stock'].'", cost="'.$_POST['cost'].'", price="'.$_POST['price'].'", salePrice="'.$_POST['sale'].'", productImage="'.$_POST['url'].'", rating="'.$_POST['rating'].'", numOfVotes="'.$_POST['numVotes'].'"', 'productID="'.$returnedId.'"');
+					$returnedId = $_POST['hiddenId'];
+					$resultMessage = changeInDB('products', 'productName="'.$_POST['name'].'", description="'.$_POST['desc'].'", category="'.$_POST['cat'].'", SKU="'.$_POST['SKU'].'", stock="'.$_POST['stock'].'", cost="'.$_POST['cost'].'", price="'.$_POST['price'].'", salePrice="'.$_POST['sale'].'", productImage="'.$_POST['url'].'", rating="'.$_POST['rating'].'", numOfVotes="'.$_POST['numVotes'].'"', 'productID="'.$returnedId.'"');
 					
-					if($resultMessage=="Success")
+					if($resultMessage=="Success"){
 						$statusString='Product was successfully edited!';
-					else
+					} else {
 						$statusString='Product failed to be edited!';
+					}
 
 				}else if($_POST['add-edit-button']=='Delete product'){
+
 					//If they are trying to delete a product
 					$returnedId=$_POST['hiddenId'];
 
@@ -45,10 +51,12 @@
 					else
 						$resultMessage='Failure';
 
-					if($resultMessage=="Success")
+					if($resultMessage=="Success"){
 						$statusString='Product was successfully removed!';
-					else
+					} else {
 						$statusString='Product failed to be removed!';			
+					}
+
 				}else if($_POST['add-edit-button']=='Add user'){
 					//If they are trying to add a user
 					$values=array($_POST['hiddenId'], $_POST['username'], $_POST['pass'], $_POST['userAccess'], $_POST['first'], $_POST['last'], $_POST['email'], $_POST['address']);
@@ -85,18 +93,33 @@
 
 			//Figures out which database we are in and pulls the data
 			if(isset($_POST["users"])){
-				$table='users';
-				$result=readFromDB('users','*',false);
-			}else if(isset($_POST["orders"])){
-				$table='orders';
-				$result=readFromDB('orders','*',false);
-			}else{
-				$table='products';
-				$result=readFromDB('products','*', false);
+
+				$table = 'users';
+				$query_object = readFromDB('users','*',false);
+				while($results = $query_object->fetch_array()) {
+				    $result[] = $results;
+				}
+
+			} else if (isset($_POST["orders"])){
+
+				$table = 'orders';
+				$query_object = readFromDB('orders','*',false);
+				while($results = $query_object->fetch_array()) {
+				    $result[] = $results;
+				}
+
+			} else {
+
+				$table = 'products';
+				$query_object = readFromDB('products','*', false);
+				while($results = $query_object->fetch_array()) {
+				    $result[] = $results;
+				}
+
 			}
 
 			//Blocks the user if they arent an admin
-			if($user_access>2){
+			if($user_access > 2){
 		?>
 		<div class="container">
 			<div class="marT-20 marB-20">

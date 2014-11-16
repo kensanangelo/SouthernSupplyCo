@@ -2,13 +2,16 @@
 //Passes in entire results array from query
 function print_stars($rating, $numOfVotes){
 	
-	$average =($rating/$numOfVotes);
+	if($numOfVotes){
+		$average =($rating/$numOfVotes);
 
-	$html = '';
-	for($i = 0; $i < 5; $i++){
-		$i < $average ? $html .= '<span class="glyphicon glyphicon-star"></span>' : $html .= '<span class="glyphicon glyphicon-star-empty"></span>';
-	}
-	echo $html;
+		$html = '';
+		for($i = 0; $i < 5; $i++){
+			$i < $average ? $html .= '<span class="glyphicon glyphicon-star"></span>' : $html .= '<span class="glyphicon glyphicon-star-empty"></span>';
+		}
+		echo $html;
+
+	} 
 	
 }
 
@@ -106,13 +109,17 @@ function split_cart($str_cart){
 }
 
 function cart_to_str($array_2d){
-	foreach($array_2d as $product => $quantity){
-		$str_array[] = (string)$product;
-		$str_array[] = (string)$quantity;
-	}
-	$new_array = implode($str_array, ',');
+	if($array_2d){
 
-	return $new_array;
+		foreach($array_2d as $product => $quantity){
+			$str_array[] = (string)$product;
+			$str_array[] = (string)$quantity;
+		}
+		$new_array = implode($str_array, ',');
+		
+		return $new_array;
+	} 
+
 
 }
 
@@ -129,7 +136,6 @@ function process_cart($mode, $id, $qty){
 	if(isset($_SESSION['cart'])){
 
 		$cart = $_SESSION['cart'];
-		$_SESSION['cdb'] .= 'id_str = '.$id_str;
 
 		if($mode == 'update_total'){
 
@@ -142,14 +148,14 @@ function process_cart($mode, $id, $qty){
 
 					unset($split_cart[$id]);
 
-					$_SESSION['cdb'] .= ', qty = 0 condition met';
+					// $_SESSION['cdb'] .= ', qty = 0 condition met';
 					return $split_cart;
 
 				// $qty = Value passed into this function (new value)
 				//	$value = Value stored in the cart array (old value)
 				} elseif ((int)$qty > 0) {
 
-					$_SESSION['cdb'] .= ', qty > 0 hit';
+					// $_SESSION['cdb'] .= ', qty > 0 hit';
 					$value = $qty;
 					$split_cart[$id] = $qty;
 					$_SESSION['cart'] = cart_to_str($split_cart);
@@ -163,7 +169,7 @@ function process_cart($mode, $id, $qty){
 			//	else item is not currently in the cart
 			} else {
 
-				$_SESSION['cdb'] .= ', item not currently in cart';
+				// $_SESSION['cdb'] .= ', item not currently in cart';
 				//	Take the string cart and add a new product and quantity to the end of it
 				$cart = cart_to_str($split_cart);
 				$cart .= ','.$id.','.$qty;
@@ -178,7 +184,7 @@ function process_cart($mode, $id, $qty){
 	// add item to the beginning of cart
 	} else {
 
-		$_SESSION['cdb'] .= ', no session cart conditional';
+		// $_SESSION['cdb'] = ', no session cart conditional';
 
 		$cart = $id.','.$qty;
 

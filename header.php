@@ -1,13 +1,15 @@
 <?php
 session_start();
 
+error_reporting(E_ALL & ~E_NOTICE);
+
 if(!isset($_SESSION['user_access'])){
 	$_SESSION['user_access'] = 1;
 	$user_access = 1;
 } else {
-	$user_access = $_SESSION['user_access'];
-	$loggedIn = $_SESSION['logged_in'];
-	$user_id = $_SESSION['user_id'];
+	$user_access = isset($_SESSION['user_access']) ? $_SESSION['user_access'] : null;
+	$loggedIn = isset($_SESSION['logged_in']) ? $_SESSION['logged_in'] : null;
+	$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 }
 
 //	Print everything inside the Session global array

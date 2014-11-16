@@ -8,8 +8,6 @@
 			<title>Southern Supply Co. Checkout - Group 4</title>
 
 		<?php 
-			include 'includes.php';
-			include 'header.php';
 
 			if(isset($_GET['mode'])){
 				$mode = $_GET['mode'];
@@ -19,8 +17,13 @@
 					$_SESSION['user_access'] = 1;
 				}
 				
-			}else
+			}else{
 				$mode='';
+			}
+
+			include 'includes.php';
+			include 'header.php';
+			
 		?>
 		<div id="push-down"></div>
 		<div class="container">

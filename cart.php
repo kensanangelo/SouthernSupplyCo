@@ -13,7 +13,7 @@
 
 			$sub_total = 0;
 
-			if ($_POST['mode']) {
+			if (isset($_POST['mode'])) {
 				if ($_POST['mode'] == 'update_total') {
 					$product_id = $_POST['product_id'];
 					$qty = $_POST['product_quantity'];
@@ -23,7 +23,7 @@
 
 			// pre_print_r($_POST);
 
-			$cart = $_SESSION['cart'];
+			$cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : null;
 
 				if (isset($_GET['mode']) && $_GET['mode'] == 'empty_cart') {
 
@@ -98,10 +98,10 @@
 					foreach($split_cart as $product_id => $quantity){
 
 						$product_id = (int)$product_id;
-						$result_array[$i] = ssc_query($product_id, 'ID');
-						$cart_data[] = $result_array[$i][0];
+						$result_array[$j] = ssc_query($product_id, 'ID');
+						$cart_data[] = $result_array[$j][0];
 
-						$item_total = $result_array[$i][0]['price'] * $quantity;
+						$item_total = $result_array[$j][0]['price'] * $quantity;
 
 						$sub_total += $item_total;
 
@@ -121,13 +121,15 @@
 
 				}
 
+				// pre_print_r($_SESSION);
+				// pre_print_r($_POST);
 
 		?>
 		<div class="container">
 			<div class="row marT-20 marB-20">
 				<div class="col-md-6">
 					<h1><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</h1>
-					<?php if($display_msg){ echo '<h3>'.$display_msg.'</h3>'; ?>
+					<?php if(isset($display_msg)){ echo '<h3>'.$display_msg.'</h3>'; ?>
 					<?php } elseif($cart_data) { ?>
 						<h3>There are <?php echo count($cart_data); ?> items in your cart.</h3>
 					<?php } ?>
@@ -137,53 +139,56 @@
 					<a href="cart.php?mode=empty_cart" class="btn btn-default"><span class="glyphicon"></span> Empty Cart</a>
 				</div>
 			</div>
-			<?php $i = 0; ?>
-			<?php foreach($cart_data as $result){ 
+			<?php if (isset($cart_data)): ?>
+				<?php $i = 0; ?>
+				<?php foreach($cart_data as $result){ 
 
-				// $result['description'];
-				// $result['rating'];
-				// $result['numOfVotes'];
-				// $result['productImage'];
+					// $result['description'];
+					// $result['rating'];
+					// $result['numOfVotes'];
+					// $result['productImage'];
 
-				?>
-			
-				<div class="row option">
-					<div class="col-md-3">
-						<a href="product.php">
-							<img class='img-responsive' src="<?php echo $result['productImage']; ?>" alt="A 50lb bag of concrete">
-						</a>
-					</div>
-					<div class="col-md-6 col-md-offset-1">
-						<a class="productLink" href="product.php?product=<?php echo $result['productID']; ?>"><h3><?php echo $result['productName']; ?></h3></a>
-						<div class="catStars">
-							<?php print_stars($result['rating'], $result['numOfVotes']); ?>
+					?>
+				
+					<div class="row option">
+						<div class="col-md-3">
+							<a href="product.php">
+								<img class='img-responsive' src="<?php echo $result['productImage']; ?>" alt="A 50lb bag of concrete">
+							</a>
 						</div>
-						<?php if (isset($result['description'])) { ?>
-							<p><?php echo $result['description']; ?></p>
-						<?php } ?>
+						<div class="col-md-6 col-md-offset-1">
+							<a class="productLink" href="product.php?product=<?php echo $result['productID']; ?>"><h3><?php echo $result['productName']; ?></h3></a>
+							<div class="catStars">
+								<?php print_stars($result['rating'], $result['numOfVotes']); ?>
+							</div>
+							<?php if (isset($result['description'])) { ?>
+								<p><?php echo $result['description']; ?></p>
+							<?php } ?>
+						</div>
+						<div class="col-md-2 text-right">
+							<p class="cartPrice marT-20">Item Total: $<?php echo $cart_additional[$i]['item_total']; ?></p>
+							<p class="">Unit Price: $<?php echo $result['price']; ?> </p>
+							<form action="cart.php?mode=update_total" method="post">
+								<input type="hidden" name="product_id" value='<?php echo $result['productID']; ?>' />
+								<input type="hidden" name="mode" value='update_total' />
+								<p class="push">Qty: <input class="input-ext" type="text" name="product_quantity" value="<?php echo $cart_additional[$i]['quantity']; ?>" size="3"/></p>
+								<input type="submit" class="add-qty-btn btn btn-ext btn-default push" size="3" value="Update" />
+							</form>
+							<!-- <a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default push"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a> -->
+							<form action="cart.php" method="post">
+								<input type="hidden" name="product_id" value='<?php echo $result['productID']; ?>' />
+								<input type="hidden" name="mode" value='remove' />
+								<button type="submit" class="button">
+									<span class="glyphicon glyphicon-remove"></span> Remove
+								</button>
+							</form>
+						</div>
 					</div>
-					<div class="col-md-2 text-right">
-						<p class="cartPrice marT-20">Item Total: $<?php echo $cart_additional[$i]['item_total']; ?></p>
-						<p class="">Unit Price: $<?php echo $result['price']; ?> </p>
-						<form action="cart.php?mode=update_total" method="post">
-							<input type="hidden" name="product_id" value='<?php echo $result['productID']; ?>' />
-							<input type="hidden" name="mode" value='update_total' />
-							<p class="push">Qty: <input class="input-ext" type="text" name="product_quantity" value="<?php echo $cart_additional[$i]['quantity']; ?>" size="3"/></p>
-							<input type="submit" class="add-qty-btn btn btn-ext btn-default push" size="3" value="Update" />
-						</form>
-						<!-- <a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default push"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a> -->
-						<form action="cart.php" method="post">
-							<input type="hidden" name="product_id" value='<?php echo $result['productID']; ?>' />
-							<input type="hidden" name="mode" value='remove' />
-							<button type="submit" class="button">
-								<span class="glyphicon glyphicon-remove"></span> Remove
-							</button>
-						</form>
-					</div>
-				</div>
-				<?php $i++; ?>
+					<?php $i++; ?>
 
-			<?php } ?>
+				<?php } ?>
+			<?php endif ?>
+			
 			
 		</div>
 
