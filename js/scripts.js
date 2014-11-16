@@ -16,7 +16,7 @@ jQuery(document).ready(function(){
 	            success: function(result){
 	            	//console.log(result);
 	               	data = JSON.parse(result);
-	               	console.log(data);
+	               	// console.log(data);
 
 	               	if(!data){
 	               		$('#ajax-search-results').html('');
@@ -62,7 +62,196 @@ jQuery(document).ready(function(){
 	    };
 	});
 
+	// =- =- =- =- =- =- =-
+	//	
+	//	Logout Form Submit
+	//
+	// =- =- =- =- =- =- =- =-
 
+	$('#logout-form').on('submit', function(evt) {
+		console.log('submitted');
+		evt.preventDefault();
+			
+		var form = $(this),
+			btn = $('#logout-button'),
+			form_container = $('#form-container');
+				
+		//send	
+		$.ajax({
+			url: 'includes/ajax/process_logout.php',
+			type: 'POST',
+			data: form.serialize(),
+			success: function(result) {
+
+				console.log(result);
+				var data = result;
+		
+				// The ajax response returns data.code = 1 if the login was successful
+				if( data.code && data.code == 1 ) {
+					
+					// window.location = 'http://localhost:8888/ssc/home.php';
+					window.location = 'http://sulley.cah.ucf.edu/~je860731/dig4530c/A/home.php';
+					// console.log(data.message);
+
+				}
+				
+			}
+		});
+		
+		return false;
+			
+	});
+
+	// Attach Logout Function to the form (in case the form has been added to the DOM dynamically)
+	function attach_logout_event(){
+		// =- =- =- =- =- =- =-
+		//	
+		//	Logout Form Submit
+		//
+		// =- =- =- =- =- =- =- =-
+
+		$('#logout-form').on('submit', function(evt) {
+			console.log('submitted');
+			evt.preventDefault();
+				
+			var form = $(this),
+				btn = $('#logout-button'),
+				form_container = $('#form-container');
+					
+			//send	
+			$.ajax({
+				url: 'includes/ajax/process_logout.php',
+				type: 'POST',
+				data: form.serialize(),
+				success: function(result) {
+
+					console.log(result);
+					var data = result;
+			
+					// The ajax response returns data.code = 1 if the login was successful
+					if( data.code && data.code == 1 ) {
+						
+						// window.location = 'http://localhost:8888/ssc/home.php';
+						window.location = 'http://sulley.cah.ucf.edu/~je860731/dig4530c/A/home.php';
+						// console.log(data.message);
+				
+					}
+					
+				}
+			});
+			
+			return false;
+				
+		});
+	}
+
+	// =- =- =- =- =- =- =-
+	//	
+	//	Login Form Submit
+	//
+	// =- =- =- =- =- =- =- =-
+
+	$('#loginForm').on('submit', function(evt) {
+
+		evt.preventDefault();
+			
+		var form = $(this),
+			btn = form.find('#login-submit'),
+			successMsg = $('#form-success'),
+			form_container = $('#form-container');
+				
+		//send	
+		$.ajax({
+			url: 'includes/compare.php',
+			type: 'POST',
+			data: form.serialize(),
+			success: function(result) {
+
+				console.log(result);
+				var data = result;
+				
+				// The ajax response returns data.code = 0 if the login failed
+				if( data.code == 0 ) {
+					successMsg.html(data.message);
+				}
+				
+				// The ajax response returns data.code = 1 if the login was successful
+				if( data.code && data.code == 1 ) {
+					
+					form.find('input[type=text], texarea').val('').trigger('blur');
+					form_container.slideUp();
+					successMsg.html(data.message);
+
+					if(data.loginSuccess){
+						$('#user-mgmt').fadeOut(300, function(){
+							$('#user-mgmt').html(data.html).fadeIn(300);
+							attach_logout_event();
+						});
+						
+					}
+			
+				}
+				
+			}
+		});
+		
+		return false;
+			
+	});
+
+
+	// =- =- =- =- =- =- =-
+	//	
+	//	Registration Form Submission
+	//
+	// =- =- =- =- =- =- =- =-
+
+	$('#signupForm').on('submit', function(evt) {
+
+		evt.preventDefault();
+			
+		var form = $(this),
+			btn = form.find('#login-submit'),
+			successMsg = $('#form-success'),
+			form_container = $('#form-container');
+				
+		//send	
+		$.ajax({
+			url: 'includes/compare.php',
+			type: 'POST',
+			data: form.serialize(),
+			success: function(result) {
+
+				var data = result;
+				
+				// The ajax response returns data.code = 0 if the login failed
+				if( data.code == 0 ) {
+					successMsg.html(data.message);
+				}
+				
+				// The ajax response returns data.code = 1 if the login was successful
+				if( data.code && data.code == 1 ) {
+					
+					form.find('input[type=text], texarea').val('').trigger('blur');
+					form_container.slideUp();
+					successMsg.html(data.message);
+
+					if(data.loginSuccess){
+						$('#login-button').fadeOut(300, function(){
+							$('#login-button .button-txt').html('Log Out');
+							$('#login-button').attr('href', 'login.php?mode=logout').fadeIn(300);
+						});
+						
+					}
+			
+				}
+				
+			}
+		});
+		
+		return false;
+			
+	});
 
 
 

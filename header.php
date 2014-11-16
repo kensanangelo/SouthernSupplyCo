@@ -1,11 +1,11 @@
 <?php
 session_start();
-
 error_reporting(E_ALL & ~E_NOTICE);
 
 if(!isset($_SESSION['user_access'])){
 	$_SESSION['user_access'] = 1;
 	$user_access = 1;
+	$loggedIn = 0;
 } else {
 	$user_access = isset($_SESSION['user_access']) ? $_SESSION['user_access'] : null;
 	$loggedIn = isset($_SESSION['logged_in']) ? $_SESSION['logged_in'] : null;
@@ -13,7 +13,7 @@ if(!isset($_SESSION['user_access'])){
 }
 
 //	Print everything inside the Session global array
-//pre_print_r($_SESSION);
+// pre_print_r($_SESSION);
 ?>
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -35,16 +35,46 @@ if(!isset($_SESSION['user_access'])){
 			<div class="row">
 				<div class="col-md-2 brand"><a href="home.php"><img class="logo" src="img/logo_ssc.svg" alt="Southern Supply Co. Logo"></a>
 				</div>
+				<div id="logout-msg">
+					<?php if (isset($_SESSION['logout_msg'])) { ?>
+						<p><?php echo $_SESSION['logout_msg']; ?></p>
+						<?php unset($_SESSION['logout_msg']); ?>
+					<?php } ?>
+				</div>
 				<div class=" login col-md-2 col-md-offset-8">
+					
 					<?php
 						//Puts either Login or Account link depending on user access level
-						if($loggedIn == 1){
-							echo "<a id='account-button' href='client.php?user_id=".$user_id."'><span class='glyphicon glyphicon-user'></span> Account</a>";
-							echo "<a id='logout-button' href='login.php?mode=logout'><span class='glyphicon glyphicon-user'></span> Log Out</a>";
-						} else {
-							echo "<a id='login-button' href='login.php'><span class='glyphicon glyphicon-user'></span> <span class='button-txt'>Login</span></a>";
-						}
-					?><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>
+						if($loggedIn == 1){ ?>
+							<div id="user-mgmt">
+								<a class="user-mgmt-btn" id='account-button' href='client.php?user_id=<?php echo $user_id; ?>'>
+									<span class='glyphicon glyphicon-user'></span>
+									<span>Account</span>
+								</a>
+								<form  method="POST" id="logout-form">
+									
+									<button class="user-mgmt-btn" type="submit" id='logout-button'>
+										<span class='glyphicon glyphicon-user'></span>
+										<span>Log Out</span>
+									</button>
+
+								</form>
+								<a class="user-mgmt-btn" href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>
+
+							</div>
+					
+						
+						<?php } else { ?>
+							<div id="user-mgmt">
+								<a id='login-button' href='login.php'>
+									<span class='glyphicon glyphicon-user'></span> 
+									<span class='button-txt'>Login</span>
+								</a>
+								<a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>
+
+							</div>
+						<?php } ?>
+
 
 				</div>
 			</div>	

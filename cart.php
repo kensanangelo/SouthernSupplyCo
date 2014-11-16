@@ -135,8 +135,10 @@
 					<?php } ?>
 				</div>
 				<div class="col-md-2 col-md-offset-4 text-right">
-					<a href="checkout.php" class="btn btn-default"><span class="glyphicon glyphicon-lock"></span> Checkout Now</a>
-					<a href="cart.php?mode=empty_cart" class="btn btn-default"><span class="glyphicon"></span> Empty Cart</a>
+					<?php if (isset($cart_data)): ?>
+						<a href="checkout.php" class="btn btn-default"><span class="glyphicon glyphicon-lock"></span> Checkout Now</a>
+						<a href="cart.php?mode=empty_cart" class="btn btn-default"><span class="glyphicon"></span> Empty Cart</a>
+					<?php endif ?>
 				</div>
 			</div>
 			<?php if (isset($cart_data)): ?>
@@ -192,31 +194,33 @@
 			
 		</div>
 
-		<div class="container marT-20">
-			<div class="row">
-				<div class="col-md-3 col-md-offset-9 text-right">
-					<ul>
-						<?php if(isset($sub_total)){ ?>
-							<li>Subtotal: $<?php echo $sub_total; ?></li>
-						<?php } ?>
-						<?php if(isset($sales_tax)){ ?>
-							<li>Sales Tax: $<?php echo $sales_tax; ?></li>
-						<?php } ?>
-						<?php if(isset($sales_tax)){ ?>
-							<li class="price marT-20">Total: $<?php echo $order_total; ?></li>
-						<?php } ?>
-					</ul>
-					<form action="checkout.php" method="POST">
-						<input type="hidden" name="stripe_total" value="<?php echo $stripe_total; ?>">
-						<input type="hidden" name="order_total" value="<?php echo $order_total; ?>">
-						<button type="submit" class="btn btn-default">
-							<span class="glyphicon glyphicon-lock"></span> Checkout Now
-						</button>
-					</form>
-						<!-- <a href="checkout.php" class="btn btn-default"></a> -->
+		<?php if (isset($cart_data)): ?>
+			<div class="container marT-20">
+				<div class="row">
+					<div class="col-md-3 col-md-offset-9 text-right">
+						<ul>
+							<?php if(isset($sub_total)){ ?>
+								<li>Subtotal: $<?php echo $sub_total; ?></li>
+							<?php } ?>
+							<?php if(isset($sales_tax)){ ?>
+								<li>Sales Tax: $<?php echo $sales_tax; ?></li>
+							<?php } ?>
+							<?php if(isset($sales_tax)){ ?>
+								<li class="price marT-20">Total: $<?php echo $order_total; ?></li>
+							<?php } ?>
+						</ul>
+						<form action="checkout.php" method="POST">
+								<input type="hidden" name="stripe_total" value="<?php echo $stripe_total; ?>">
+								<input type="hidden" name="order_total" value="<?php echo $order_total; ?>">
+								<button type="submit" class="btn btn-default">
+									<span class="glyphicon glyphicon-lock"></span> Checkout Now
+								</button>
+						</form>
+							<!-- <a href="checkout.php" class="btn btn-default"></a> -->
+					</div>
 				</div>
 			</div>
-		</div>
+		<?php endif; ?>
 		
 
 		<?php include 'footer.php'; ?>

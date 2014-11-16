@@ -37,7 +37,7 @@
 			<div class="row marT-20 marB-20">
 				<div class="col-md-6">
 					<h1><span class="glyphicon glyphicon-search"></span> Search Results</h1>
-					<h4><?php echo 'We found '.count($result_array).' results for &quot;'.$search_term.'&quot'; ?></h4>
+					<h4><?php echo 'We found '.count($result_array).' results for &quot;'.$search_term.'&quot;'; ?></h4>
 				</div>
 			</div>
 			

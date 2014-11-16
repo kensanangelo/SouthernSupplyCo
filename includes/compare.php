@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 				$user_results = mysqli_fetch_assoc($results);
 				$user_id = $user_results['id'];
 				$user_access = $user_results['user_access'];
-
+		
 				//	Set up a message to be appended to the html via AJAX at the bottom of login.php
 				$message = '<h3>Welcome, '.$user.'! You Have Successfully Logged In</h3>';
 				$message .= '<p>Your User ID is: '.$user_id.'</p>';
@@ -67,15 +67,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 				$_SESSION['user_id'] = $user_id;
 				$_SESSION['user_access'] = $user_access;
 
+				$html = '<a class="user-mgmt-btn" id="account-button" href="client.php?user_id='.$user_id.'">';
+				$html .= "<span class='glyphicon glyphicon-user'></span><span>Account</span>";
+				$html .= "</a>";
 
-				// header('Content-Type: application/json');
+				$html .= '<form method="POST" id="logout-form">';
+				$html .= '<button class="user-mgmt-btn" type="submit" id="logout-button">';
+				$html .= '<span class="glyphicon glyphicon-user"></span><span>Log Out</span>';
+				$html .= '</button>';
+				$html .= '</form>';
+
+				$html .= '<a class="user-mgmt-btn" href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>';
+
+				header('Content-Type: application/json');
 				die(json_encode(array(
 					'code' => 1,
 					'message' => $message,
 					'query' => $query,
 					'user_id' => $user_id,
 					'loginSuccess' => $loginSuccess,
-					'user_access' => $user_access
+					'user_access' => $user_access,
+					'html' => $html
 				)));
 
 				// echo "YOU LOGGED IN CORRECTLY";
@@ -85,12 +97,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 				// $_SESSION['logged_in'] = 0;
 				// unset($_SESSION['user_id']);
 
-				// header('Content-Type: application/json');
+				header('Content-Type: application/json');
 				die(json_encode(array(
 					'code' => 0,
 					'message' => '<h3>YOU FAILED TO LOGIN IN BRO</h3>',
-					'post' => $_POST,
-					'user_id' => $user_id,
 					'loginSuccess' => $loginSuccess
 				)));
 

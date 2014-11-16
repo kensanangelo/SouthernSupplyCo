@@ -51,11 +51,7 @@ session_start();
         
       </div>
     </div>
-
-    <?php 
-    pre_print_r($_POST);
-     ?>
-
+    
     <?php include 'footer.php'; ?>
 
 

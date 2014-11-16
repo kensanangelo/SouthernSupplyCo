@@ -116,6 +116,55 @@ html {
 .login>a:hover{
 	color: #8c8c8c;
 }
+
+/* ---------------------------------------------------------
+
+	User Management container in the right side of the header 
+
+-----------------------------------------------------------*/
+#user-mgmt {
+	display: block;
+	overflow: hidden;
+	width: 300px;
+	margin:0 auto;
+}
+#account-button {
+	float: left;
+}
+#logout-form {
+	float: left;
+	background: transparent;
+	border: none;
+	margin: -2px 0 0 0;
+}
+.user-mgmt-btn {
+	background: transparent;
+	border: none;
+	float: left;
+	margin-right: 20px;
+	padding-right: 24px;
+	border-right: 1px solid black;
+}
+
+.user-mgmt-btn span, #account-button span {
+	color: #444;
+	-webkit-transition: color, .2s;
+	   -moz-transition: color, .2s;
+	    -ms-transition: color, .2s;
+	     -o-transition: color, .2s;
+	        transition: color, .2s;
+}
+
+
+
+#logout-button:hover span, #account-button:hover span {
+	color: #8c8c8c;
+}
+
+/* ---------------------------------------------------------
+
+-----------------------------------------------------------*/
+
 .navbar{
 	margin-top: 0px;
 	margin-bottom: 0;
@@ -129,6 +178,13 @@ html {
 	        transition: all;
 }
 
+.container {
+	position: relative;
+}
+
+#logout-msg {
+	text-align: center;
+}
 
 .navbar>.container{
 	background: url(../img/footer.png) repeat;
@@ -523,6 +579,15 @@ ul{
 		text-align: right;
 
 	}
+	#logout-msg {
+		position: absolute;
+		top: 24px;
+		right: 0;
+		text-align: right;
+	}
+
+
+}
 
 @media (max-width: 991px) and (min-width: 768px){
 	/*.foreground{
