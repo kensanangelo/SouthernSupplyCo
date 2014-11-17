@@ -45,7 +45,7 @@
 							<div class="col-md-4 col-md-offset-1">
 
 								<h3><?php echo $row['productName']; ?></h3>
-								<div class="catStars">
+								<div class="catStars catStars-sim">
 									<?php print_stars($row['rating'], $row['numOfVotes']); ?>
 								</div>
 
