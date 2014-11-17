@@ -45,7 +45,7 @@
 							<div class="col-md-4 col-md-offset-1">
 
 								<h3><?php echo $row['productName']; ?></h3>
-								<div class="catStars catStars-sim">
+								<div class="catStars">
 									<?php print_stars($row['rating'], $row['numOfVotes']); ?>
 								</div>
 
@@ -103,8 +103,8 @@
 									<img class='img-responsive' src="<?php echo $similar_array[$i]['productImage']; ?>" alt="<?php echo $similar_array[$i]['productName']; ?>">
 								</a>
 								<div>
-									<a class="productLink" href="product.php?product=<?php echo $similar_array[$i]['productID']; ?>"><h3 class="productSpacer"><?php echo $similar_array[$i]['productName']; ?></h3></a>
-									<div class="catStars">
+									<a class="productLink" href="product.php?product=<?php echo $similar_array[$i]['productID']; ?>"><h3 class="productSpacer productSpace-sim"><?php echo $similar_array[$i]['productName']; ?></h3></a>
+									<div class="catStars catStars-sim">
 										<?php print_stars($similar_array[$i]['rating'], $similar_array[$i]['numOfVotes']); ?>
 									</div>
 									<div class="row">

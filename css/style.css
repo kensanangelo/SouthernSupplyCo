@@ -355,7 +355,7 @@ html {
 }
 
 .catStars-sim{
-	padding-top: 40px;
+	padding-top: 30px;
 }
 
 .price{
@@ -600,14 +600,15 @@ ul{
 	}
 
 
-
 	.nav > li > a:hover,
 	.nav > li > a:focus {
 	  background-color: #444444 !important;
 	  color: #F2AA00;
 	  cursor: pointer;
 	}
-
+	.option-sim{
+		height: 370px;
+	}
 }
 
 @media screen and (max-width: 481px){
@@ -650,7 +651,7 @@ ul{
 	}
 
 	.productSpacer{
-	height: 70px;
+	height: 40px;
 }
 
 	h3, .h3{
@@ -666,6 +667,14 @@ ul{
 		height: 450px;
 
 	}
+
+	.catStars-sim{
+		padding-top: 0px;
+	}
+
+	.productSpacer-sim{
+	height: 20px;
+}
 
 }
 
