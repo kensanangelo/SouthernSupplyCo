@@ -3,7 +3,7 @@
 	<div class="clear"></div>
 
 	</div><?php /* end wrap */ ?>
-
+	
 	<div class="footer">
 		<div class="container footer-space">
 			<div class="row">

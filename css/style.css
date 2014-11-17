@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
 
 html, body {
   width: auto !important;
@@ -13,16 +13,19 @@ body{
 
 }
 
-h1,h2,h3,h4{
+h1{
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
-}
-
-
-
-h1{
 	font-size: 30px;
 	margin: 0;
+}
+
+h2, .h2{
+	font-size: 25px;
+}
+
+h2, h3, h4{
+	font-weight: 600;
 }
 
 h3, .h3{
@@ -226,9 +229,18 @@ html {
 
 /*Stuff for home page*/
 
+
+.catg{
+	font-size: 28px;
+}
+
 .thumbnail{
 	height: 200px;
 
+}
+
+.deal{
+	font-weight: 700;
 }
 
 .foreground{
@@ -238,6 +250,7 @@ html {
 	background-image: url('../img/contractor.jpg');
 	background-repeat:no-repeat;
 	background-position:center;
+	border-bottom: 1px solid #ccc;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -316,7 +329,7 @@ html {
 /*--Stuff for catalog and checkout page--*/
 
 .active{
-	font-weight: 700 !important;
+	font-weight: 600 !important;
 }
 
 .push{
@@ -368,6 +381,10 @@ html {
 
 .marB-10{
 	margin-bottom: 10px;
+}
+
+.marB-20{
+	margin-bottom: 20px;
 }
 
 .btn-default{
@@ -445,6 +462,8 @@ fieldset{
 	border-top: 1px solid #e5e5e5;
 	margin-top: -214px;
 	padding-top: 15px;
+	border-top: 1px solid #070406;
+
 }
 
 .footer a{
@@ -474,7 +493,6 @@ fieldset{
 
 
 
-
 a{
 	text-decoration: none !important;
 	color: #1E1E1E;
@@ -490,6 +508,7 @@ ul{
 
 .lead{
 	font-size: 15px;
+	font-weight: 600;
 	margin-bottom: 5px;
 	color: #F2AA00;
 	text-transform: uppercase;
@@ -501,6 +520,7 @@ ul{
 }
 
 .disclaimer-wrapper{
+	border-top: 1px solid #303030;
 	background-color: #070406;
 	width: 100%;
 }
@@ -557,8 +577,11 @@ ul{
 
 	.foreground{
 		background-image:none;
+		border-bottom: 0;
 	
 	}
+
+
 
 	.nav > li > a:hover,
 	.nav > li > a:focus {

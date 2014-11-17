@@ -15,7 +15,7 @@
 			<div class="row">
 				<div class="featured-wrapper">
 				<div class="col-md-4 col-md-offset-7 featured">
-					<h2>Daily Deal</h2>
+					<h2 class="deal">Daily Deal</h2>
 					<?php
 						//Gets info for featured product
 						$result=mysqli_fetch_assoc(readFromDB("products", "*", "productID=1"));
@@ -48,7 +48,7 @@
 		</div>
 		
 		<div class='container categories'>
-			<h1 class="marT-20">Construction Supply Categories:</h1>
+			<h1 class="marT-20 catg marB-20">Construction Supply Categories</h1>
 			<div class="row">
 				<div class="col-md-4 col-sm-4 slot">
 					<a href="catalog.php?category=Hardwoods">
