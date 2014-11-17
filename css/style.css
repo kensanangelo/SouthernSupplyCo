@@ -564,6 +564,50 @@ ul{
 
 /*mediaQ*/
 
+@media screen and (max-width: 480px){
+	.expiration-month {
+
+	}
+
+	.option-sim{
+		padding: 0;
+
+	}
+
+	.option{
+		padding: 7px;
+	}
+
+	.catStars-sim{
+		padding-top: 20px;
+	}
+
+	h3,.h3{
+		font-size: 16px;
+	}
+}
+
+
+@media (min-width: 768px){
+
+	.brand {
+		float: left;
+	}
+	.login {
+		float: right;
+		text-align: right;
+
+	}
+	#logout-msg {
+		position: absolute;
+		top: 24px;
+		right: 0;
+		text-align: right;
+	}
+
+
+}
+
 @media screen and (max-width: 767px) {
 
 
@@ -608,40 +652,14 @@ ul{
 	}
 
 	.option-sim{
-		height: 440px;
-		padding: 20px;
+		padding: 30px;
 	
 
 	}
 	
 }
 
-@media screen and (max-width: 481px){
-	.expiration-month {}
-}
 
-
-@media (min-width: 768px){
-
-	.brand {
-		float: left;
-	}
-	.login {
-		float: right;
-		text-align: right;
-
-	}
-	#logout-msg {
-		position: absolute;
-		top: 24px;
-		right: 0;
-		text-align: right;
-	}
-
-
-
-
-}
 
 @media (max-width: 991px) and (min-width: 768px){
 	/*.foreground{
@@ -658,20 +676,11 @@ ul{
 		height: 270px ;
 	}
 
-
-	/*h3, .h3{
-		font-size: 15px;
-	}*/
-
-	
-
 	.option-sim{
 		height: 470px;
 		padding-left: 40px;
 
 	}
-
-
 
 }
 
