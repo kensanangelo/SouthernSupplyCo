@@ -327,20 +327,26 @@ html {
 
 
 /*--Stuff for catalog and checkout page--*/
-
 .active{
 	font-weight: 600 !important;
 }
 
+.none{
+	margin: 0;
+}
 .push{
 	float: right;
-	display: block;
 }
 
 .option{
 	padding: 10px;
 	border: 1px solid #ccc;
 	margin-bottom: 20px;
+
+}
+
+.option-sim{
+	height: 400px;
 
 }
 
@@ -374,6 +380,14 @@ html {
 .marB-20{
 	margin-bottom: 20px;
 }
+
+.marB-50{
+	margin-bottom: 50px;
+}
+.marT-50{
+	margin-bottom: 100px;
+}
+
 
 .marT-10{
 	margin-top: 10px;

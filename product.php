@@ -23,7 +23,7 @@
 
 		?>
 
-		<div class="marB-20"></div>
+		<div id="push-down"></div>
 		<div class="container">
 			<?php if($product_id){ ?>
 
@@ -54,15 +54,17 @@
 
 							</div>
 
-							<div class="col-md-4 marT-20 marB-20 text-right">
+							<div class="col-md-4 marT-20 text-right">
 
 								<p class="price">$<?php echo $row['price']; ?></p>
 
 								<form action="cart.php?mode=update_total" method="post">
 									<input type="hidden" name="product_id" value='<?php echo $row['productID']; ?>' />
 									<input type="hidden" name="mode" value='update_total' />
-									<p class="push">Qty: <input class="input-ext" type="text" name="product_quantity" value="1" size="3"/></p>
-									<!--<span class="glyphicon glyphicon-plus"></span>--> <input type="submit" class="add-qty-btn btn btn-ext btn-default push" size="3" value="Add to Cart" />
+									<div class="row">
+										<div class="col-md-2 col-md-offset-4 push"> <p>Qty: <input class="input-ext" type="text" name="product_quantity" value="1" /></p>
+										<input type="submit" class="add-qty-btn btn btn-ext btn-default push" value="Add to Cart" /></div>
+									</div>
 								</form>
 								<!-- <a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default push"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a> -->
 								
@@ -74,8 +76,10 @@
 					<?php } // end foreach ?>
 					
 				</div><?php /* option */ ?>
-				
-				<h4 class="marT-20">Similar products you might like:</h4>
+
+				<hr>
+				<h4 class="marB-20">Similar products you might like:</h4>
+
 				<?php 
 				
 					//Handles recommendations
@@ -94,7 +98,7 @@
 								$i=6;
 							}
 						?>
-							<div class="col-md-2 col-sm-4 col-xs-4 option marT-10">
+							<div class="col-md-2 col-sm-4 col-xs-4 option option-sim">
 								<a href="product.php?product=<?php echo $similar_array[$i]['productID']; ?>">
 									<img class='img-responsive' src="<?php echo $similar_array[$i]['productImage']; ?>" alt="<?php echo $similar_array[$i]['productName']; ?>">
 								</a>
