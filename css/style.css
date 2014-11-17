@@ -293,7 +293,7 @@ html {
 }
 
 .productSpacer{
-	height: 52px;
+	height: 45px;
 }
 
 .glyphicon-star{
@@ -346,7 +346,7 @@ html {
 }
 
 .option-sim{
-	height: 400px;
+	height: 360px;
 
 }
 
@@ -355,7 +355,7 @@ html {
 }
 
 .catStars-sim{
-	padding-top: 30px;
+	padding-top: 0px;
 }
 
 .price{
@@ -564,7 +564,7 @@ ul{
 
 /*mediaQ*/
 
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
 
 
 	.brand{
@@ -606,14 +606,21 @@ ul{
 	  color: #F2AA00;
 	  cursor: pointer;
 	}
+
 	.option-sim{
-		height: 370px;
+		height: 440px;
+		padding-left: 20px;
+		padding-bottom: 0;
+
 	}
+
+	
 }
 
 @media screen and (max-width: 481px){
 	.expiration-month {}
 }
+
 
 @media (min-width: 768px){
 
@@ -633,6 +640,8 @@ ul{
 	}
 
 
+
+
 }
 
 @media (max-width: 991px) and (min-width: 768px){
@@ -650,33 +659,24 @@ ul{
 		height: 270px ;
 	}
 
-	.productSpacer{
-	height: 40px;
-}
 
-	h3, .h3{
+	/*h3, .h3{
 		font-size: 15px;
-	}
+	}*/
 
-	.option{
-		padding-left: 6px;
-		padding-right: 6px;
-	}
+	
 
 	.option-sim{
-		height: 450px;
+		height: 470px;
+		padding-left: 40px;
 
 	}
 
-	.catStars-sim{
-		padding-top: 0px;
-	}
 
-	.productSpacer-sim{
-	height: 20px;
-}
 
 }
+
+
 
 @media screen and (min-width: 960px){
 	#catalog .col-md-3 {
@@ -767,12 +767,12 @@ ul{
 		height: 220px;
 	}
 
-	.productSpacer{
-		height: 70px ;
-	}
-
 	.featured{
 		padding-right: 40px;
+	}
+
+	.catStars{
+		padding-top: 10px;
 	}
 }
 

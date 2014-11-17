@@ -62,7 +62,7 @@
 									<input type="hidden" name="product_id" value='<?php echo $row['productID']; ?>' />
 									<input type="hidden" name="mode" value='update_total' />
 									<div class="row">
-										<div class="col-md-2 col-md-offset-4 push"> <p>Qty: <input class="input-ext" type="text" name="product_quantity" value="1" /></p>
+										<div class="col-xs-6 col-md-4 push"> <p>Qty: <input class="input-ext" type="text" name="product_quantity" value="1" /></p>
 										<input type="submit" class="add-qty-btn btn btn-ext btn-default push" value="Add to Cart" /></div>
 									</div>
 								</form>
@@ -98,7 +98,7 @@
 								$i=6;
 							}
 						?>
-							<div class="col-md-2 col-sm-4 col-xs-4 option option-sim">
+							<div class="col-md-2 col-sm-6 col-xs-6 option option-sim">
 								<a href="product.php?product=<?php echo $similar_array[$i]['productID']; ?>">
 									<img class='img-responsive' src="<?php echo $similar_array[$i]['productImage']; ?>" alt="<?php echo $similar_array[$i]['productName']; ?>">
 								</a>
