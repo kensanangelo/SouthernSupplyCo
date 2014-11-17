@@ -332,8 +332,8 @@ html {
 }
 
 hr{
-	margin-top: 20px;
-	margin-bottom: 50px;
+	margin-top: 50px;
+	margin-bottom: 20px;
 }
 .none{
 	margin: 0;
@@ -564,6 +564,7 @@ ul{
 
 	}
 
+
 	.option-sim{
 		padding: 0;
 
@@ -649,10 +650,13 @@ ul{
 	.option-sim{
 		padding: 20px;
 		margin: 0;
-	
-
+		width: 50%;
 	}
 	
+	.option{
+		margin: 0;
+
+	}
 }
 
 
@@ -677,6 +681,10 @@ ul{
 		padding-left: 40px;
 		margin: 0;
 
+	}
+
+	.option{
+		margin: 0;
 	}
 
 }
