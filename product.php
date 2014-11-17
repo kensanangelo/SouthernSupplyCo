@@ -67,8 +67,7 @@
 									</div>
 								</form>
 								<!-- <a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default push"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a> -->
-								
-							
+			
 							</div>
 
 						</div><?php /* row */ ?>

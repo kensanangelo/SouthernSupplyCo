@@ -331,6 +331,10 @@ html {
 	font-weight: 600 !important;
 }
 
+hr{
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
 .none{
 	margin: 0;
 }
@@ -345,10 +349,6 @@ html {
 
 }
 
-.option-sim{
-	height: 360px;
-
-}
 
 .catStars{
 	padding-bottom: 20px;
@@ -388,11 +388,6 @@ html {
 .marB-50{
 	margin-bottom: 50px;
 }
-.marT-50{
-	margin-bottom: 100px;
-}
-
-
 .marT-10{
 	margin-top: 10px;
 }
@@ -575,11 +570,11 @@ ul{
 	}
 
 	.option{
-		padding: 7px;
+		margin: 0;
 	}
 
 	.catStars-sim{
-		padding-top: 20px;
+		padding-top: 7px;
 	}
 
 	h3,.h3{
@@ -652,7 +647,8 @@ ul{
 	}
 
 	.option-sim{
-		padding: 30px;
+		padding: 20px;
+		margin: 0;
 	
 
 	}
@@ -679,6 +675,7 @@ ul{
 	.option-sim{
 		height: 470px;
 		padding-left: 40px;
+		margin: 0;
 
 	}
 
