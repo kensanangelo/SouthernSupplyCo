@@ -23,7 +23,7 @@
 
 		?>
 
-		<div id="push-down"></div>
+		<div class="marB-20"></div>
 		<div class="container">
 			<?php if($product_id){ ?>
 
@@ -54,7 +54,7 @@
 
 							</div>
 
-							<div class="col-md-4 marT-20 text-right">
+							<div class="col-md-4 marT-20 marB-20 text-right">
 
 								<p class="price">$<?php echo $row['price']; ?></p>
 
@@ -75,7 +75,7 @@
 					
 				</div><?php /* option */ ?>
 				
-				<h4>Similar products you might like:</h4>
+				<h4 class="marT-20">Similar products you might like:</h4>
 				<?php 
 				
 					//Handles recommendations
@@ -94,7 +94,7 @@
 								$i=6;
 							}
 						?>
-							<div class="col-md-2 col-sm-4 col-xs-4 option">
+							<div class="col-md-2 col-sm-4 col-xs-4 option marT-10">
 								<a href="product.php?product=<?php echo $similar_array[$i]['productID']; ?>">
 									<img class='img-responsive' src="<?php echo $similar_array[$i]['productImage']; ?>" alt="<?php echo $similar_array[$i]['productName']; ?>">
 								</a>

@@ -14,7 +14,7 @@
 			$order_total = $_POST['order_total'];
 			$stripe_total = $_POST['stripe_total'];
 		?>
-		<div id="push-down"></div>
+		<div class="marB-20"></div>
 		<div class="container">
 			<div class="option">
 				<h3>Complete Your Purchase</h3>

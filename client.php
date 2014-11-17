@@ -19,7 +19,7 @@
 				$user_data = mysqli_fetch_assoc($connection->query($query));
 
 			?>
-			<div id="push-down"></div>
+			<div class="marB-20"></div>
 			<div class="container">
 				<ol class="breadcrumb">
 					<li><a href="home.php">Home</a></li>
