@@ -22,8 +22,8 @@
 					<div class="row">
 						<ul>
 							<li><p class="lead white">Corporate</p></li>
-							<li><a href="#">About Southern Supply Co.</a></li> <!--Can change wording-->
-							<li><a href="#">Business Policies</a></li>
+							<li><a href="compinfo.php">About Southern Supply Co.</a></li> <!--Can change wording-->
+							<li><a href="policies.php">Business Policies</a></li>
 						</ul>
 					</div>
 
