@@ -1,9 +1,5 @@
 <?php
-if(!isset($_SESSION)) 
-{ 
-    session_start(); 
-} 
-
+session_start();
 error_reporting(E_ALL & ~E_NOTICE);
 
 if(!isset($_SESSION['user_access'])){
@@ -30,12 +26,13 @@ if(!isset($_SESSION['user_access'])){
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	  ga('create', 'UA-56806245-1', 'auto');
+	  ga('create', 'UA-56829335-1', 'auto');
 	  ga('send', 'pageview');
 	</script>
 </head>
@@ -106,7 +103,7 @@ if(!isset($_SESSION['user_access'])){
 					
 					<div class="navbar-collapse collapse">
 						<div class="navbar-form navbar-right">
-							<form action="search.php" method="post" class="input-group" role="search">
+							<form action="search.php" method="post" class="input-group" role="search" >
 								<input type="text" class="form-control" name="search_term" placeholder="Search">
 								<div id="ajax-search-results"></div>
 								<div class="input-group-btn">

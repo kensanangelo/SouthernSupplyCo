@@ -5,7 +5,7 @@
 		<head>
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<title>Southern Supply Co. Cart - Group 4</title>
+			<title>Southern Supply Co. Cart - Group 4 | Construction Supplies</title>
 
 		<?php 
 			include 'includes.php';
@@ -15,8 +15,8 @@
 
 			if (isset($_POST['mode'])) {
 				if ($_POST['mode'] == 'update_total') {
-					$product_id = $_POST['product_id'];
-					$qty = $_POST['product_quantity'];
+					$product_id = mysqli_real_escape_string($connection,$_POST['product_id']);
+					$qty = mysqli_real_escape_string($connection,$_POST['product_quantity']);
 				}
 				
 			}
@@ -30,12 +30,12 @@
 					unset($_SESSION['cart']);
 					unset($_SESSION['cdb']);
 					unset($cart);
-					$display_msg =  'Your Cart has been emptied<br />';
+					$display_msg = 'Your Cart has been emptied<br />';
 
 				} else if(isset($_POST['mode'])){
-					$mode = $_POST['mode'];
-					$product_id = $_POST['product_id'];
-					$qty = $_POST['product_quantity'];
+					$mode = mysqli_real_escape_string($connection,$_POST['mode']);
+					$product_id = mysqli_real_escape_string($connection,$_POST['product_id']);
+					$qty = mysqli_real_escape_string($connection,$_POST['product_quantity']);
 
 					if($mode == 'update_total'){
 						if($product_id != null){
@@ -64,7 +64,7 @@
 
 							$display_msg = 'Item removed from Cart';
 							if(!$cart || strlen($_SESSION['cart'] == 0)){
-								$display_msg .= '<br /><div>Your Cart has been emptied</div>';
+								$display_msg .= '<br /><div><br />Your Shopping Cart is Empty!</div>';
 							} else {
 								$cart_has_products = 1;
 							}
@@ -121,8 +121,6 @@
 
 				}
 
-				$test_poop = 0;
-
 				// pre_print_r($_SESSION);
 				// pre_print_r($_POST);
 
@@ -138,13 +136,7 @@
 				</div>
 				<div class="col-md-2 col-md-offset-4 text-right">
 					<?php if (isset($cart_data)): ?>
-						<form action="checkout.php" method="POST">
-								<input type="hidden" name="stripe_total" value="<?php echo $stripe_total; ?>">
-								<input type="hidden" name="order_total" value="<?php echo $order_total; ?>">
-								<button type="submit" class="btn btn-default">
-									<span class="glyphicon glyphicon-lock"></span> Checkout Now
-								</button>
-						</form>
+						<a href="checkout.php" class="btn btn-default"><span class="glyphicon glyphicon-lock"></span> Checkout Now</a>
 						<a href="cart.php?mode=empty_cart" class="btn btn-default"><span class="glyphicon"></span> Empty Cart</a>
 					<?php endif ?>
 				</div>

@@ -19,7 +19,7 @@
 				$user_data = mysqli_fetch_assoc($connection->query($query));
 
 			?>
-			<div class="marB-20"></div>
+			<div id="push-down"></div>
 			<div class="container">
 				<ol class="breadcrumb">
 					<li><a href="home.php">Home</a></li>
@@ -38,33 +38,26 @@
 								<img class='img-responsive' src="img/profile.jpg" alt="Profile Image">
 						</div> -->
 						<div class="col-md-5">
-							<h2><?php echo $user_data['username']; ?></h2>
+							<?php if ($user_data['first_name'] && $user_data['last_name'])  { ?>
+								<h3><?php echo $user_data['first_name'].' '.$user_data['last_name']; ?></h3>
+							<?php } else if($user_data['first_name']) { ?>
+								<h3><?php echo $user_data['first_name']; ?></h3>
+							<?php } else if($user_data['last_name']){ ?>
+								<h3><?php echo $user_data['last_name']; ?></h3>
+							<?php } else { ?>
+								<h3>No Name Provided</h3>
+							<?php } ?>
 							
-							<ul class="marT-20">
-								<li class="marT-10"><span class="emph">Name:</span><br/>
-									<?php if ($user_data['first_name'] && $user_data['last_name'])  { ?>
-										<?php echo $user_data['first_name'].' '.$user_data['last_name']; ?>
-									<?php } else if($user_data['first_name']) { ?>
-										<?php echo $user_data['first_name']; ?>
-									<?php } else if($user_data['last_name']){ ?>
-										<?php echo $user_data['last_name']; ?>
-									<?php } else { ?>
-										No Name Provided
-									<?php } ?>
-								</li>
-								<li class="marT-10"><span class="emph">Type:</span><br/>
-									<?php
-									if($user_data['user_access']==2)
-										echo "User"; 
-									else if($user_data['user_access']==3)
-										echo "Admin";
-									else if($user_data['user_access']==4)
-										echo "Super User";
-									?>
-								</li>
-								<li class="marT-10"><span class="emph">Email:</span><br/><?php echo $user_data['email']; ?></li>
-								<li class="marT-10"><span class="emph">Address:</span><br/><?php echo $user_data['address']; ?></li>
-							</ul>
+
+							<!-- <h4>Bob's Construction Company</h4> -->
+							<div class="row marT-20">
+								<div class="col-md-6"><span class="emph">Member since:</span><br/> 01/17/2008</div>
+								<div class="col-md-6"><span class="emph">Contact Phone Number:</span><br/> 1 (863) 555-3579</div>
+							</div>
+							<div class="row marT-20">
+								<div class="col-md-6"><span class="emph">Payment Info:</span><br/>Visa Card<br/>XXX-XXXX-XXXX-1093</div>
+								<div class="col-md-6"><span class="emph">Address:</span><br/><?php echo $user_data['address']; ?></div>
+							</div>
 						</div>
 						<div class="col-md-4 marT-20 text-right">
 							<p><span class="emph">Account #: </span><?php echo $user_data['id']; ?></p>
@@ -79,11 +72,8 @@
 			
 			<!-- // Redirect to home.php or...-->
 			<div class="container">
-				<h2>You must be logged in to access your profile.</h2> 
-				<ul>
-					<li><a href="home.php">Go to the home page.</a></li>
-					<li><a href="login.php">Go to the login page.</a></li>
-				</ul>
+				<h1>Go Home, You're <a href="home.php">Drunk</a></h1>
+
 			</div>
 
 		<?php } ?>

@@ -19,8 +19,6 @@
 
 				if($_POST['add-edit-button']=='Add product'){
 
-					$table = 'products';
-
 					//If they are trying to add a product
 					$values = array($_POST['name'], $_POST['desc'], $_POST['cat'], $_POST['SKU'], $_POST['stock'], $_POST['cost'], $_POST['price'], $_POST['sale'], $_POST['url'], $_POST['rating'], $_POST['numVotes']);
 					$resultMessage = addToDB('products', $values);
@@ -33,8 +31,6 @@
 
 				}else if($_POST['add-edit-button']=='Edit product'){
 
-					$table = 'products';
-
 					//If they are trying to edit a product
 					$returnedId = $_POST['hiddenId'];
 					$resultMessage = changeInDB('products', 'productName="'.$_POST['name'].'", description="'.$_POST['desc'].'", category="'.$_POST['cat'].'", SKU="'.$_POST['SKU'].'", stock="'.$_POST['stock'].'", cost="'.$_POST['cost'].'", price="'.$_POST['price'].'", salePrice="'.$_POST['sale'].'", productImage="'.$_POST['url'].'", rating="'.$_POST['rating'].'", numOfVotes="'.$_POST['numVotes'].'"', 'productID="'.$returnedId.'"');
@@ -46,8 +42,6 @@
 					}
 
 				}else if($_POST['add-edit-button']=='Delete product'){
-
-					$table = 'products';
 
 					//If they are trying to delete a product
 					$returnedId=$_POST['hiddenId'];
@@ -64,9 +58,6 @@
 					}
 
 				}else if($_POST['add-edit-button']=='Add user'){
-					
-					$table = 'users';
-
 					//If they are trying to add a user
 					$values=array($_POST['hiddenId'], $_POST['username'], $_POST['pass'], $_POST['userAccess'], $_POST['first'], $_POST['last'], $_POST['email'], $_POST['address']);
 					$resultMessage=addToDB('users', $values);
@@ -75,9 +66,6 @@
 					else
 						$statusString='User failed to be added!';
 				}else if($_POST['add-edit-button']=='Edit user'){
-					
-					$table = 'users';
-
 					//If they are trying to edit a user
 					$returnedId=$_POST['hiddenId'];
 					$resultMessage=changeInDB('users', 'username="'.$_POST['username'].'", password="'.$_POST['pass'].'", user_access="'.$_POST['userAccess'].'", first_name="'.$_POST['first'].'", last_name="'.$_POST['last'].'", email="'.$_POST['email'].'", address="'.$_POST['address'].'"', 'id="'.$returnedId.'"');
@@ -88,9 +76,6 @@
 						$statusString='User failed to be edited!'.$resultMessage;
 
 				}else if($_POST['add-edit-button']=='Delete user'){
-					
-					$table = 'users';
-
 					//If they are trying to delete a user
 					$returnedId=$_POST['hiddenId'];
 
@@ -103,46 +88,6 @@
 						$statusString='User was successfully removed!';
 					else
 						$statusString='User failed to be removed!';			
-				}else if($_POST['add-edit-button']=='Add order'){
-					
-					$table = 'orders';
-
-					//If they are trying to add an order
-					$values=array($_POST['userId'], $_POST['cart'], $_POST['orderTotal'], $_POST['purchaseDate'], $_POST['fullName'], $_POST['phone'], $_POST['email'], $_POST['address1'], $_POST['address2'], $_POST['city'], $_POST['state'], $_POST['zip']);
-					$resultMessage=addToDB('orders', $values);
-					if($resultMessage=="Success")
-						$statusString='Order was successfully added!';
-					else
-						$statusString='Order failed to be added!';
-				}else if($_POST['add-edit-button']=='Edit order'){
-					
-					$table = 'orders';
-
-					//If they are trying to edit an order
-					$returnedId=$_POST['hiddenId'];
-					$resultMessage=changeInDB('orders', 'user_id="'.$_POST['userId'].'", cart="'.$_POST['cart'].'", order_total="'.$_POST['orderTotal'].'", purchase_date="'.$_POST['purchaseDate'].'", full_name="'.$_POST['fullName'].'", customer_phone="'.$_POST['phone'].'", customer_email="'.$_POST['email'].'", address_line1="'.$_POST['address1'].'", address_line2="'.$_POST['address2'].'", address_city="'.$_POST['city'].'", address_state="'.$_POST['state'].'", address_zip="'.$_POST['zip'].'"', 'id="'.$returnedId.'"');
-					
-					if($resultMessage=="Success")
-						$statusString='Order was successfully edited!';
-					else
-						$statusString='Order failed to be edited!'.$resultMessage;
-
-				}else if($_POST['add-edit-button']=='Delete order'){
-					
-					$table = 'orders';
-
-					//If they are trying to delete an order
-					$returnedId=$_POST['hiddenId'];
-
-					if($returnedId>=0)
-						$resultMessage=removeFromDB('orders', 'id="'.$returnedId.'"');
-					else
-						$resultMessage='Failure';
-
-					if($resultMessage=="Success")
-						$statusString='Order was successfully removed!';
-					else
-						$statusString='Order failed to be removed!';			
 				}
 			}
 
@@ -205,52 +150,34 @@
 							if($table=='products'){?>
 								<ul class='col-md-4'>
 									<?php /* Commented out because the product id should auto-increment, therefore we do not need to pass it a value
-									<li><label class='labelFix' for="id">ID: </label><input type='text'   name='id' placeholder='productID'></input></li>
+									<li><label class='labelFix' for="id">ID: </label><input type='text' size='' name='id' placeholder='productID'></input></li>
 									*/ ?>
-									<li><label class='labelFix' for="name">Product Name: </label><input type='text'   name='name' placeholder='productName'></input></li>
-									<li><label class='labelFix' for="desc">Description: </label><input type='text'   name='desc' placeholder='description'></input></li>
-									<li><label class='labelFix' for="cat">Category: </label><input type='text'   name='cat' placeholder='category'></input></li>
-									<li><label class='labelFix' for="SKU">SKU: </label><input type='text'   name='SKU' placeholder='SKU'></input></li>
-									<li><label class='labelFix' for="stock">Stock: </label><input type='text'   name='stock' placeholder='stock'></input></li>
+									<li><label class='labelFix' for="name">Product Name: </label><input type='text' size='' name='name' placeholder='productName'></input></li>
+									<li><label class='labelFix' for="desc">Description: </label><input type='text' size='' name='desc' placeholder='description'></input></li>
+									<li><label class='labelFix' for="cat">Category: </label><input type='text' size='' name='cat' placeholder='category'></input></li>
+									<li><label class='labelFix' for="SKU">SKU: </label><input type='text' size='' name='SKU' placeholder='SKU'></input></li>
+									<li><label class='labelFix' for="stock">Stock: </label><input type='text' size='' name='stock' placeholder='stock'></input></li>
 								</ul>
 								<ul class='col-md-4'>
-									<li><label class='labelFix' for="cost">Cost: </label><input type='text'   name='cost' placeholder='cost'></input></li>
-									<li><label class='labelFix' for="price">Price: </label><input type='text'   name='price' placeholder='price'></input></li>
-									<li><label class='labelFix' for="sale">Sale Price:</label><input type='text'   name='sale' placeholder='salePrice'></input></li>
-									<li><label class='labelFix' for="url">Image URL: </label><input type='text'   name='url' placeholder='productImage'></input></li>
-									<li><label class='labelFix' for="rating">Rating: </label><input type='text'   name='rating' placeholder='rating'></input></li>
-									<li><label class='labelFix' for="numVotes">Number Of Votes: </label><input type='text'   name='numVotes' placeholder='numOfVotes'></input></li>
+									<li><label class='labelFix' for="cost">Cost: </label><input type='text' size='' name='cost' placeholder='cost'></input></li>
+									<li><label class='labelFix' for="price">Price: </label><input type='text' size='' name='price' placeholder='price'></input></li>
+									<li><label class='labelFix' for="sale">Sale Price:</label><input type='text' size='' name='sale' placeholder='salePrice'></input></li>
+									<li><label class='labelFix' for="url">Image URL: </label><input type='text' size='' name='url' placeholder='productImage'></input></li>
+									<li><label class='labelFix' for="rating">Rating: </label><input type='text' size='' name='rating' placeholder='rating'></input></li>
+									<li><label class='labelFix' for="numVotes">Number Of Votes: </label><input type='text' size='' name='numVotes' placeholder='numOfVotes'></input></li>
 								</ul>
 							<?php } else if($table=='users'){ ?>
 								<ul class='col-md-4'>
-									<li><label class='labelFix' for="id">ID: </label><input type='text'   name='id' placeholder='id'></input></li>
-									<li><label class='labelFix' for="username">Username: </label><input type='text'   name='username' placeholder='username'></input></li>
-									<li><label class='labelFix' for="pass">Password: </label><input type='text'   name='pass' placeholder='password'></input></li>
-									<li><label class='labelFix' for="userAccess">User Access Lvl: </label><input type='text'   name='userAccess' placeholder='user_access'></input></li>
+									<li><label class='labelFix' for="id">ID: </label><input type='text' size='' name='id' placeholder='id'></input></li>
+									<li><label class='labelFix' for="username">Username: </label><input type='text' size='' name='username' placeholder='username'></input></li>
+									<li><label class='labelFix' for="pass">Password: </label><input type='text' size='' name='pass' placeholder='password'></input></li>
+									<li><label class='labelFix' for="userAccess">User Access Lvl: </label><input type='text' size='' name='userAccess' placeholder='user_access'></input></li>
 								</ul>
 								<ul class='col-md-4'>
-									<li><label class='labelFix' for="first">First Name: </label><input type='text'   name='first' placeholder='first_name'></input></li>
-									<li><label class='labelFix' for="last">Last Name: </label><input type='text'   name='last' placeholder='last_name'></input></li>
-									<li><label class='labelFix' for="email">Email: </label><input type='text'   name='email' placeholder='email'></input></li>
-									<li><label class='labelFix' for="address">Address: </label><input type='text'   name='address' placeholder='address'></input></li>
-								</ul>
-							<?php } else if($table=='orders'){ ?>
-								<ul class='col-md-4'>
-									<li><label class='labelFix' for="id">ID: </label><input type='text'   name='id' placeholder='id'></input></li>
-									<li><label class='labelFix' for="userId">User ID: </label><input type='text'   name='userId' placeholder='userId'></input></li>
-									<li><label class='labelFix' for="cart">Cart: </label><input type='text'   name='cart' placeholder='cart'></input></li>
-									<li><label class='labelFix' for="orderTotal">Order Total: </label><input type='text'   name='orderTotal' placeholder='orderTotal'></input></li>
-									<li><label class='labelFix' for="purchaseDate">Purchase Date: </label><input type='text'   name='purchaseDate' placeholder='purchaseDate'></input></li>
-									<li><label class='labelFix' for="fullName">Full Name: </label><input type='text'   name='fullName' placeholder='fullName'></input></li>
-									<li><label class='labelFix' for="phone">Phone #: </label><input type='text'   name='phone' placeholder='phone'></input></li>
-								</ul>
-								<ul class='col-md-4'>
-									<li><label class='labelFix' for="email">Email: </label><input type='text'   name='email' placeholder='email'></input></li>
-									<li><label class='labelFix' for="address1">Address 1: </label><input type='text'   name='address1' placeholder='address1'></input></li>
-									<li><label class='labelFix' for="address2">Address 2: </label><input type='text'   name='address2' placeholder='address2'></input></li>
-									<li><label class='labelFix' for="city">City: </label><input type='text'   name='city' placeholder='city'></input></li>
-									<li><label class='labelFix' for="state">State: </label><input type='text'   name='state' placeholder='state'></input></li>
-									<li><label class='labelFix' for="zip">Zip: </label><input type='text'   name='zip' placeholder='zip'></input></li>
+									<li><label class='labelFix' for="first">First Name: </label><input type='text' size='' name='first' placeholder='first_name'></input></li>
+									<li><label class='labelFix' for="last">Last Name: </label><input type='text' size='' name='last' placeholder='last_name'></input></li>
+									<li><label class='labelFix' for="email">Email: </label><input type='text' size='' name='email' placeholder='email'></input></li>
+									<li><label class='labelFix' for="address">Address: </label><input type='text' size='' name='address' placeholder='address'></input></li>
 								</ul>
 							<?php } ?>
 							<input type='text' class='hidden' name='hiddenId'></input>

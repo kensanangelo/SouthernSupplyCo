@@ -1,15 +1,12 @@
 <?php 
 if (isset($_SESSION['logged_in'])) { 
 	echo '
-	<div class="container">
-	<h4>Leave Product Reviews:</h4>
+	<br/><br/>
 	<textarea rows="4" cols="50" name="review_content" id="review_content" form="reviewbox"></textarea>
 	<form name="reviewbox" id="reviewbox" method="POST" action="">
 	 <input type="submit" name="submit" id="submit" value="Submit" />
-	</form>
-	</div>
-
-	<strong class="choice">Choose a rating:</strong><br/>
+	</form><br/>
+	<strong class="choice">Choose a Rating for "'. $result_array[0]['productName'].'"</strong><br/><br />
 	<span class="star-rating">
 	   <input type="radio" name="rating" id="rating" value="1"><i></i>
 	   <input type="radio" name="rating" id="rating" value="2"><i></i>
@@ -17,7 +14,6 @@ if (isset($_SESSION['logged_in'])) {
 	   <input type="radio" name="rating" id="rating" value="4"><i></i>
 	   <input type="radio" name="rating" id="rating" value="5"><i></i>
 	</span>
-	</div>
 	<script src="http://assets.codepen.io/assets/libs/fullpage/jquery-ab8e840c3dad7ccf2deadb8c40d53bdb.js"></script>
 	<script src="http://assets.codepen.io/assets/common/stopExecutionOnTimeout-047b9a24af18107ef03c13ebe317ccb3.js"></script>
 	<script type="text/javascript">

@@ -5,7 +5,7 @@
 		<head>
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<title>Southern Supply Co. | Construction Supplies - Group 4</title>
+			<title>Southern Supply Co. Product - Group 4 | Construction Supplies</title>
 			<link rel="stylesheet" type="text/css" href="css/star-rating.css">
 
 		<?php 
@@ -15,7 +15,7 @@
 			global $connection;
 
 			if(isset($_GET['product'])){
-				$product_id = $_GET['product'];
+				$product_id = mysqli_real_escape_string($connection,$_GET['product']);
 				$_SESSION['current_product'] = $product_id;
 				$result_array = ssc_query($product_id, 'ID');
 				// pre_print_r($query);
@@ -49,7 +49,7 @@
 									<?php print_stars($row['rating'], $row['numOfVotes']); ?>
 								</div>
 
-								<h4>Description</h4>
+								<h4>Product Description:</h4>
 								<p><?php echo $row['description']; ?></p><br />
 
 							</div>
@@ -61,13 +61,12 @@
 								<form action="cart.php?mode=update_total" method="post">
 									<input type="hidden" name="product_id" value='<?php echo $row['productID']; ?>' />
 									<input type="hidden" name="mode" value='update_total' />
-									<div class="row">
-										<div class="col-xs-6 col-md-4 push"> <p>Qty: <input class="input-ext" type="text" name="product_quantity" value="1" /></p>
-										<input type="submit" class="add-qty-btn btn btn-ext btn-default push" value="Add to Cart" /></div>
-									</div>
+									<p class="push">Qty: <input class="input-ext" type="text" name="product_quantity" value="1" /></p>
+									<!--<span class="glyphicon glyphicon-plus"></span>--> <input type="submit" class="add-qty-btn btn btn-ext btn-default push" value="Add to Cart" />
 								</form>
 								<!-- <a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default push"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a> -->
-			
+								
+							
 							</div>
 
 						</div><?php /* row */ ?>
@@ -75,10 +74,8 @@
 					<?php } // end foreach ?>
 					
 				</div><?php /* option */ ?>
-
-				<hr>
-				<h4 class="marB-20">Similar products you might like:</h4>
-
+				
+				<h4>Similar <strong>Construction Supplies</strong>:</h4>
 				<?php 
 				
 					//Handles recommendations
@@ -91,19 +88,20 @@
 						//Loops through other items in the category
 						for($i=0;$i<6;$i++){
 							//If the product is the same as a recommended, it picks a different one, unless that different one is that product
+							if (!isset($similar_array[6]['productID'])) { $similar_array[6]['productID'] = $result_array[0]['productID'];}
 							if($result_array[0]['productID']==$similar_array[$i]['productID']
 								&& $result_array[0]['productID']!=$similar_array[6]['productID']) {
 								$oldIter=$i;
 								$i=6;
 							}
 						?>
-							<div class="col-md-2 col-sm-6 col-xs-6 option option-sim">
+							<div class="col-md-2 col-sm-6 option">
 								<a href="product.php?product=<?php echo $similar_array[$i]['productID']; ?>">
-									<img class='img-responsive' src="<?php echo $similar_array[$i]['productImage']; ?>" alt="<?php echo $similar_array[$i]['productName']; ?>">
+									<img class='img-responsive' src=<?php echo $similar_array[$i]['productImage'];?> alt=<?php echo $similar_array[$i]['productName']; ?>>
 								</a>
 								<div>
-									<a class="productLink" href="product.php?product=<?php echo $similar_array[$i]['productID']; ?>"><h3 class="productSpacer productSpace-sim"><?php echo $similar_array[$i]['productName']; ?></h3></a>
-									<div class="catStars catStars-sim">
+									<a class="productLink" href="product.php?product=<?php echo $similar_array[$i]['productID']; ?>"><h3 class="productSpacer"><?php echo $similar_array[$i]['productName']; ?></h3></a>
+									<div class="catStars">
 										<?php print_stars($similar_array[$i]['rating'], $similar_array[$i]['numOfVotes']); ?>
 									</div>
 									<div class="row">

@@ -16,13 +16,13 @@
 			global $connection;
 
 			if(isset($_GET['product'])){
-				$product_id = $_GET['product'];
+				$product_id = mysqli_real_escape_string($connection,$_GET['product']);
 				$result_array = ssc_query($product_id, 'ID');
 				// pre_print_r($query);
 				$is_search = 1;
 				
 			} elseif(isset($_GET['category'])){ 
-				$current_cat = $_GET['category'];
+				$current_cat = mysqli_real_escape_string($connection,$_GET['category']);
 				$result_array = ssc_query($current_cat, 'category');
 				$is_search = 1;
 			} else {
@@ -72,7 +72,7 @@
 											<input type="hidden" name="product_id" value='<?php echo $row['productID']; ?>' />
 											<input type="hidden" name="mode" value='update_total' />
 											<p class="push">Qty: <input class="input-ext" type="text" name="product_quantity" value="1" /></p>
-											<input type="submit" class="add-qty-btn btn btn-ext btn-default push" value="Add to Cart" />
+											<!--<span class="glyphicon glyphicon-plus"></span>--> <input type="submit" class="add-qty-btn btn btn-ext btn-default push" value="Add to Cart" />
 										</form>
 										<!-- <a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default push"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a> -->
 										

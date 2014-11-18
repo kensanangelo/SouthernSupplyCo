@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 html, body {
   width: auto !important;
@@ -13,19 +13,16 @@ body{
 
 }
 
-h1{
+h1,h2,h3,h4{
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
+}
+
+
+
+h1{
 	font-size: 30px;
 	margin: 0;
-}
-
-h2, .h2{
-	font-size: 25px;
-}
-
-h2, h3, h4{
-	font-weight: 600;
 }
 
 h3, .h3{
@@ -229,18 +226,9 @@ html {
 
 /*Stuff for home page*/
 
-
-.catg{
-	font-size: 28px;
-}
-
 .thumbnail{
 	height: 200px;
 
-}
-
-.deal{
-	font-weight: 700;
 }
 
 .foreground{
@@ -250,7 +238,6 @@ html {
 	background-image: url('../img/contractor.jpg');
 	background-repeat:no-repeat;
 	background-position:center;
-	border-bottom: 1px solid #ccc;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -293,7 +280,7 @@ html {
 }
 
 .productSpacer{
-	height: 45px;
+	height: 52px;
 }
 
 .glyphicon-star{
@@ -327,19 +314,14 @@ html {
 
 
 /*--Stuff for catalog and checkout page--*/
+
 .active{
-	font-weight: 600 !important;
+	font-weight: 700 !important;
 }
 
-hr{
-	margin-top: 50px;
-	margin-bottom: 20px;
-}
-.none{
-	margin: 0;
-}
 .push{
 	float: right;
+	display: block;
 }
 
 .option{
@@ -349,13 +331,8 @@ hr{
 
 }
 
-
 .catStars{
 	padding-bottom: 20px;
-}
-
-.catStars-sim{
-	padding-top: 0px;
 }
 
 .price{
@@ -385,19 +362,12 @@ hr{
 	margin-bottom: 20px;
 }
 
-.marB-50{
-	margin-bottom: 50px;
-}
 .marT-10{
 	margin-top: 10px;
 }
 
 .marB-10{
 	margin-bottom: 10px;
-}
-
-.marB-20{
-	margin-bottom: 20px;
 }
 
 .btn-default{
@@ -475,8 +445,6 @@ fieldset{
 	border-top: 1px solid #e5e5e5;
 	margin-top: -214px;
 	padding-top: 15px;
-	border-top: 1px solid #070406;
-
 }
 
 .footer a{
@@ -506,6 +474,7 @@ fieldset{
 
 
 
+
 a{
 	text-decoration: none !important;
 	color: #1E1E1E;
@@ -521,7 +490,6 @@ ul{
 
 .lead{
 	font-size: 15px;
-	font-weight: 600;
 	margin-bottom: 5px;
 	color: #F2AA00;
 	text-transform: uppercase;
@@ -533,7 +501,6 @@ ul{
 }
 
 .disclaimer-wrapper{
-	border-top: 1px solid #303030;
 	background-color: #070406;
 	width: 100%;
 }
@@ -559,52 +526,7 @@ ul{
 
 /*mediaQ*/
 
-@media screen and (max-width: 480px){
-	.expiration-month {
-
-	}
-
-
-	.option-sim{
-		padding: 0;
-
-	}
-
-	.option{
-		margin: 0;
-	}
-
-	.catStars-sim{
-		padding-top: 7px;
-	}
-
-	h3,.h3{
-		font-size: 16px;
-	}
-}
-
-
-@media (min-width: 768px){
-
-	.brand {
-		float: left;
-	}
-	.login {
-		float: right;
-		text-align: right;
-
-	}
-	#logout-msg {
-		position: absolute;
-		top: 24px;
-		right: 0;
-		text-align: right;
-	}
-
-
-}
-
-@media screen and (max-width: 767px) {
+@media (max-width: 767px) {
 
 
 	.brand{
@@ -635,10 +557,8 @@ ul{
 
 	.foreground{
 		background-image:none;
-		border-bottom: 0;
 	
 	}
-
 
 	.nav > li > a:hover,
 	.nav > li > a:focus {
@@ -647,19 +567,31 @@ ul{
 	  cursor: pointer;
 	}
 
-	.option-sim{
-		padding: 20px;
-		margin: 0;
-		width: 50%;
-	}
-	
-	.option{
-		margin: 0;
-
-	}
 }
 
+@media screen and (max-width: 481px){
+	.expiration-month {}
+}
 
+@media (min-width: 768px){
+
+	.brand {
+		float: left;
+	}
+	.login {
+		float: right;
+		text-align: right;
+
+	}
+	#logout-msg {
+		position: absolute;
+		top: 24px;
+		right: 0;
+		text-align: right;
+	}
+
+
+}
 
 @media (max-width: 991px) and (min-width: 768px){
 	/*.foreground{
@@ -676,20 +608,21 @@ ul{
 		height: 270px ;
 	}
 
-	.option-sim{
-		height: 470px;
-		padding-left: 40px;
-		margin: 0;
+	.productSpacer{
+	height: 70px;
+}
 
+	h3, .h3{
+		font-size: 15px;
 	}
 
 	.option{
-		margin: 0;
+		padding-left: 6px;
+		padding-right: 6px;
 	}
 
+
 }
-
-
 
 @media screen and (min-width: 960px){
 	#catalog .col-md-3 {
@@ -780,12 +713,12 @@ ul{
 		height: 220px;
 	}
 
-	.featured{
-		padding-right: 40px;
+	.productSpacer{
+		height: 70px ;
 	}
 
-	.catStars{
-		padding-top: 10px;
+	.featured{
+		padding-right: 40px;
 	}
 }
 
