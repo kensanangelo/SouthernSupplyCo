@@ -62,7 +62,7 @@
 					</div>
 				</div><!--/Col-->
 
-				<div class="col-md-3 col-sm-3 col-xs-6">
+				<div class="col-md-3 col-sm-3 col-xs-6 social">
 					<div id="align" class="row social">
 						<div class="row">
 							<ul>

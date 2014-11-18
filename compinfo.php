@@ -22,11 +22,12 @@
 
                                 <p>Customer Support - 1-800-555-3376</p>
                                 
-                                <p>Address</p>
+                                <p>Address:</p>
                                 
-                                <p>2457 Paces Ferry Road NW<br>
-                                Atlanta, GA 30339</p>
+                                <p>1155 Corporate Ave
+                                Orlando, Fl 32792</p>
                                 
+                        
                                 <h2>Company History</h2>
                                 
                                 <p>Southern Supply Co. was founded in 1984 by Marcus Bernard, Arthur Brill, and Pat Abrams in Atlanta, Georgia. They had the goal to build constructions supply warehouses that were bigger and better than any of their competitors.</p>

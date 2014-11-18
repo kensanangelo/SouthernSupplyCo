@@ -47,7 +47,7 @@
 			</div>
 		</div>
 		
-		<div class='container categories'>
+		<div class='container marT-20'>
 			<h1 class="marT-20 catg marB-10">Construction Supply Categories</h1>
 			<div class="row">
 				<div class="col-md-4 col-sm-4 slot">
