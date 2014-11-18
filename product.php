@@ -107,13 +107,19 @@
 				<div class="container">
 					<div class='row'>
 						<?php
+							//Figures out if there at least 6 items in the category
+							if(sizeof($similar_array)>6)
+								$numOfProducts=6;
+							else
+								$numOfProducts=5;
+						
 							//Loops through other items in the category
-							for($i=0;$i<6;$i++){
+							for($i=0;$i<$numOfProducts;$i++){
 								//If the product is the same as a recommended, it picks a different one, unless that different one is that product
 								if($result_array[0]['productID']==$similar_array[$i]['productID']
-									&& $result_array[0]['productID']!=$similar_array[6]['productID']) {
+									&& $result_array[0]['productID']!=$similar_array[$numOfProducts]['productID']) {
 									$oldIter=$i;
-									$i=6;
+									$i=$numOfProducts;
 								}
 							?>
 								<div class="col-md-2 col-sm-6 col-xs-6 option option-sim">
@@ -133,7 +139,7 @@
 									</div>
 								</div>
 						<?php
-							if($i==6)
+							if($i==$numOfProducts)
 								$i=$oldIter;
 						 }	?>
 					</div>
