@@ -425,6 +425,7 @@ textarea{
 .btn-ext{
 	width: 90px;
 	padding: 5px 5px;
+	margin-left: 5px;
 }
 
 
@@ -851,6 +852,9 @@ ul{
 
 	.catStars{
 		padding-top: 10px;
+	}
+	.option{
+		margin: 0;
 	}
 }
 

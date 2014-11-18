@@ -180,7 +180,7 @@
 								<input type="hidden" name="product_id" value='<?php echo $result['productID']; ?>' />
 								<input type="hidden" name="mode" value='update_total' />
 								<p>Qty: <input class="input-ext" type="text" name="product_quantity" value="<?php echo $cart_additional[$i]['quantity']; ?>" size="3"/></p>
-								<input type="submit" class="add-qty-btn btn btn-default"  value="Update" />
+								<input type="submit" class="add-qty-btn btn-ext btn btn-default"  value="Update" />
 							</form>
 							<!-- <a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default push"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a> -->
 							<form action="cart.php" method="post">
