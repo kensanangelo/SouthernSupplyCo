@@ -121,6 +121,8 @@
 
 				}
 
+				$test_poop = 0;
+
 				// pre_print_r($_SESSION);
 				// pre_print_r($_POST);
 
@@ -136,7 +138,13 @@
 				</div>
 				<div class="col-md-2 col-md-offset-4 text-right">
 					<?php if (isset($cart_data)): ?>
-						<a href="checkout.php" class="btn btn-default"><span class="glyphicon glyphicon-lock"></span> Checkout Now</a>
+						<form action="checkout.php" method="POST">
+								<input type="hidden" name="stripe_total" value="<?php echo $stripe_total; ?>">
+								<input type="hidden" name="order_total" value="<?php echo $order_total; ?>">
+								<button type="submit" class="btn btn-default">
+									<span class="glyphicon glyphicon-lock"></span> Checkout Now
+								</button>
+						</form>
 						<a href="cart.php?mode=empty_cart" class="btn btn-default"><span class="glyphicon"></span> Empty Cart</a>
 					<?php endif ?>
 				</div>
