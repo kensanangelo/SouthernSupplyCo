@@ -19,8 +19,7 @@
 		</div>
 
 		<div class="marB-20"></div>
-
-		<div class="container marT-20">
+		<div class="container">
 			
         
          
@@ -42,7 +41,7 @@
 
 			            <div class="tab-pane active" id="ship">
 		             	<h2 class="title">Shipping Policy and Charges</h2>
-		             	
+
 				        	<ul class="bullet">
 						        <li>Standard: 3-7 business days</li>
 						        <li>Expedited:  2-3 business days</li>
@@ -166,7 +165,7 @@
 			        </div><!--col 8-->
 			      </div><!--row-->
 
-		   		 </div><!--col.12-->
+		   		 </div><!--option-->
 
 	            </div><!--/.col-12-->
 

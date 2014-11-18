@@ -319,10 +319,18 @@ h2.titleimage{
 .banner{	
   	margin-bottom: 20px;
   	height: 385px;
-	background-image: url(../img/about.jpg);
-	background-color: #f4f4f4;
+	background:
+		linear-gradient(
+	      rgba(0, 0, 0, 0.6), 
+	      rgba(0, 0, 0, 0.6)
+	    ),
+	url(../img/about.jpg);
 	background-position: center center;
-	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
 	z-index: -100;
 
 
@@ -332,10 +340,10 @@ h2.titleimage{
 	margin-bottom: 20px;
   	height: 385px;
 	background: 
-    linear-gradient(
-      rgba(0, 0, 0, 0.6), 
-      rgba(0, 0, 0, 0.6)
-    ),
+	    linear-gradient(
+	      rgba(0, 0, 0, 0.6), 
+	      rgba(0, 0, 0, 0.6)
+	    ),
 	 url(../img/policies.jpg);
 	
 	-webkit-background-size: cover;
