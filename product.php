@@ -55,16 +55,15 @@
 							</div>
 
 							<div class="col-md-4 marT-20 text-right">
-
 								<div class="col-xs-6 col-md-4 push"><p class="price">$<?php echo $row['price']; ?></p>
+
 
 								<form action="cart.php?mode=update_total" method="post">
 									<input type="hidden" name="product_id" value='<?php echo $row['productID']; ?>' />
 									<input type="hidden" name="mode" value='update_total' />
-									
-										
-											 <p>Qty: <input class="input-ext" type="text" name="product_quantity" value="1" /></p>
-											<input type="submit" class="add-qty-btn btn btn-ext push" value="Add to Cart" />
+										<p>Qty: <input class="input-ext" type="text" name="product_quantity" value="1" /></p>
+										<input type="submit" class="add-qty-btn btn btn-ext push" value="Add to Cart" />
+
 							
 									</div>
 								</form>

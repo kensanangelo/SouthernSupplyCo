@@ -67,12 +67,12 @@
 									<div class="col-md-4">
 										<p class="price">$<?php echo $row['price']; ?></p>
 									</div>
-									<div class="col-md-8 qty-add">
+									<div class="col-sm-6 qty-add push ">
 										<form action="cart.php?mode=update_total" method="post">
 											<input type="hidden" name="product_id" value='<?php echo $row['productID']; ?>' />
 											<input type="hidden" name="mode" value='update_total' />
 											
-											<div class="col-md-4"><p class="push">Qty: <input class="input-ext" type="text" name="product_quantity" value="1" /></p>
+											<div class="col-xs-6 col-md-4 push"><p>Qty: <input class="input-ext" type="text" name="product_quantity" value="1" /></p>
 											<input type="submit" class="add-qty-btn btn btn-ext btn-default push" value="Add to Cart" /></div>
 										
 											
