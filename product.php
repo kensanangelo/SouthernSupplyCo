@@ -22,8 +22,7 @@
 			}
 
 		?>
-
-		<div class="marB-20"></div>
+		
 		<div class="container">
 			<?php if($product_id){ ?>
 
