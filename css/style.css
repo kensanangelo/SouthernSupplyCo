@@ -13,6 +13,10 @@ body{
 
 }
 
+h1,h2,h3,h4,p{
+	color: #181818;
+}
+
 h1{
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
@@ -198,6 +202,7 @@ html {
 	width: 100%;
 }
 
+
 .icon-bar{
 	background-color:#333; 
 }
@@ -205,6 +210,8 @@ html {
 .navbar-toggle{
 	border-color: #ccc;
 }
+
+
 
 .navbar .navbar-nav>li>a{
 	color: #f4f4f4;
@@ -297,7 +304,7 @@ html {
 }
 
 .glyphicon-star{
-	color:#E6D500;
+	color:#f8e300;
 }
 
 .glyphicon-star-empty{
@@ -329,12 +336,23 @@ html {
 /*--Stuff for catalog and checkout page--*/
 .active{
 	font-weight: 600 !important;
+	color: #000;
 }
 
 hr{
 	margin-top: 50px;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 }
+
+hr.separate{
+	margin-top: 50px;
+
+}
+
+textarea{
+	width: 80% !important;
+}
+
 .none{
 	margin: 0;
 }
@@ -409,8 +427,25 @@ hr{
 	padding: 5px 5px;
 }
 
+
+
+.breadcrumb{
+	border-radius: 0 !important;
+	background: #ededed;
+}
+
+.mobile{
+	width: 100%;
+	margin-bottom: 10px; 
+	padding: 10px 0 10px 0;
+}
 .input-ext{
 	width: 30px;
+}
+
+.ext{
+	padding-left: 10px;
+	padding-right: 30px;
 }
 
 #signupForm, #loginForm{
@@ -506,6 +541,7 @@ fieldset{
 
 
 
+
 a{
 	text-decoration: none !important;
 	color: #1E1E1E;
@@ -564,27 +600,45 @@ ul{
 
 	}
 
+	.navbar>.container, .footer{
+		background: #181818;
+		background-color: #181818;
+	}
 
 	.option-sim{
 		padding: 0;
-
 	}
 
 	.option{
 		margin: 0;
+		padding: 20px;
 	}
 
 	.catStars-sim{
 		padding-top: 7px;
 	}
 
-	h3,.h3{
-		font-size: 16px;
+	h3, .h3{
+		font-size: 18px;
+	}
+	textarea{
+		width: 100% !important;
+	}
+
+
+
+	.btn, .btn-default{
+		margin-top: 10px;
+
 	}
 }
 
 
 @media (min-width: 768px){
+
+	.mobile{
+		width: 70px;
+	}
 
 	.brand {
 		float: left;

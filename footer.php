@@ -66,10 +66,10 @@
 					<div id="align" class="row social">
 						<div class="row">
 							<ul>
-								<div class="col-xs-6 col-sm-3  col-md-3"><li><a href="https://www.facebook.com/"> <i class="fa fa-facebook-square fa-3x"></i> </a></li></div>
-								<div class="col-xs-6 col-sm-3 col-md-3"><li><a href="https://plus.google.com/"> <i class="fa fa-google-plus-square fa-3x"></i></a></li></div>
-								<div class="col-xs-6 col-sm-3 col-md-3"><li><a href="http://instagram.com/"> <i class="fa fa-instagram fa-3x"></i></a></li></div>
-								<div class="col-xs-6 col-sm-3 col-md-3"><li><a href="https://twitter.com/?lang=en"><i class="fa fa-twitter-square fa-3x"></i></a></li></div>
+								<div class="col-xs-4 col-sm-3  col-md-3"><li><a href="https://www.facebook.com/"> <i class="fa fa-facebook-square fa-3x"></i> </a></li></div>
+								<div class="col-xs-4 col-sm-3 col-md-3"><li><a href="https://plus.google.com/"> <i class="fa fa-google-plus-square fa-3x"></i></a></li></div>
+								<div class="col-xs-4 col-sm-3 col-md-3"><li><a href="http://instagram.com/"> <i class="fa fa-instagram fa-3x"></i></a></li></div>
+								<div class="col-xs-4 col-sm-3 col-md-3"><li><a href="https://twitter.com/?lang=en"><i class="fa fa-twitter-square fa-3x"></i></a></li></div>
 							</ul>
 						</div>
 				

@@ -141,7 +141,7 @@
 						<form action="checkout.php" method="POST">
 								<input type="hidden" name="stripe_total" value="<?php echo $stripe_total; ?>">
 								<input type="hidden" name="order_total" value="<?php echo $order_total; ?>">
-								<button type="submit" class="btn btn-default">
+								<button type="submit" class="btn btn-default marB-10">
 									<span class="glyphicon glyphicon-lock"></span> Checkout Now
 								</button>
 						</form>
@@ -182,13 +182,13 @@
 								<input type="hidden" name="product_id" value='<?php echo $result['productID']; ?>' />
 								<input type="hidden" name="mode" value='update_total' />
 								<p>Qty: <input class="input-ext" type="text" name="product_quantity" value="<?php echo $cart_additional[$i]['quantity']; ?>" size="3"/></p>
-								<input type="submit" class="add-qty-btn btn btn-ext btn-default" size="3" value="Update" />
+								<input type="submit" class="add-qty-btn btn btn-default"  value="Update" />
 							</form>
 							<!-- <a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default push"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a> -->
 							<form action="cart.php" method="post">
 								<input type="hidden" name="product_id" value='<?php echo $result['productID']; ?>' />
 								<input type="hidden" name="mode" value='remove' />
-								<button type="submit" class="button">
+								<button type="submit" class="btn btn-default button">
 									<span class="glyphicon glyphicon-remove"></span> Remove
 								</button>
 							</form>

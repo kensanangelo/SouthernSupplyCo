@@ -44,7 +44,7 @@
 					<li class="active">Catalog</li>
 				<?php } ?>
 			</ol>
-			
+			<div class="container">
 			<?php if($is_search) { ?>
 				<h1 class="marB-20"><?php echo $current_cat; ?></h1>
 			<?php } else { ?>
@@ -71,8 +71,11 @@
 										<form action="cart.php?mode=update_total" method="post">
 											<input type="hidden" name="product_id" value='<?php echo $row['productID']; ?>' />
 											<input type="hidden" name="mode" value='update_total' />
-											<p class="push">Qty: <input class="input-ext" type="text" name="product_quantity" value="1" /></p>
-											<input type="submit" class="add-qty-btn btn btn-ext btn-default push" value="Add to Cart" />
+											
+											<div class="col-md-4"><p class="push">Qty: <input class="input-ext" type="text" name="product_quantity" value="1" /></p>
+											<input type="submit" class="add-qty-btn btn btn-ext btn-default push" value="Add to Cart" /></div>
+										
+											
 										</form>
 										<!-- <a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default push"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a> -->
 										
@@ -82,7 +85,8 @@
 						</div>
 						<?php $i++ ?>
 						<?php if($i == 4){ ?>
-								</div>
+					</div>
+
 							<div class="row">
 							<?php $i = 0; ?>
 
@@ -91,6 +95,7 @@
 					<?php } ?>
 					
 				</div>
+			</div>
 		</div>
 
 		<?php include 'footer.php'; ?>
