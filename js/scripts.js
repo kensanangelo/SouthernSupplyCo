@@ -7,7 +7,7 @@ jQuery(document).ready(function(){
 	function search() {
 	    var query_value = search_field.val();
 	   // $('#search-string').html(query_value);
-	    if(query_value !== ''){
+	    if(query_value !== '' && query_value.length > 2){
 	        $.ajax({
 	            type: "POST",
 	            url: "includes/ajax_search.php",
@@ -15,7 +15,7 @@ jQuery(document).ready(function(){
 	            cache: false,
 	            success: function(result){
 	            	//console.log(result);
-	               	data = JSON.parse(result);
+	               	data = result;
 	               	// console.log(data);
 
 	               	if(!data){

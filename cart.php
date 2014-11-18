@@ -121,8 +121,6 @@
 
 				}
 
-				$test_poop = 0;
-
 				// pre_print_r($_SESSION);
 				// pre_print_r($_POST);
 

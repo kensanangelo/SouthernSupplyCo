@@ -456,6 +456,17 @@ form input {
 	width: 12em; 
 }
 
+form input {
+	outline: none;
+	-webkit-transition: all;
+	-o-transition: all;
+	transition: all;
+}
+
+form input.er {
+	border-color: red!important;
+}
+
 .labelFix{
 	width:10em;
 }

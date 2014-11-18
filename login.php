@@ -14,11 +14,6 @@
 
 			if(isset($_GET['mode'])){
 				$mode = $_GET['mode'];
-				// if($mode == 'logout'){
-				// 	unset($_SESSION['logged_in']);
-				// 	unset($_SESSION['user_id']);
-				// 	$_SESSION['user_access'] = 1;
-				// }
 				
 			}else{
 				$mode='';

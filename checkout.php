@@ -139,6 +139,8 @@
 					<input type="hidden" name="order_total" value="<?php echo $order_total; ?>">
 					<span class="payment-errors"></span>
 				</form>
+
+				<div id="checkout-success"></div>
 			</div>
 		</div>
 

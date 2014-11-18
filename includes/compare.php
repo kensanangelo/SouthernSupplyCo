@@ -90,12 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 					'html' => $html
 				)));
 
-				// echo "YOU LOGGED IN CORRECTLY";
-
 			}else{
-
-				// $_SESSION['logged_in'] = 0;
-				// unset($_SESSION['user_id']);
 
 				header('Content-Type: application/json');
 				die(json_encode(array(
@@ -103,8 +98,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {//If the user clicked login
 					'message' => '<h3>YOU FAILED TO LOGIN IN BRO</h3>',
 					'loginSuccess' => $loginSuccess
 				)));
-
-				// echo "YOU FAILED TO LOGIN IN BRO";
 			}
 
 		}
