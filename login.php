@@ -23,11 +23,11 @@
 		?>
 		<div class="marB-20"></div>
 		<div class="container">
-			<div class="option">	
-				
-						<h3>Login to Your Account:</h3>
 
-						<div id="form-success"></div>
+			<h2 class="marB-20">Login to Your Account:</h2>
+
+			<div class="option">	
+				<div id="form-success"></div>
 					<div id="form-container">
 						
 
@@ -53,7 +53,7 @@
 
 							<input type="hidden" name="login" value="true" />
 							<input type="hidden" name="loghash" id="loghash"/>
-							<input id="login-submit" type="submit" value="Login" class="btn btn-default complete"/>
+							<input id="login-submit" type="submit" value="Login" class="btn btn-default mobile complete"/>
 
 						</form>
 
@@ -72,7 +72,7 @@
 							</ul>
 							<input type="hidden" name="signhash" id="signhash"/>
 							<input type="hidden" name="signhash2" id="signhash2"/>
-							<input type="submit" value="Sign Up" class="btn btn-default complete"/>
+							<input type="submit" value="Sign Up" class="btn  btn-default  mobile complete"/>
 
 						</form>
 					</div>
