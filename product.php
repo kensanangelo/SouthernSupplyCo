@@ -63,8 +63,6 @@
 									<input type="hidden" name="mode" value='update_total' />
 										<p>Qty: <input class="input-ext" type="text" name="product_quantity" value="1" /></p>
 										<input type="submit" class="add-qty-btn btn btn-ext push" value="Add to Cart" />
-
-							
 									</div>
 								</form>
 								<!-- <a href="cart.php?mode=add&product_id=<?php echo $row['productID']; ?>"  class="btn btn-default push"><span class="glyphicon glyphicon-plus"></span> Add to Cart</a> -->

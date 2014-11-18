@@ -21,17 +21,17 @@
 
 		<p>The cost for shipping is based upon total order amount. An additional shipping surcharge may apply to some items due to their size and weight.</p>
 
-<p>Please note, at this time we are unable to ship to P.O. Box addresses.</p>
+		<p>Please note, at this time we are unable to ship to P.O. Box addresses.</p>
 
-<p>We are unable to ship to international locations at this time.</p>
+		<p>We are unable to ship to international locations at this time.</p>
 
-<p>Southern Supply Company reserves the right to hold any order for a security review. If your order is affected, you will be notified within two business days.</p>
+		<p>Southern Supply Company reserves the right to hold any order for a security review. If your order is affected, you will be notified within two business days.</p>
 
-<p>Individual products qualifying for Free Shipping will be identified with “Item(s) qualify for Free Standard Shipping”. Your shipping amount total will not reflect items that qualify for free shipping. If you select a shipping method other than the free offer method, shipping charges will apply.</p>
+		<p>Individual products qualifying for Free Shipping will be identified with “Item(s) qualify for Free Standard Shipping”. Your shipping amount total will not reflect items that qualify for free shipping. If you select a shipping method other than the free offer method, shipping charges will apply.</p>
 
-<p>Items Shipped Directly from Vendor</p>
+		<p>Items Shipped Directly from Vendor</p>
 
-<p>Items identified with “Ships Directly from Vendor” will be sent from the product manufacturer/vendor and will be delivered within 10 business days via standard shipping. We are unable to offer expedited or express shipping for Vendor direct ship items. These items can not be gift packaged. If you have other items in your order you wish to have shipped either as express or expedited, please create a separate order for these items.</p>
+		<p>Items identified with “Ships Directly from Vendor” will be sent from the product manufacturer/vendor and will be delivered within 10 business days via standard shipping. We are unable to offer expedited or express shipping for Vendor direct ship items. These items can not be gift packaged. If you have other items in your order you wish to have shipped either as express or expedited, please create a separate order for these items.</p>
 
 		<h2>Tax Policy</h2>
         

@@ -72,8 +72,8 @@
 											<input type="hidden" name="product_id" value='<?php echo $row['productID']; ?>' />
 											<input type="hidden" name="mode" value='update_total' />
 											
-											<div class="col-xs-6 col-md-2 push"><p class="push">Qty: <input class="push input-ext" type="text" name="product_quantity" value="3" /></p>
-											<input type="submit" class="add-qty-btn btn btn-ext btn-default push" value="Add to Cart" /></div>
+											<div class="col-xs-6 col-md-2 col-sm-2 push"><p class="push">Qty: <input class="input-ext" type="text" name="product_quantity" value="1" /></p>
+											<input type="submit" class="add-qty-btn btn btn-ext marT-10 btn-default push" value="Add to Cart" /></div>
 										
 											
 										</form>

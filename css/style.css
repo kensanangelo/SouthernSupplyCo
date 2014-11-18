@@ -5,6 +5,7 @@ html, body {
   overflow-x: hidden !important;
 }
 
+
 body{
 	height: 100%;
 	font-family: 'Open Sans', sans-serif;
@@ -13,9 +14,7 @@ body{
 
 }
 
-h1,h2,h3,h4,p{
-	color: #181818;
-}
+
 
 h1{
 	font-family: 'Open Sans', sans-serif;
@@ -232,6 +231,48 @@ html {
   cursor: pointer;
 }
 
+/*About Pages*/
+
+.page-tabs{
+  margin-bottom: 20px;
+}
+
+.pills{
+  width: 100%;
+  display: block;
+  float: left;
+  clear: both;
+  margin: 10px auto;
+  text-align: center;
+  color: #fff;
+}
+
+.nav-pills>li a{
+  color: #fff;
+  background-color: #3d8c8c;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus, .nav-pills>li a:hover{
+  color: #fff;
+  background-color: #F8E300;
+}
+
+.nav-pills, .tab-content{
+  width: 85%;
+  background-color: #f5f5f5;
+  padding: 10px;
+}
+
+
+.banner{	
+  	margin-bottom: 25px;
+  	height: 385px;
+	background-image: url(../img/company.jpg);
+	background-color: #f4f4f4;
+	background-position: center center;
+	background-repeat: no-repeat;
+
+ }
 
 
 /*Stuff for home page*/
@@ -243,6 +284,7 @@ html {
 
 .thumbnail{
 	height: 200px;
+	border-radius: 0;
 
 }
 
@@ -269,9 +311,7 @@ html {
 }
 .featured{
 	background-color:#FFF; 
-	width: 27%;
-	/*background-color: #f3df00;
-	*/
+	/*background-color: #f3df00; */
 	border:1px solid #999;
 	margin-top: 50px;
 	margin-bottom: 50px;
@@ -279,6 +319,8 @@ html {
 	padding-right: 20px;
 
 }
+
+
 
 .featured>a>img{
 	border:1px solid #999;
@@ -358,6 +400,7 @@ textarea{
 }
 .push{
 	float: right;
+	margin: 0;
 }
 
 .option{
@@ -607,6 +650,8 @@ ul{
 
 /*mediaQ*/
 
+
+
 @media screen and (max-width: 480px){
 	.expiration-month {
 
@@ -637,10 +682,8 @@ ul{
 		width: 100% !important;
 	}
 
-
-
-	.btn, .btn-default{
-		margin-top: 10px;
+	.thumbnail{
+		height: 230px;
 
 	}
 }
@@ -668,6 +711,7 @@ ul{
 	}
 
 
+
 }
 
 @media screen and (max-width: 767px) {
@@ -693,9 +737,14 @@ ul{
 	}
 
 	.featured{
-		width:50%;
-		margin: 0 auto;
-		margin-top: 30px;
+		margin-left: 25px;
+		margin-right: 25px;
+		margin-bottom: 10px;
+		margin-top: 20px;
+		padding: 40px;
+
+		
+	
 
 	}
 
@@ -703,6 +752,10 @@ ul{
 		background-image:none;
 		border-bottom: 0;
 	
+	}
+
+	.catStars-sim{
+		padding-top: 20px;
 	}
 
 
@@ -734,7 +787,7 @@ ul{
 
 	.featured{
 		left: 53%;
-		width: 40%;
+		width: 35%;
 
 	}
 
@@ -846,15 +899,28 @@ ul{
 		height: 220px;
 	}
 
-	.featured{
-		padding-right: 40px;
-	}
 
 	.catStars{
 		padding-top: 10px;
 	}
 	.option{
 		margin: 0;
+	}
+}
+
+@media (max-width: 1830px) and (min-width: 1200px){
+	.featured{
+		width: 20%;
+		padding-left: 30px;
+		padding-right: 70px;
+	}
+}
+
+@media (min-width: 1831px) {
+	.featured{
+		width: 15%;
+		padding-left: 30px;
+		padding-right: 70px;
 	}
 }
 
