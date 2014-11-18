@@ -8,8 +8,6 @@ jQuery(function($) {
 	  var $form = $('#checkout-form');
 
 	  if (response.error) {
-
-	  	console.log(response.error);
 	  	
 	    // Show the errors on the form
 	    $form.find('.payment-errors').text(response.error.message);
@@ -19,8 +17,6 @@ jQuery(function($) {
 
 	    // response contains id and card, which contains additional card details
 	    var token = response.id;
-
-	    console.log(response.id);
 
 	    // Insert the token into the form so it gets submitted to the server
 	    $form.append($('<input type="hidden" name="stripeToken" />').val(token));

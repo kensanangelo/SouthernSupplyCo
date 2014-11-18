@@ -413,12 +413,24 @@ hr{
 	width: 30px;
 }
 
+
 #signupForm, #loginForm{
 	margin-top: 25px;
 }
 
 form input { 
 	width: 12em; 
+}
+
+form input {
+	outline: none;
+	-webkit-transition: all;
+	-o-transition: all;
+	transition: all;
+}
+
+form input.er {
+	border-color: red!important;
 }
 
 .labelFix{
