@@ -195,7 +195,3 @@ function process_cart($mode, $id, $qty){
 	}
 
 }
-
-function compareInfo($user, $pass){
-	echo "IT WORKED!>!!>!> :)))))";
-}

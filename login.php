@@ -31,7 +31,7 @@
 					<div id="form-container">
 						
 
-						<form id="loginForm" action="includes/compare.php" method="POST">
+						<form id="loginForm" action="includes/compare1.php" method="POST">
 							<legend>Login</legend>
 							<!-- <p id="loginError"></p> -->
 							
@@ -57,7 +57,7 @@
 
 						</form>
 
-						<form id="signupForm" action="includes/compare.php" method="POST">
+						<form id="signupForm" action="includes/compare2.php" method="POST">
 
 							<legend>Sign Up</legend>
 
@@ -72,7 +72,6 @@
 							</ul>
 							<input type="hidden" name="signhash" id="signhash"/>
 							<input type="hidden" name="signhash2" id="signhash2"/>
-							<input type="hidden" name="signup" />
 							<input type="submit" value="Sign Up" class="btn btn-default complete"/>
 
 						</form>
