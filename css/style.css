@@ -397,7 +397,7 @@ h2.titleimage{
 	margin-top: 50px;
 	margin-bottom: 50px;
 	padding-left: 20px;
-	padding-right: 30px;
+	padding-right: 20px;
 
 }
 
@@ -489,10 +489,11 @@ textarea{
 
 .catStars{
 	padding-bottom: 20px;
+	padding-top: 8px;
 }
 
 .catStars-sim{
-	padding-top: 0px;
+	padding-top: 25px;
 }
 
 .price{
@@ -986,14 +987,20 @@ ul{
 	.option{
 		margin: 0;
 	}
+	.featured{
+		padding: 20px 30px 20px 30px;
+		width: 350px;
+	}
 }
 
 
 @media (min-width: 1200px){
 	.featured{
 		padding: 20px 30px 20px 30px;
-		width: 25%;
+		width: 350px;
 	}
+
+
 }
 
 
