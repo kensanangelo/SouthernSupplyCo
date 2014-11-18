@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `products` (
-  `productID` int(5) NOT NULL DEFAULT '0',
+  `productID` int(5)  NOT NULL AUTO_INCREMENT,
   `productName` varchar(300) DEFAULT NULL,
   `description` varchar(300) DEFAULT NULL,
   `category` varchar(15) DEFAULT NULL,

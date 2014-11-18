@@ -39,7 +39,7 @@ $result = mysqli_query($connection,$sql);
 $exists = mysqli_fetch_array($result);
 
 if ((isset($_SESSION['logged_in']) == 1) && ($_SESSION['user_id'] == $exists['user_id']))  { echo '
-	<br/><h3>Error: You already left a review.</h3>';
+	<br/><h3>You have already left a review.</h3>';
 	$_SESSION['reviewed'] = array();
 	$_SESSION['reviewed'][$product_id] = $product_id;
 }

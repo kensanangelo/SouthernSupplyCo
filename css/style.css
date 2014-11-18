@@ -37,7 +37,7 @@ h3, .h3{
 
 
 /*Error paragraph for login page*/
-#loginError, #signupError{
+#error{
 	color: red;
 }
 

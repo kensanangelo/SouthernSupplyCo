@@ -19,7 +19,7 @@
 
 				if($_POST['add-edit-button']=='Add product'){
 
-					$table = 'products';
+					$setTable = 'products';
 
 					//If they are trying to add a product
 					$values = array($_POST['name'], $_POST['desc'], $_POST['cat'], $_POST['SKU'], $_POST['stock'], $_POST['cost'], $_POST['price'], $_POST['sale'], $_POST['url'], $_POST['rating'], $_POST['numVotes']);
@@ -33,7 +33,7 @@
 
 				}else if($_POST['add-edit-button']=='Edit product'){
 
-					$table = 'products';
+					$setTable = 'products';
 
 					//If they are trying to edit a product
 					$returnedId = $_POST['hiddenId'];
@@ -47,7 +47,7 @@
 
 				}else if($_POST['add-edit-button']=='Delete product'){
 
-					$table = 'products';
+					$setTable = 'products';
 
 					//If they are trying to delete a product
 					$returnedId=$_POST['hiddenId'];
@@ -65,10 +65,10 @@
 
 				}else if($_POST['add-edit-button']=='Add user'){
 					
-					$table = 'users';
+					$setTable = 'users';
 
 					//If they are trying to add a user
-					$values=array($_POST['hiddenId'], $_POST['username'], $_POST['pass'], $_POST['userAccess'], $_POST['first'], $_POST['last'], $_POST['email'], $_POST['address']);
+					$values=array($_POST['username'], $_POST['pass'], $_POST['userAccess'], $_POST['first'], $_POST['last'], $_POST['email'], $_POST['address']);
 					$resultMessage=addToDB('users', $values);
 					if($resultMessage=="Success")
 						$statusString='User was successfully added!';
@@ -76,7 +76,7 @@
 						$statusString='User failed to be added!';
 				}else if($_POST['add-edit-button']=='Edit user'){
 					
-					$table = 'users';
+					$setTable = 'users';
 
 					//If they are trying to edit a user
 					$returnedId=$_POST['hiddenId'];
@@ -89,7 +89,7 @@
 
 				}else if($_POST['add-edit-button']=='Delete user'){
 					
-					$table = 'users';
+					$setTable = 'users';
 
 					//If they are trying to delete a user
 					$returnedId=$_POST['hiddenId'];
@@ -105,7 +105,7 @@
 						$statusString='User failed to be removed!';			
 				}else if($_POST['add-edit-button']=='Add order'){
 					
-					$table = 'orders';
+					$setTable = 'orders';
 
 					//If they are trying to add an order
 					$values=array($_POST['userId'], $_POST['cart'], $_POST['orderTotal'], $_POST['purchaseDate'], $_POST['fullName'], $_POST['phone'], $_POST['email'], $_POST['address1'], $_POST['address2'], $_POST['city'], $_POST['state'], $_POST['zip']);
@@ -116,7 +116,7 @@
 						$statusString='Order failed to be added!';
 				}else if($_POST['add-edit-button']=='Edit order'){
 					
-					$table = 'orders';
+					$setTable = 'orders';
 
 					//If they are trying to edit an order
 					$returnedId=$_POST['hiddenId'];
@@ -129,7 +129,7 @@
 
 				}else if($_POST['add-edit-button']=='Delete order'){
 					
-					$table = 'orders';
+					$setTable = 'orders';
 
 					//If they are trying to delete an order
 					$returnedId=$_POST['hiddenId'];
@@ -147,7 +147,7 @@
 			}
 
 			//Figures out which database we are in and pulls the data
-			if(isset($_POST["users"])){
+			if(isset($_POST["users"]) || $setTable=='users'){
 
 				$table = 'users';
 				$query_object = readFromDB('users','*',false);
@@ -155,7 +155,7 @@
 				    $result[] = $results;
 				}
 
-			} else if (isset($_POST["orders"])){
+			} else if (isset($_POST["orders"]) || $setTable=='orders'){
 
 				$table = 'orders';
 				$query_object = readFromDB('orders','*',false);
