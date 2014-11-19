@@ -12,8 +12,8 @@ session_start();
   $exists = mysqli_fetch_array($result);
   $username = $exists['username'];
 
-  $review_content = $_POST['review_content'];
-  $rating = $_POST['rating'];
+  $review_content = $connection->real_escape_string($_POST['review_content']);
+  $rating = $connection->real_escape_string($_POST['rating']);
   $insert = "INSERT INTO reviews (`user_id`, `product_id`, `rating`, `review_content`, `username`) VALUES ('$user_id', '$product_id', '$rating', '$review_content', '$username')";
   mysqli_query($connection, $insert);
   echo 'Thanks for your review!';

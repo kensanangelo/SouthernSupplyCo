@@ -90,7 +90,7 @@ jQuery(document).ready(function(){
 				if( data.code && data.code == 1 ) {
 					
 					// window.location = 'http://localhost:8888/ssc/home.php';
-					window.location = 'http://sulley.cah.ucf.edu/~je860731/dig4530c/A/home.php';
+					window.location = 'http://sulley.cah.ucf.edu/~ke571033/dig4530c/A/home.php';
 					// console.log(data.message);
 
 				}
