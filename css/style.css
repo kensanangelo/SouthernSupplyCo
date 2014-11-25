@@ -14,8 +14,6 @@ body{
 
 }
 
-
-
 h1{
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
@@ -27,13 +25,15 @@ h2, .h2{
 	font-size: 25px;
 }
 
+h3, .h3{
+	font-size: 18px;
+}
+
+
 h2, h3, h4{
 	font-weight: 600;
 }
 
-h3, .h3{
-	font-size: 18px;
-}
 
 
 /*Error paragraph for login page*/
@@ -426,6 +426,8 @@ h2.titleimage{
 	height: 45px;
 }
 
+
+
 .glyphicon-star{
 	color:#f8e300;
 }
@@ -485,7 +487,6 @@ textarea{
 	margin-bottom: 20px;
 
 }
-
 
 .catStars{
 	padding-bottom: 20px;
@@ -754,9 +755,14 @@ ul{
 		padding-top: 7px;
 	}
 
-	h3, .h3{
+	h3, .h3.productSpace-sim{
 		font-size: 18px;
 	}
+
+	h3.productSpace-sim{
+		font-size: 14px;
+	}
+
 	textarea{
 		width: 100% !important;
 	}
